@@ -1,0 +1,269 @@
+\chapter{Coded OFDM NOMA system}
+\label{ch:ofdm}
+
+This chapter extends the coded multi-resource receiver to an Orthogonal Frequency-Division Multiplexing (OFDM) system. Since practical broadband channels are frequency selective, OFDM is introduced to convert the multi-path channel into parallel frequency-domain observations. Furthermore, the high spectral efficiency of OFDM, together with its resilience to channel distortions, has led to its widespread adoption in practical systems such as LTE, Wi-Fi, and digital broadcasting standards.
+
+We first evaluate the BLER performance of the synchronous coded OFDM NOMA system with different receivers discussed in Chapter \ref{ch:coded}. However, perfect synchronous transmission is impractical especially for uplink transmissions, where users may arrive at the base station with different timing offsets \cite{haci2017performance}. Therefore, this chapter further extends the study to asynchronous uplink transmission and examines the robustness of these receivers under user-dependent timing offsets.
+
+\section{OFDM System and channel Model}
+Related coded NOMA OFDM systems have been studied for robust multiuser transmission to enhance data rate\cite{li2013advanced, saraereh2019efficient, lin2024slotted}.
+Practical uplink systems often employ OFDM to handle frequency-selective fading and multipath interference. 
+Consider a coded OFDM system with $N_{\mathrm{FFT}}$ subcarriers and cyclic prefix length $N_{\mathrm{CP}}$. Let $N_c$ denote the coded block length and $M$ denote the number of coded bits per modulation symbol. Each coded block occupies
+\begin{equation}
+    N_{\mathrm{sym}}
+    =
+    % \left\lceil \frac{N_c}{MN_{\mathrm{FFT}}}\right\rceil
+    \frac{N_c}{MN_{\mathrm{FFT}}}
+\end{equation}
+OFDM symbols.
+
+After CP removal and FFT, the received signal on subcarrier $q$ of OFDM symbol $j$ is
+\begin{equation}
+    \bm{y}_{q,j}
+    =
+    \bm{H}_{q}\bm{x}_{q,j}+\bm{n}_{q,j}.
+    \label{eq:ofdm-subcarrier-model}
+\end{equation}
+where $q=0,1,\ldots,N_{\mathrm{FFT}}-1$ and $j=0,1,\ldots,N_{\mathrm{sym}}-1$. Here, $\bm{y}_{q,j}\in\mathbb{C}^{R\times 1}$ is the received vector over $R$ resources, $\bm{x}_{q,j}\in\mathbb{C}^{U\times 1}$ is the transmitted symbol vector of $U$ users, and $\bm{n}_{q,j}\in\mathbb{C}^{R\times 1}$ denotes complex AWGN. For each subcarrier, the OFDM system follows the same multi-resource vector model as \eqref{eq:multi resource model}.
+
+The channel matrix on subcarrier $q$ is written as
+\begin{equation}
+    \bm{H}_{q}
+    =
+    \begin{bmatrix}
+    \sqrt{P_1\beta_1}H_{1,1,q} & \sqrt{P_2\beta_2}H_{1,2,q} & \cdots & \sqrt{P_U\beta_U}H_{1,U,q}\\
+    \sqrt{P_1\beta_1}H_{2,1,q} & \sqrt{P_2\beta_2}H_{2,2,q} & \cdots & \sqrt{P_U\beta_U}H_{2,U,q}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    \sqrt{P_1\beta_1}H_{R,1,q} & \sqrt{P_2\beta_2}H_{R,2,q} & \cdots & \sqrt{P_U\beta_U}H_{R,U,q}
+    \end{bmatrix},
+    \label{eq:ofdm-channel-matrix}
+\end{equation}
+where $H_{r,k,q}$ is the frequency-domain channel coefficient of user $k$ on resource $r$ and subcarrier $q$.
+
+Let $h_{r,k,p}$ denote the time-domain channel coefficient of user $k$ on resource $r$ at delay tap $p$, where $k=1,2,\ldots,U$, $r=1,2,\ldots,R$, and $p=0,1,\ldots,L_h-1$. The normalized power of the $p$th tap follows an exponentially decayed power-delay profile:
+\begin{equation}
+    \rho_p
+    =
+    \frac{e^{-p}}{\sum_{p'=0}^{L_h-1}e^{-p'}},
+    \qquad
+    p=0,1,\ldots,L_h-1.
+    \label{eq:ofdm-power-delay-profile}
+\end{equation}
+
+The first tap is modeled as a Rician fading path with a LOS component, while the remaining taps are modeled as Rayleigh fading paths \cite{3gpp38900}. Specifically, the first tap is generated as
+\begin{equation}
+    h_{r,k,0}
+    =
+    \sqrt{\rho_0}
+    \left(
+    \sqrt{\frac{1}{\kappa+1}}g_{r,k,0}
+    +
+    \sqrt{\frac{\kappa}{\kappa+1}}e^{\mathrm{j}\phi_{r,k}}
+    \right),
+    \label{eq:ofdm-rician-first-tap}
+\end{equation}
+and the remaining taps are generated as
+\begin{equation}
+    h_{r,k,p}
+    =
+    \sqrt{\rho_p}g_{r,k,p},
+    \qquad
+    p=1,2,\ldots,L_h-1,
+    \label{eq:ofdm-rayleigh-remaining-taps}
+\end{equation}
+where $\kappa$ is the Rician factor, $\phi_{r,k}\in[0,2\pi)$ is the LOS phase and $L_h$ is the number of channel taps. The NLOS component is modeled as
+\begin{equation}
+    g_{r,k,p}
+    =
+    a_{r,k,p}
+    +
+    \mathrm{j}b_{r,k,p},
+    \qquad
+    a_{r,k,p},b_{r,k,p}\sim\mathcal{N}\left(0,\frac{1}{2}\right).
+    \label{eq:ofdm-nlos-component}
+\end{equation}
+When $\kappa=0$, the LOS component of first tap vanishes. The channel reduces to a Rayleigh fading model.
+
+The corresponding frequency-domain channel coefficient on subcarrier $q$ is obtained by
+\begin{equation}
+    H_{r,k,q}
+    =
+    \sum_{p=0}^{L_h-1}
+    h_{r,k,p}
+    e^{-\mathrm{j}2\pi qp/N_{\mathrm{FFT}}}.
+    \label{eq:ofdm-frequency-response}
+\end{equation}
+Thus, the frequency-selective multipath channel is represented by different channel matrices $\bm{H}_q$ across subcarriers, while each subcarrier can still be processed using the multi-resource NOMA model in equation \eqref{eq:ofdm-subcarrier-model}.
+
+
+\begin{comment}
+    \section{Multipath Channel Model}
+    Let the time-domain channel of user $k$ in resource $r$ at delay tap $p$ is denoted by $h_{r,k,p}$. A five-tap exponentially decayed power-delay profile is considered. The normalized power of $p^{th}$ tap can be written as
+    \begin{equation}
+        \rho_p
+        =
+        \frac{e^{-p}}{\sum_{v=0}^{4}e^{-v}},
+        \qquad p=0,1,\ldots,4.
+        \label{eq:exp-decay-profile}
+    \end{equation}
+    Two channel types are considered:
+    \begin{itemize}
+        \item quasi-static Rayleigh block fading, where all taps are Rayleigh fading paths;
+        \item one-tap Rician plus Rayleigh fading, where the first tap contains a line-of-sight component and the remaining taps are Rayleigh fading paths.
+    \end{itemize}
+    The frequency response on subcarrier $q$ is
+    \begin{equation}
+        H_{k,q}
+        =
+        \sum_{\ell=0}^{L_h-1} h_{k,\ell}
+        e^{-j2\pi q\ell/N_{\mathrm{FFT}}}.
+        \label{eq:ofdm-frequency-response}
+    \end{equation}
+    
+    \figplaceholder{figures/ofdm_channel_model.pdf}{OFDM multipath channel model with exponentially decayed tap powers. The first tap can be modeled as Rician while the remaining taps are Rayleigh.}{fig:ofdm-channel-model}
+\end{comment}
+
+\section{MMSE-SIC-IDD for OFDM}
+In practical wireless systems, the coded-OFDM is commonly implemented where the LLR on subcarriers are calculated and then sent to the decoder in a block manner\cite{csahin2024ofdm}. Therefore, we calculate the post-filtering SINR(or the received-power metirc) of each subcarrier $q$ of user $k$ and decide a detection order of whole coded block. 
+The detection can be determined from an average reliability metric:
+\begin{equation}
+    \bar{\Gamma}_{k}
+    =
+    \frac{1}{N_{\mathrm{FFT}}}
+    \sum_{q}
+    \Gamma_{k,q},
+    \label{eq:ofdm-average-post-sinr}
+\end{equation}
+where $\Gamma_{k,q}$ follows the calculation in section \ref{sec:MMSE SIC detection order}.
+
+\section{Synchronous OFDM Simulation Results}
+\label{sec:Multi-resource OFDM Simulation Results}
+We first compare MMSE-SIC-IDD, MMSE-PIC-IDD, and MAP-IDD under the synchronous OFDM system. 
+The receivers follow the IDD procedures introduced in Chapter~\ref{ch:coded}. 
+Unless otherwise specified, the simulations consider a two-resource system with BPSK modulation for each user with $\beta_k=1$. $(1008,504)$ LDPC code. 
+The OFDM parameters are $N_{\mathrm{FFT}}=16$ and $N_{\mathrm{CP}}=4$. 
+
+We first compare a three-user system with Rician fading channel and Rayleigh fading channel of MMSE-SIC-IDD and MAP-IDD. The Rician factor is set to $\kappa=1$. The simulation results are shown in Figure~\ref{fig:U3_K1_OneTapRician_MAP} and \ref{fig:U3_K1_OneTapRician_MMSESIC}.
+It's can be seen that in both receiver, the Rayleigh fading channel has better performance than Rician fading channel. This is because the Rician fading channel has a strong LOS component, which reduces the frequency diversity of the channel. In contrast, the Rayleigh fading channel has more independent fading paths, which can provide better diversity gain and improve the performance of the receivers.
+
+\begin{comment}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/Chapter5Chapter5/U3_K1_OneTapRician_MAP.jpg}
+    \caption{}
+    \label{fig:U3_K1_OneTapRician_MAP}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/Chapter5Chapter5/U3_K1_OneTapRician_MMSESIC.jpg}
+    \caption{}
+    \label{fig:U3_K1_OneTapRician_MMSESIC}
+\end{figure}
+\end{comment}
+Figure.~\ref{fig:MMSEPIC_U3} shows the impact of the a priori information update on MMSE-PIC-IDD for the three-user case. When $t=0$, the detector does not have updated decoder information, and the BLER performance is poor. As $t$ increases, the decoder feedback provides more reliable soft information, and the BLER improves significantly.
+
+
+Figure.~\ref{fig:MAP_MMSESIC_Ite1_two_order} compares the two detection-order methods for MMSE-SIC-IDD. Both of them benefit from the a priori information update at high SNR region. However, post-SINR ordering provides better BLER performance because it accounts for the residual interference and the noise enhancement after MMSE filtering. Additionally, it requires 1 dB less SNR to achieve a BLER of $10^{-4}$ than MMSE-PIC-IDD with $t=3$.
+
+
+Figure.~\ref{fig:MAP__MMSESIC_Ite_1_two_order} compares MMSE-SIC-IDD and MAP-IDD for the three-user case. Since the loading is relatively light, MMSE-SIC-IDD with post-SINR ordering can achieve performance close to, and slightly better than, MAP-IDD in the simulated high-SNR region. This result shows that the combination of decoder-aided soft cancellation, a priori information update, and frequency-domain channel diversity can improve the user separation capability of MMSE-SIC-IDD. In contrast, MMSE-SIC-IDD with amplitude-based ordering is slightly worse than MAP-IDD at high SNR because its ordering metric is less related to the actual post-filtering reliability.
+
+
+
+Figure.~\ref{fig:ofdm-multiuser-t0} and \ref{fig:ofdm-multiuser-t1} show the effect of the number of users. When $t=0$, MMSE-SIC-IDD becomes sensitive to error propagation as the number of users increases. This is because more users share the same resources, and the detector must cancel stronger multiuser interference through successive stages. If an early-stage decision or soft estimate is unreliable, the residual interference affects the following users and leads to BLER degradation. In contrast, MAP-IDD jointly evaluates the possible superimposed signals and therefore remains more stable when the number of users increases.
+
+When $t=1$, the decoder feedback improves the reliability of the soft estimates used in the SIC process, and MMSE-SIC-IDD obtains a clear performance gain. For the four-user case, MMSE-SIC-IDD can still approach MAP-IDD after one a priori update. However, when the number of users further increases, the performance gap becomes larger because the SIC process is still affected by residual cancellation errors and error propagation. Although additional a priori updates may further improve MMSE-SIC-IDD in frequency-selective channels, only $t=0$ and $t=1$ are mainly considered in the following comparisons to keep the receiver complexity practical and fair.
+
+Overall, the synchronous OFDM results show that the IDD structure is effective for coded OFDM NOMA receivers. MMSE-PIC-IDD requires reliable a priori information because its parallel cancellation directly depends on the soft estimates of all users. MMSE-SIC-IDD is less dependent on full parallel soft cancellation and can achieve strong performance when a reliable detection order is used. MAP-IDD remains the most stable receiver as the number of users increases, but in lightly loaded cases, MMSE-SIC-IDD with post-SINR ordering can be competitive due to decoder-aided cancellation and subcarrier channel diversity. These synchronous results serve as the baseline for the asynchronous OFDM study in the next section.
+
+\section{Asynchronous OFDM NOMA system}
+\label{sec:asyn}
+
+This section extends the coded OFDM NOMA system to asynchronous uplink transmission. In practical uplink transmissions, users may arrive at the BS with different timing offsets because of propagation delay, dynamic mobile environments, or limited timing-advance precision \cite{lin2023uplink,haci2017performance,abeywickrama2017over}. If the sum of the timing offset and the maximum channel delay spread remains within the cyclic prefix (CP), the OFDM subcarriers remain orthogonal and the timing offset only introduces a phase rotation in each subcarrier symbol \cite{minn2003robust}. Therefore, a timing offset within the CP can be represented as a subcarrier-dependent phase rotation, but the multiuser detector observes different effective channel responses for different users.
+
+In most related studies, timing offset is treated as an impairment and the receiver attempts to estimate, compensate, or cancel it \cite{lin2023uplink,haci2017performance,minn2003robust}. In contrast, timing offset can also be intentionally introduced into NOMA to decrease inter-user interference and enhance performance \cite{li2023transceiver}. In this section, we evaluates the tolerance of the considered receivers when timing offsets exist in the received signals.
+
+\subsection{Asynchronous Signal Model}
+
+For a NOMA system, different users may arrive at the BS with different timing offsets. Therefore, the effective channel observed by the multiuser detector is changed, and additional  multiple-access interference (MAI) or inter-symbol interference  (ISI) may appear depending on the receiver alignment and the CP margin. \cite{lin2023uplink}. Let $\tau_k$ denote the timing offset of user $k$ and set user 1 as the receiver timing reference, i.e., $\tau_1=0$. The relative timing offset of user $k$ is defined as
+\begin{equation}
+    \Delta_k
+    =
+    \tau_k-\tau_1 .
+    \label{eq:async-relative-delay}
+\end{equation}
+
+For a multi-path OFDM channel, the timing offset can be represented only as a subcarrier-dependent phase rotation when the delayed channel impulse response is still fully contained within the CP \cite{minn2003robust}. Let $\tau_{\max}$ denote the maximum channel delay spread. In the five-tap channel model considered in this chapter, $\tau_{\max}=4$. Therefore, the sufficient condition for preserving the circular convolution property of OFDM is
+\begin{equation}
+    \Delta_k+\tau_{\max}
+    \leq
+    N_{\mathrm{CP}} .
+    \label{eq:async-cp-condition}
+\end{equation}
+For user $k$ of subcarrier $q$, the effective channel coefficient becomes
+\begin{equation}
+    \bm{\tilde{H}}_{k,q}
+    =
+    \bm{H}_{k,q}
+    e^{-j2\pi q\Delta_k/N_{\mathrm{FFT}}},
+    \qquad
+    \bm{\tilde{H}}_{k,q} \in\mathbb{C}^{R\times 1}
+    \label{eq:async-phase-rotation}
+\end{equation}
+Equivalently, for the multi-resource vector model, the asynchronous effective channel matrix on subcarrier $q$ can be written as
+\begin{equation}
+    \tilde{\bm{H}}_q
+    =
+    \bm{H}_q
+    \bm{\Phi}_{q},
+    \qquad
+    \bm{\tilde{H}}_{q} \in\mathbb{C}^{R\times U}
+    \label{eq:async-effective-channel-matrix}
+\end{equation}
+where
+\begin{equation}
+    \bm{\Phi}_{q}
+    =
+    \operatorname{diag}
+    \left(
+    e^{-j2\pi q\Delta_1/N_{\mathrm{FFT}}},
+    e^{-j2\pi q\Delta_2/N_{\mathrm{FFT}}},
+    \ldots,
+    e^{-j2\pi q\Delta_U/N_{\mathrm{FFT}}}
+    \right).
+    \label{eq:async-phase-matrix}
+\end{equation}
+The received signal on subcarrier $q$ of OFDM symbol $j$ is then modeled as
+\begin{equation}
+    \bm{y}_{q,j}
+    =
+    \tilde{\bm{H}}_q\bm{x}_{q,j}
+    +
+    \bm{n}_{q,j}.
+    \label{eq:async-ofdm-received}
+\end{equation}
+
+The above model treats asynchronous transmission as a user-dependent effective channel variation. This model is exact when equation \eqref{eq:async-cp-condition} holds. However, when the timing offset and the multipath delay spread exceed the CP margin, part of the delayed signal falls outside the FFT observation window. In this case, the received OFDM symbol can no longer be described only by the phase-rotated channel in equation \eqref{eq:async-phase-rotation}. Additional ISI may appear The multiuser detector may also observe stronger residual MAI due to the mismatch between the assumed frequency-domain model and the actual received signal.
+
+In the asynchronous simulations, the detector still processes the received signal through the effective phase-rotated channel model in equation \eqref{eq:async-effective-channel-matrix}. Therefore, when equation \eqref{eq:async-cp-condition} is violated, this model should be interpreted as a receiver-side approximation. The purpose of the section is to evaluate the robustness of MAP-IDD, MMSE-SIC-IDD, and MMSE-PIC-IDD under user-dependent timing offsets.
+
+
+\subsection{Asynchronous Simulation Results}
+The asynchronous simulations consider the two-resource systems with three-user and four-user. The receiver is aligned to user 1, and the relative timing offset of the other users is randomly selected from $[0,\Delta_{\max}]$. The CP length is $N_{\mathrm{CP}}=4$, and the channel follows the five-tap Rayleigh fading model used in the previous OFDM simulations. Therefore, $\Delta_{\max}=4$ indicates that the timing offset itself is bounded by the CP length, while $\Delta_{\max}=5$ represents a more severe asynchronous case.
+In our simulations, we consider $t=0$ and $t=1$ for MMSE-SIC-IDD and MAP-IDD, $t=2$ for MMSE-PIC-IDD.
+
+
+For the three-user case, Figure.~\ref{fig:async-2303-delta4-t0}--\ref{fig:async-2303-delta5-t1} show the BLER of $\Delta_{max}=4$. 
+It can be seen that MMSE-SIC-IDD and MMSE-PIC-IDD remain competitive under asynchronous transmission. 
+With $t=0$, MAP-IDD achieves slightly better in high SNR region, while MMSE-SIC-IDD become better with $t=1$ in simulated SNR range. This indicates that MMSE-based detection is relatively robust to asynchronous effects since they treat the remaining users as interference-plus-noise. Therefore, part of the asynchronous mismatch and residual multiuser interference can be absorbed into the effective interference-plus-noise term.
+In contrast, MAP-IDD relies more directly on the assumed likelihood model of the possible superimposed signals, so its advantage can be reduced when the phase-rotated frequency-domain model does not fully match the actual asynchronous received signal.
+The two MMSE-SIC ordering methods also achieve almost the same performance, indicating that the ordering gain becomes less significant when the dominant impairment comes from asynchronous system.
+
+When $\Delta_{\max}=5$, the asynchronous effect becomes stronger. A similar trend can be observed compared with $\Delta_{\max}=4$. In particular, Figure.~\ref{fig:async-2303-delta5-t0} shows that even without a priori information update, the two MMSE-SIC-IDD detection-order strategies can outperform MAP-IDD.
+
+
+For the four-user case, figure.~\ref{fig:async-2404-delta4-t0} shows that with $t=0$, MAP-IDD performs better than MMSE-SIC-IDD since the residual interference becomes severe when the number of users increases. In the synchronous four-user system, MAP detection usually has a clearer advantage because it jointly evaluates the possible superimposed signals. However, under asynchronous transmission, this advantage becomes less pronounced. With $t=1$, MMSE-SIC-IDD can achieve BLER performance slightly better than MAP-IDD. This result suggests that the interference-plus-noise modeling in MMSE-SIC-IDD provides additional tolerance to asynchronous mismatch.
+
+The case of $\Delta_{\max}=5$ follows a similar trend with $\Delta_{\max}=4$ while the overall BLER become worse. Under this condition, the performance is dominated not only by multiuser detection capability but also by the receiver's tolerance to residual MAI/ISI-like effects.
+
+Overall, the asynchronous simulation results show that MMSE-SIC-IDD is more robust to asynchronous transmission than expected from the synchronous comparison. The two detection-order strategies of MMSE-SIC-IDD also show almost identical BLER performance, especially when $\Delta_{\max}=5$. This implies that, in the presence of stronger asynchronous interference, the receiver performance is dominated more by the interference-plus-noise modeling and residual cancellation behavior than by the fine difference between the ordering metrics.
