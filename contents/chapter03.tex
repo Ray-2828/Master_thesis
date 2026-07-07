@@ -2,7 +2,9 @@
 
 \chapter{Multiple resource NOMA systems}
 \label{ch:multi-resource}
-In this chapter, we extend single-resource PD-NOMA to a multiple-resource system, where several shared-resource observations are used to improve multiuser separation ability. Since single-resource PD-NOMA mainly relies on received-power differences, the multiple-resource model allows the BS to further exploit resource-domain channel-vector information. For multi-resource PD-NOMA, MMSE-SIC detection is used, post-SINR ordering and amplitude-based ordering are considered as two detection-ordering methods, and the performance is compared with HDS-CDMA with ML detection~\cite{lin2023gdma}.
+In this chapter, we extend single-resource PD-NOMA to a multiple-resource system, where several shared-resources are used to improve multiuser separation ability. 
+Since single-resource PD-NOMA mainly relies on received-power differences, the multiple-resource model allows the BS to further exploit resource-domain channel-vector information. 
+For multi-resource PD-NOMA, MMSE-SIC detection is adopted, post-SINR ordering and amplitude-based ordering are considered as two detection-ordering methods, and the performance is compared with HDS-CDMA with ML detection~\cite{lin2023gdma}.
 
 \section{Multi-resource PD-NOMA system model}
 
@@ -44,7 +46,7 @@ In contrast, the considered multi-resource PD-NOMA system does not adopt sparse 
 
 
 \section{MMSE-SIC Detection}
-The MMSE-SIC receiver reduces complexity by successively detecting users after linear MMSE filtering. The filter first suppresses the interference components that are linearly separable from the desired user's channel information, and the SIC stage then removes the detected user's contribution from the residual vector. Compared with single-resource soft SIC, this receiver can exploit both magnitude and phase differences across resources. 
+The MMSE-SIC receiver provides a low-complexity alternative to joint ML/MAP detection \cite{zanella2005mmse} by applying a linear MMSE filter and successively detecting and cancelling users.
 The main quantities needed after filtering are the desired effective channel gain, the residual interference-plus-noise variance, the LLR, and the soft estimate used for cancellation.
 For the multi-resource model of equation \eqref{eq:multi resource model}, 
 consider user $k$ be detected. The MMSE filter is designed by following \cite[Eqs. (6), (7)]{kong2016multiuser} with the coefficient
@@ -264,7 +266,13 @@ The corresponding soft symbol estimate is the posterior mean obtained from the s
     \exp\left(-\frac{\abs{z_i-a_i s}^2}{\sigma^2_{i,\mathrm{eff}}}\right)}.
     \label{eq:mmse-sic-general-soft-estimate}
 \end{equation}
-This posterior mean reduces to $\hat{s}_i=\tanh(L_i/2)$ if BPSK modulation is used. The expression in equation \eqref{eq:mmse-sic-general-soft-estimate} is therefore a detector-output soft estimate for the uncoded receiver when all transmitted bits are equally likely. 
+This posterior mean reduces to
+
+\begin{equation}
+\hat{s}_i=\tanh(L_{x_i}/2)
+\end{equation}
+if BPSK modulation is used. 
+The expression in equation \eqref{eq:mmse-sic-general-soft-estimate} is therefore a detector-output soft estimate for the uncoded receiver when all transmitted bits are equally likely. 
 The soft estimate is then subtracted from the received vector:
 \begin{equation}
     \bm{y}_{(i+1)}=\bm{y}_{(i)}-\bm{h}_i\hat{s}_i .
@@ -282,24 +290,24 @@ The average transmit energy per bit per user is normalized by the number of reso
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{figures/Chapter3/multi_resource_beta0.1.jpg}
+    \includegraphics[width=0.9\linewidth]{figures/Chapter3/multi_resource_beta0.1.jpg}
     \caption{Multi-resource system. BER of MMSE-SIC and HDS-CDMA with ML detection with $R=2$, $U=3$ and $(\beta_1, \beta_2, \beta_3) = (1,0.1,0.01)$.}
     \label{fig:multi_resource_beta0.1}
 \end{figure}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{figures/Chapter3/multi_resource_beta1.jpg}
+    \includegraphics[width=0.9\linewidth]{figures/Chapter3/multi_resource_beta1.jpg}
     \caption{Multi-resource system. BER of MMSE-SIC and HDS-CDMA with ML detection with $R=2$, $U=3$ and $(\beta_1, \beta_2, \beta_3) = (1,1,1)$.}
     \label{fig:multi_resource_beta1}
 \end{figure}
 
-The results in figure.~\ref{fig:multi_resource_beta0.1} and ~\ref{fig:multi_resource_beta1} show that HDS-CDMA with ML detection achieves better uncoded BER than MMSE-SIC in both large-scale fading cases. For the unequal-$\beta_k$ case in figure.~\ref{fig:multi_resource_beta0.1}, HDS-CDMA performs about $3$ dB better than MMSE-SIC at $\mathrm{BER}=10^{-4}$ for user 1. For the equal-$\beta_k$ case, HDS-CDMA performs about $7$ dB better than MMSE-SIC at $\mathrm{BER}=10^{-4}$. Therefore, the performance loss of MMSE-SIC is much more significant when the users have similar average received powers.
+The results in figure.~\ref{fig:multi_resource_beta0.1} and \ref{fig:multi_resource_beta1} show that HDS-CDMA with ML detection achieves better uncoded BER than MMSE-SIC in both large-scale fading cases. For the unequal-$\beta_k$ case in figure.~\ref{fig:multi_resource_beta0.1}, HDS-CDMA performs about $3$ dB better than MMSE-SIC at $\mathrm{BER}=10^{-4}$ for user 1. For the equal-$\beta_k$ case, HDS-CDMA performs about $7$ dB better than MMSE-SIC at $\mathrm{BER}=10^{-4}$. Therefore, the performance loss of MMSE-SIC is much more significant when the users have similar average received powers.
 
-The smaller BER gap of two detector in the unequal-fading case is caused by the large-scale fading disparity. Since the users have clearly separated average received powers, the first SIC stage is more reliable and the cancellation error is less likely to dominate the following stages. In particular, for the user with the smallest average received power, MMSE-SIC is close to HDS-CDMA within the simulated SNR range. However, HDS-CDMA still provides the best overall BER performance because of its joint detection ability.
+The smaller BER gap of two detector in the unequal-fading case is caused by the large-scale fading disparity. Since the users have clearly separated average received powers, the first SIC stage is more reliable and the cancellation error is less likely to dominate the following stages. 
+In particular, for the user with the smallest average received power, MMSE-SIC is close to HDS-CDMA within the simulated SNR range. 
 
-The ordering comparison further explains the behavior of MMSE-SIC. In the unequal-$\beta_k$ case, amplitude-based ordering only causes a slight degradation around $25$ dB for user 1. In the equal-$\beta_k$ case, however, amplitude-based ordering degrades heavily because users do not have a clear large-scale power separation, indicating that post-SINR ordering is more robust because it measures the quality after MMSE filtering, whereas amplitude-based ordering only uses the channel magnitude before filtering. 
+The detection ordering comparison further explains the behavior of MMSE-SIC. In the unequal-$\beta_k$ case, amplitude-based ordering only causes a slight degradation around $25$ dB for user 1. In the equal-$\beta_k$ case, however, amplitude-based ordering degrades heavily because users do not have a clear large-scale power separation, indicating that post-SINR ordering is more robust.
 
 These results indicate that multi-resource PD-NOMA improves user separation compared with single-resource soft SIC, but HDS-CDMA with ML detection remains the stronger uncoded benchmark. The remaining performance gap motivates the next chapter. Chapter~\ref{ch:coded} introduces channel coding and iterative detection and decoder (IDD) so that the reliability of the decoder can be used to reduce the propagation of SIC errors.
-
 
 

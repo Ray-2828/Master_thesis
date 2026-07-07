@@ -3,7 +3,10 @@
 \chapter{Single resource systems}
 \label{ch:single-resource}
 This chapter studies uplink NOMA with single resource system, where PD-NOMA with soft SIC and GDMA\cite{hsu2019gain} are discussed. 
+We assume that the channel state information (CSI) is perfectly known at the receiver. The performance of these two detection schemes is evaluated in terms of bit error rate (BER) under different large scale fading coefficients.
+\begin{comment}
 Last, we clarify the performance gap between GDMA detection and soft SIC detection under different large scale fading coefficients.
+\end{comment}
 
 \begin{comment}
 Last, we compare the bit error rate(BER) performance of this two detectors.
@@ -34,6 +37,7 @@ where $\pi(i)$ is the user detected at stage $i$. For power-based ordering, the 
     $\rho_{\pi(1)} \geq \rho_{\pi(2)} \geq \cdots \geq \rho_{\pi(U)}$.
 The renumbering of user index is then processed by following the orders.
 For simplicity, we assume the indexes of users in equation \eqref{eq:single_resource_system_model} have been renumbering. 
+
 At the first SIC stage, the LLR of $x_1$, $L_{x_1}$, is obtained by regarding signals from other users as approximately Gaussian in equation \eqref{eq:single_resource_system_model} and the soft estimate is denoted as $\hat{s}_{1}$.
 At the $(i+1)^{th}$ SIC stage, the LLR of $x_{i+1}$, $L_{x_{i+1}}$, is obtained by a residual signal $y_{(i+1)}$ which is obtained by substracting the contribution of the soft estimate $\hat{s}_{i}$ in the $i^{th}$ stage and regarding signals from other users as Gaussian. Therefore, 
 \begin{equation}
@@ -182,7 +186,7 @@ As the large-scale fading gap becomes larger, the soft SIC detection converges t
 
 
 Figure~\ref{fig:single resource BER of (1,0.1,0.01)} shows the BER performance of three users with large-scale fading coefficients $(\beta_1, \beta_2, \beta_3)=(1,0.1,0.01)$.
-The three-user result further clarifies the limitation of soft SIC detection. As the number of users increases, soft SIC becomes more susceptible to error propagation because each cancellation stage depends on the reliability of the previous soft estimates. In contrast, GDMA evaluates the multiuser signal constellation as a whole and can therefore maintain favorable BER performance as the number of users increases\cite{lin2023uplink}. This performance advantage comes with an exponential growth cost with $U$.
+The three-user result further clarifies the limitation of soft SIC detection. As the number of users increases, soft SIC becomes more susceptible to error propagation because each cancellation stage depends on the reliability of the previous soft estimates. In contrast, GDMA evaluates superimposed signal constellation and can therefore maintain favorable BER performance as the number of users increases\cite{lin2023uplink, Lin2024RandomAccess}. This performance advantage comes with an exponential growth cost with $U$.
 
 
 \begin{figure}[htbp]

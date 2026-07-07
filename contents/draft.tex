@@ -1,3 +1,14 @@
+\section{Comparison and summary}
+
+The simulation results show that the IDD is effective for coded multi-resource NOMA receivers, but the amount of gain depends on the detector type, system loading, and modulation order. For MAP-IDD, the detector already provides highly reliable soft information. Therefore, the additional gain from the a priori information update is smaller than that of the MMSE-based receivers in simple BPSK cases. However, MAP-IDD still achieves the best BLER performance in all simulated scenarios and remains robust when the number of users or modulation order~increases.
+
+MMSE-SIC-IDD provides a favorable tradeoff between performance and complexity. By combining dynamic post-SINR ordering, variance-aware MMSE filtering, and decoder-aided cancellation, it can approach MAP-IDD in the three-user case and still performs well in the four-user case while BPSK modulation is used for every user. However, it is still based on linear filtering and sequential cancellation. When the system becomes heavily loaded, the  residual interference causes a clear performance floor.
+
+MMSE-PIC-IDD has the advantage of parallel processing and lower receiver latency because all users can be detected simultaneously. However, its cancellation quality strongly depends on the reliability of the a priori information.
+
+
+
+
 \chapter{Coded OFDM NOMA system}
 \label{ch:ofdm}
 

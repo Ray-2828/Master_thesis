@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{3gpp38900}
-{3rd Generation Partnership Project (3GPP)}.
-\newblock Study on channel model for frequency spectrum above 6 ghz.
-\newblock Technical Report TR 38.900 V14.2.0, 3GPP, June 2017.
-
 \bibitem{abeywickrama2017over}
 S.~Abeywickrama, L.~Liu, Y.~Chi, and C.~Yuen.
 \newblock Over-the-air implementation of uplink noma.
@@ -77,6 +72,12 @@ S.~Li, X.~Dang, X.~Yu, C.~Hao, J.~Li, and M.~Feng.
   signals.
 \newblock {\em Signal Processing}, 212:109166, 2023.
 
+\bibitem{Lin2024RandomAccess}
+F.-H. Lin.
+\newblock {Random Access Communications based on Multiple Access and Multiple
+  Resources}.
+\newblock Master's thesis, National Taiwan University, 2024.
+
 \bibitem{lin2023gdma}
 M.-C. Lin, S.-K. Lee, H.-H. Fan, and Y.-H. Chen.
 \newblock {GDMA}, {LDS-CDMA}, and {HDS-CDMA} for uplink communication systems.
@@ -142,5 +143,12 @@ A.~G. Uchoa, C.~T. Healy, and R.~C. de~Lamare.
   block-fading channels using {LDPC} codes.
 \newblock {\em IEEE Transactions on Vehicular Technology}, 65(4):2735--2741,
   2015.
+
+\bibitem{zanella2005mmse}
+A.~Zanella, M.~Chiani, and M.~Z. Win.
+\newblock Mmse reception and successive interference cancellation for mimo
+  systems with high spectral efficiency.
+\newblock {\em IEEE Transactions on wireless Communications}, 4(3):1244--1253,
+  2005.
 
 \end{thebibliography}
