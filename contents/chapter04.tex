@@ -312,7 +312,7 @@ This characterizes the remaining uncertainty after subtracting the decoder-aided
 \end{comment}
 
 \paragraph{Summary of MMSE-SIC-IDD}
-The overall procedure of the MMSE-SIC-IDD receiver is summarized in Algorithm~\ref{alg:mmse-sic-idd}. 
+The overall procedure of the MMSE-SIC-IDD receiver is summarized in Algorithm~\ref{alg:mmse-sic-idd}. The number of a priori information update iterations is denoted by $t_{\max}$, where $t_{\max}=0$ means no a priori information update is used.
 The block diagram of the MMSE-SIC-IDD receiver is shown in figure~\ref{fig:MMSE_SIC_receiver}.
 
 \begin{figure}
@@ -508,10 +508,9 @@ The block diagram of the MAP-IDD/MMSE-PIC-IDD receiver is shown in figure~\ref{f
 \end{figure}
 
 \section{Coded Simulation Results}
-For the MMSE-SIC-IDD receiver, post-SINR ordering is used. In the four-user case and overloaded scenarios with more than four users, dynamic post-SINR ordering is considered. In this ordering strategy, the detection order is updated after each SIC stage. Accordingly, the post-detection SINR in equation \eqref{eq:post-sinr-with-variance} is recalculated at every SIC stage based on the remaining undecoded users.
+For the MMSE-SIC-IDD receiver, post-SINR ordering is used. In the four-user case and the scenarios with more than four users, dynamic post-SINR ordering is considered. In this ordering strategy, the detection order is updated after each SIC stage. Accordingly, the post-detection SINR in equation \eqref{eq:post-sinr-with-variance} is recalculated at every SIC stage based on the remaining undecoded users.
 
-We compare block error rate (BLER) of three different receiver structures that mentioned above. The simulations employ a $(1008,504)$ LDPC code over a independent block-fading channel for every user of each resource. The number of a priori information update iterations is denoted by $t_{\max}$, where $t_{\max}=0$ means no a priori information update is used. 2-resources is used in our system and BPSK modulation for each user unless otherwise specified. 
-$\bar{E}_b$ in the simulations represent the average transmit energy per bit per user, normalized by the number of resources.
+We compare block error rate (BLER) of three different receiver structures that mentioned above. The simulations employ a $(1008,504)$ LDPC code over a independent block-fading channel for every user of each resource. 2-resources is used in our system and BPSK modulation for each user unless otherwise specified. 
 
 The objective of these simulation results is to investigate the effects of decoder feedback, SIC/PIC-based interference cancellation, system loading, and modulation order on the performance of coded multi-user receivers.
 
@@ -532,16 +531,17 @@ The objective of these simulation results is to investigate the effects of decod
 
 Figure.~\ref{fig:multi_resource_beta0.1_MMSESIC_BLER} shows the BLER performance of MMSE-SIC-IDD and MAP-IDD with unequal-$\beta_k$ case. 
 Figure.~\ref{fig:multi_resource_beta0.1_MMSEPIC_BLER} shows the BLER performance of MMSE-PIC-IDD with unequal-$\beta_k$ case.
-It's observed that MMSE-PIC-IDD strongly relies on reliable a priori information update because parallel cancellation relies directly on the a priori-based soft means of all interfering users. Compare with MMSE-SIC-IDD and MAP-IDD in figure.~\ref{fig:multi_resource_beta0.1_MMSESIC_BLER}, the performance is closed to all users, indicating that decoder-aided soft cancellation effectively reduces residual interference.
+Compare with MMSE-SIC-IDD and MAP-IDD, the performance is closed to all users, indicating that decoder-aided soft cancellation effectively reduces residual interference.
+In figure.~\ref{fig:multi_resource_beta0.1_MMSEPIC_BLER}, it's observed that MMSE-PIC-IDD strongly relies on reliable a priori information update because parallel cancellation relies directly on the a priori-based soft means of all interfering users. 
 
-%\begin{comment}
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/Chapter4/multi_resource_beta1_U3_BLER.jpg}
     \caption{BLER of different receiver structures with $R=2$, $U=3$ and $(\beta_1,\beta_2,\beta_3)=(1,1,1)$.}
     \label{fig:multi_resource_beta1_U3_BLER}
 \end{figure}
-%\end{comment}
+
 
 Figure.~\ref{fig:multi_resource_beta1_U3_BLER} shows the BLER performance of MMSE-PIC-IDD, MMSE-SIC-IDD and MAP-IDD with equal-$\beta_k$ case.
 For the MMSE-PIC-IDD scheme, convergence of the BLER is nearly achieved by $t_{\max}=3$. Consequently, the remaining simulations in this chapter are conducted solely using $t_{\max}=3$.
@@ -564,7 +564,7 @@ It can also be observed that for both unequal-$\beta_k$ case and equal-$\beta_k$
 \end{figure}
 %\end{comment}
 
-Figure.~\ref{fig:multi_resource_beta1_U4_BLER} and \ref{fig:multi_resource_beta1_U6_BLER} are the case of 4-user and 6-user respectively. It can be seen that MAP-IDD maintains superior BLER performance owing to its near-optimal detection capability, whereas MMSE-based receivers become more sensitive to the increase in the number of user.
+Figure.~\ref{fig:multi_resource_beta1_U4_BLER} and \ref{fig:multi_resource_beta1_U6_BLER} are the case of 4-user and 6-user with 2-resources system respectively. It can be seen that MAP-IDD maintains superior BLER performance owing to its near-optimal detection capability, whereas MMSE-based receivers become more sensitive to the increase in the number of user.
 
 \begin{figure}[htbp]
     \centering

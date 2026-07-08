@@ -1,154 +1,155 @@
 \begin{thebibliography}{10}
 
-\bibitem{abeywickrama2017over}
-S.~Abeywickrama, L.~Liu, Y.~Chi, and C.~Yuen.
-\newblock Over-the-air implementation of uplink noma.
-\newblock In {\em GLOBECOM 2017-2017 IEEE Global Communications Conference},
-  pages 1--6. IEEE, 2017.
-
-\bibitem{clerckx2024multiple}
-B.~Clerckx, Y.~Mao, Z.~Yang, M.~Chen, A.~Alkhateeb, L.~Liu, M.~Qiu, J.~Yuan,
-  V.~W. Wong, and J.~Montojo.
-\newblock Multiple access techniques for intelligent and multifunctional {6G}:
-  Tutorial, survey, and outlook.
-\newblock {\em Proceedings of the IEEE}, 112(7):832--879, 2024.
-
 \bibitem{dai2018survey}
-L.~Dai, B.~Wang, Z.~Ding, Z.~Wang, S.~Chen, and L.~Hanzo.
+Linglong Dai, Bichai Wang, Zhiguo Ding, Zhaocheng Wang, Sheng Chen, and Lajos
+  Hanzo.
 \newblock A survey of non-orthogonal multiple access for {5G}.
 \newblock {\em IEEE communications surveys \& tutorials}, 20(3):2294--2323,
   2018.
 
-\bibitem{ding2015impact}
-Z.~Ding, P.~Fan, and H.~V. Poor.
-\newblock Impact of user pairing on {5G} nonorthogonal multiple-access downlink
-  transmissions.
-\newblock {\em IEEE Transactions on Vehicular Technology}, 65(8):6010--6023,
-  2015.
-
-\bibitem{endo2012uplink}
-Y.~Endo, Y.~Kishiyama, and K.~Higuchi.
-\newblock Uplink non-orthogonal access with {MMSE-SIC} in the presence of
-  inter-cell interference.
-\newblock In {\em 2012 international symposium on wireless communication
-  systems (ISWCS)}, pages 261--265. IEEE, 2012.
-
-\bibitem{haci2017performance}
-H.~Haci, H.~Zhu, and J.~Wang.
-\newblock Performance of non-orthogonal multiple access with a novel
-  asynchronous interference cancellation technique.
-\newblock {\em IEEE Transactions on Communications}, 65(3):1319--1335, 2017.
+\bibitem{clerckx2024multiple}
+Bruno Clerckx, Yijie Mao, Zhaohui Yang, Mingzhe Chen, Ahmed Alkhateeb, Liang
+  Liu, Min Qiu, Jinhong Yuan, Vincent~WS Wong, and Juan Montojo.
+\newblock Multiple access techniques for intelligent and multifunctional {6G}:
+  Tutorial, survey, and outlook.
+\newblock {\em Proceedings of the IEEE}, 112(7):832--879, 2024.
 
 \bibitem{hsu2019gain}
-Y.-T. Hsu, B.-H. Chang, C.-F. Chang, P.-W. Su, I.-H. Yeh, K.-C. Cheng, Y.-C.
-  Lin, and M.-C. Lin.
+Yung-Tsao Hsu, Bei-Hao Chang, Chia-Fu Chang, Pin-Wen Su, I-Hsien Yeh, Kai-Chuan
+  Cheng, Ying-Chen Lin, and Mao-Chao Lin.
 \newblock Gain division multiple access for transmissions over independent
   fading channels.
 \newblock In {\em 2019 IEEE VTS Asia Pacific Wireless Communications Symposium
   (APWCS)}, pages 1--5. IEEE, 2019.
 
-\bibitem{kong2016multiuser}
-D.~Kong, J.~Zeng, X.~Su, L.~Rong, and X.~Xu.
-\newblock Multiuser detection algorithm for {PDMA} uplink system based on {SIC}
-  and {MMSE}.
-\newblock In {\em 2016 IEEE/CIC International Conference on Communications in
-  China (ICCC)}, pages 1--5. IEEE, 2016.
+\bibitem{shapiro2005soft}
+Jerome~M Shapiro and James Dunyak.
+\newblock Soft information in interference cancellation based multiuser
+  detection.
+\newblock {\em submitted for IEEE transaction on Wireless Communication}, 2005.
 
-\bibitem{li2013advanced}
-L.~Li.
-\newblock {\em Advanced channel estimation and detection techniques for {MIMO}
-  and {OFDM} systems}.
-\newblock PhD thesis, University of York, 2013.
+\bibitem{ding2015impact}
+Zhiguo Ding, Pingzhi Fan, and H~Vincent Poor.
+\newblock Impact of user pairing on {5G} nonorthogonal multiple-access downlink
+  transmissions.
+\newblock {\em IEEE Transactions on Vehicular Technology}, 65(8):6010--6023,
+  2015.
 
-\bibitem{li2024low}
-Q.~Li, J.~Yuan, M.~Qiu, S.~Li, and Y.~Xie.
-\newblock Low complexity turbo {SIC-MMSE} detection for orthogonal time
-  frequency space modulation.
-\newblock {\em IEEE Transactions on Communications}, 72(6):3169--3183, 2024.
-
-\bibitem{li2023transceiver}
-S.~Li, X.~Dang, X.~Yu, C.~Hao, J.~Li, and M.~Feng.
-\newblock Transceiver design for an uplink asynchronous noma using msk-type
-  signals.
-\newblock {\em Signal Processing}, 212:109166, 2023.
+\bibitem{lin2023uplink}
+Mao-Chao Lin, Yu-Qin Yang, Cheng-Yen Chang, and Shih-Kai Lee.
+\newblock An uplink random access scheme based on {ALOHA} system assisted by
+  gain division multiple access.
+\newblock {\em IEEE Access}, 11:28887--28895, 2023.
 
 \bibitem{Lin2024RandomAccess}
-F.-H. Lin.
+Fan-Hsun Lin.
 \newblock {Random Access Communications based on Multiple Access and Multiple
   Resources}.
 \newblock Master's thesis, National Taiwan University, 2024.
 
 \bibitem{lin2023gdma}
-M.-C. Lin, S.-K. Lee, H.-H. Fan, and Y.-H. Chen.
+Mao-Chao Lin, Shih-Kai Lee, Hsiang-Hsuan Fan, and Yi-Hua Chen.
 \newblock {GDMA}, {LDS-CDMA}, and {HDS-CDMA} for uplink communication systems.
 \newblock In {\em 2023 VTS Asia Pacific Wireless Communications Symposium
   (APWCS)}, pages 1--5. IEEE, 2023.
 
-\bibitem{lin2024slotted}
-M.-C. Lin, S.-K. Lee, and F.-H. Lin.
-\newblock Slotted {ALOHA} systems based on multiple access schemes and multiple
-  resources.
-\newblock In {\em 2024 International Symposium on Intelligent Signal Processing
-  and Communication Systems (ISPACS)}, pages 1--5. IEEE, 2024.
+\bibitem{endo2012uplink}
+Yuki Endo, Yoshihisa Kishiyama, and Kenichi Higuchi.
+\newblock Uplink non-orthogonal access with {MMSE-SIC} in the presence of
+  inter-cell interference.
+\newblock In {\em 2012 international symposium on wireless communication
+  systems (ISWCS)}, pages 261--265. IEEE, 2012.
 
-\bibitem{lin2023uplink}
-M.-C. Lin, Y.-Q. Yang, C.-Y. Chang, and S.-K. Lee.
-\newblock An uplink random access scheme based on {ALOHA} system assisted by
-  gain division multiple access.
-\newblock {\em IEEE Access}, 11:28887--28895, 2023.
+\bibitem{li2013advanced}
+Li~Li.
+\newblock {\em Advanced channel estimation and detection techniques for {MIMO}
+  and {OFDM} systems}.
+\newblock PhD thesis, University of York, 2013.
 
-\bibitem{minn2003robust}
-H.~Minn, V.~K. Bhargava, and K.~B. Letaief.
-\newblock A robust timing and frequency synchronization for ofdm systems.
-\newblock {\em IEEE Transactions on Wireless communications}, 2(4):822--839,
-  2003.
+\bibitem{kong2016multiuser}
+Dan Kong, Jie Zeng, Xin Su, Liping Rong, and Xibin Xu.
+\newblock Multiuser detection algorithm for {PDMA} uplink system based on {SIC}
+  and {MMSE}.
+\newblock In {\em 2016 IEEE/CIC International Conference on Communications in
+  China (ICCC)}, pages 1--5. IEEE, 2016.
 
 \bibitem{mohammadkarimi2018signature}
-M.~Mohammadkarimi, M.~A. Raza, and O.~A. Dobre.
+Mostafa Mohammadkarimi, Muhammad~Ahmad Raza, and Octavia~A Dobre.
 \newblock Signature-based non-orthogonal multiple access ({S-NOMA}) for massive
   machine-type communications in {5G}.
 \newblock {\em arXiv preprint arXiv:1808.07163}, 2018.
 
-\bibitem{csahin2024ofdm}
-M.~M. {\c{S}}ahin, O.~Dizdar, B.~Clerckx, and H.~Arslan.
-\newblock Ofdm-rsma: Robust transmission under inter-carrier interference.
-\newblock {\em IEEE Transactions on Communications}, 2024.
-
-\bibitem{saraereh2019efficient}
-O.~A. Saraereh, A.~Alsaraira, I.~Khan, and P.~Uthansakul.
-\newblock An efficient resource allocation algorithm for ofdm-based noma in 5g
-  systems.
-\newblock {\em Electronics}, 8(12):1399, 2019.
-
-\bibitem{shapiro2005soft}
-J.~M. Shapiro and J.~Dunyak.
-\newblock Soft information in interference cancellation based multiuser
-  detection.
-\newblock {\em submitted for IEEE transaction on Wireless Communication}, 2005.
-
-\bibitem{studer2011asic}
-C.~Studer, S.~Fateh, and D.~Seethaler.
-\newblock {ASIC} implementation of soft-input soft-output {MIMO} detection
-  using {MMSE} parallel interference cancellation.
-\newblock {\em IEEE Journal of Solid-State Circuits}, 46(7):1754--1765, 2011.
-
-\bibitem{tuchler2002minimum}
-M.~Tuchler, A.~C. Singer, and R.~Koetter.
-\newblock Minimum mean squared error equalization using a priori information.
-\newblock {\em IEEE Transactions on Signal processing}, 50(3):673--683, 2002.
+\bibitem{zanella2005mmse}
+Alberto Zanella, Marco Chiani, and Moe~Z Win.
+\newblock Mmse reception and successive interference cancellation for mimo
+  systems with high spectral efficiency.
+\newblock {\em IEEE Transactions on wireless Communications}, 4(3):1244--1253,
+  2005.
 
 \bibitem{uchoa2015iterative}
-A.~G. Uchoa, C.~T. Healy, and R.~C. de~Lamare.
+Andre~GD Uchoa, Cornelius~T Healy, and Rodrigo~C de~Lamare.
 \newblock Iterative detection and decoding algorithms for {MIMO} systems in
   block-fading channels using {LDPC} codes.
 \newblock {\em IEEE Transactions on Vehicular Technology}, 65(4):2735--2741,
   2015.
 
-\bibitem{zanella2005mmse}
-A.~Zanella, M.~Chiani, and M.~Z. Win.
-\newblock Mmse reception and successive interference cancellation for mimo
-  systems with high spectral efficiency.
-\newblock {\em IEEE Transactions on wireless Communications}, 4(3):1244--1253,
-  2005.
+\bibitem{studer2011asic}
+Christoph Studer, Schekeb Fateh, and Dominik Seethaler.
+\newblock {ASIC} implementation of soft-input soft-output {MIMO} detection
+  using {MMSE} parallel interference cancellation.
+\newblock {\em IEEE Journal of Solid-State Circuits}, 46(7):1754--1765, 2011.
+
+\bibitem{li2024low}
+Qi~Li, Jinhong Yuan, Min Qiu, Shuangyang Li, and Yixuan Xie.
+\newblock Low complexity turbo {SIC-MMSE} detection for orthogonal time
+  frequency space modulation.
+\newblock {\em IEEE Transactions on Communications}, 72(6):3169--3183, 2024.
+
+\bibitem{tuchler2002minimum}
+Michael Tuchler, Andrew~C Singer, and Ralf Koetter.
+\newblock Minimum mean squared error equalization using a priori information.
+\newblock {\em IEEE Transactions on Signal processing}, 50(3):673--683, 2002.
+
+\bibitem{haci2017performance}
+Huseyin Haci, Huiling Zhu, and Jiangzhou Wang.
+\newblock Performance of non-orthogonal multiple access with a novel
+  asynchronous interference cancellation technique.
+\newblock {\em IEEE Transactions on Communications}, 65(3):1319--1335, 2017.
+
+\bibitem{saraereh2019efficient}
+Omar~A Saraereh, Amer Alsaraira, Imran Khan, and Peerapong Uthansakul.
+\newblock An efficient resource allocation algorithm for ofdm-based noma in 5g
+  systems.
+\newblock {\em Electronics}, 8(12):1399, 2019.
+
+\bibitem{lin2024slotted}
+Mao-Chao Lin, Shih-Kai Lee, and Fan-Hsun Lin.
+\newblock Slotted {ALOHA} systems based on multiple access schemes and multiple
+  resources.
+\newblock In {\em 2024 International Symposium on Intelligent Signal Processing
+  and Communication Systems (ISPACS)}, pages 1--5. IEEE, 2024.
+
+\bibitem{csahin2024ofdm}
+Mehmet~Mert {\c{S}}ahin, Onur Dizdar, Bruno Clerckx, and Huseyin Arslan.
+\newblock Ofdm-rsma: Robust transmission under inter-carrier interference.
+\newblock {\em IEEE Transactions on Communications}, 2024.
+
+\bibitem{abeywickrama2017over}
+Samith Abeywickrama, Lei Liu, Yuhao Chi, and Chau Yuen.
+\newblock Over-the-air implementation of uplink noma.
+\newblock In {\em GLOBECOM 2017-2017 IEEE Global Communications Conference},
+  pages 1--6. IEEE, 2017.
+
+\bibitem{minn2003robust}
+Hlaing Minn, Vijay~K Bhargava, and Khaled~Ben Letaief.
+\newblock A robust timing and frequency synchronization for ofdm systems.
+\newblock {\em IEEE Transactions on Wireless communications}, 2(4):822--839,
+  2003.
+
+\bibitem{li2023transceiver}
+Sai Li, Xiaoyu Dang, Xiangbin Yu, Chongzheng Hao, Jie Li, and Mingkui Feng.
+\newblock Transceiver design for an uplink asynchronous noma using msk-type
+  signals.
+\newblock {\em Signal Processing}, 212:109166, 2023.
 
 \end{thebibliography}

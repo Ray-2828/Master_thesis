@@ -33,11 +33,11 @@
 \contentsline {section}{\numberline {4.5}MAP-IDD}{28}{section.4.5}%
 \contentsline {paragraph}{Summary of MAP-IDD/MMSE-PIC-IDD}{31}{paragraph*.19}%
 \contentsline {section}{\numberline {4.6}Coded Simulation Results}{31}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Coded multi-resource NOMA for OFDM system}{35}{section.4.7}%
+\contentsline {section}{\numberline {4.7}Coded multi-resource NOMA for OFDM system}{36}{section.4.7}%
 \contentsline {subsection}{\numberline {4.7.1}Coded OFDM Multi-Resource Signal Model}{37}{subsection.4.7.1}%
 \contentsline {subsection}{\numberline {4.7.2}MMSE-SIC-IDD for OFDM system}{38}{subsection.4.7.2}%
 \contentsline {subsection}{\numberline {4.7.3}Synchronous OFDM Simulation Results}{38}{subsection.4.7.3}%
-\contentsline {subsection}{\numberline {4.7.4}Asynchronous OFDM NOMA system}{41}{subsection.4.7.4}%
+\contentsline {subsection}{\numberline {4.7.4}Asynchronous OFDM NOMA system}{42}{subsection.4.7.4}%
 \contentsline {subsubsection}{\numberline {4.7.4.1}Asynchronous Signal Model}{43}{subsubsection.4.7.4.1}%
 \contentsline {subsubsection}{\numberline {4.7.4.2}Asynchronous Simulation Results}{45}{subsubsection.4.7.4.2}%
 \contentsline {section}{\numberline {4.8}Comparison and summary}{49}{section.4.8}%
