@@ -152,4 +152,24 @@ Sai Li, Xiaoyu Dang, Xiangbin Yu, Chongzheng Hao, Jie Li, and Mingkui Feng.
   signals.
 \newblock {\em Signal Processing}, 212:109166, 2023.
 
+\bibitem{gutierrez2020joint}
+Amado Gutierrez, Victor Rangel, Javier Gomez, Robert~M Edwards, and David~H
+  Covarrubias.
+\newblock A joint modulation-coding scheme and resource allocation in lte
+  uplink.
+\newblock {\em Elektronika ir Elektrotechnika}, 26(5):50--58, 2020.
+
+\bibitem{etsi_ts_138_214_v18_2_0}
+{ETSI}.
+\newblock {5G; NR; Physical layer procedures for data (3GPP TS 38.214 version
+  18.2.0 Release 18)}.
+\newblock {Technical Specification (TS)} {ETSI TS 138 214 V18.2.0}, {European
+  Telecommunications Standards Institute (ETSI)}, May 2024.
+
+\bibitem{Chen2015CQI}
+Yi-Hsien Chen.
+\newblock {The Design of the Cellular Downlink Transmission Using Superposition
+  Coding based on the feedback Channel Quality Indicator}.
+\newblock Master's thesis, Yuan Ze University, 2015.
+
 \end{thebibliography}

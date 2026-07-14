@@ -1,5 +1,548 @@
-\chapter{Performance analysis of user pairing based on Channel quality indicator (CQI)}
-\label{ch:CQI}
-In this chapter, we will analyze the performance of user pairing based on Channel Quality Indicator (CQI) in a multi-user communication system. The CQI is a measure of the channel conditions experienced by a user and is used to optimize resource allocation and improve overall system performance. We will explore various user pairing strategies, evaluate their impact on system throughput, and discuss the trade-offs involved in selecting appropriate pairing schemes.
+% !TeX root = ../main.tex
 
-\section{Introduction of CQI}
+\chapter{Performance analysis of user pairing based on CQI}
+\label{ch:cqi}
+
+The previous chapters evaluated the reliability of uplink NOMA receivers from the link-level BLER viewpoint. This chapter further studies a practical system-level resource-sharing problem, where two OMA users are paired to share one resource. 
+
+By pairing two users on the same resource and adopting multi-user detection (MUD), one resource can be released for an additional user. However, the paired users may need to reduce their modulation and coding scheme (MCS) because of  multi-user interference. Therefore, the objective of this chapter is not to show that the paired users always obtain a larger sum spectral efficiency (SE). Instead, we evaluate the tradeoff between the MCS degradation of the paired users and the additional SE brought by the released resource.
+
+The analysis is conducted from an MCS-level viewpoint. First, a channel quality indicator (CQI)-like MCS table is constructed through link-level simulations. Then, two-user MUD tables are obtained for GDMA and soft SIC receivers. Based on these tables, an offline CQI-based pairing table is built to determine whether two OMA users can share one resource while maintaining the target BLER.
+
+
+\section{CQI-like MCS table}
+\label{sec:cqi-mcs-table}
+
+CQI is commonly used as a channel-quality feedback indicator for link adaptation\cite{gutierrez2020joint}. A higher CQI corresponds to a better channel condition and allows the system to select a higher MCS.
+In this work, we follow this CQI-based link-adaptation concept and construct a CQI-like table from the considered link-level simulation under the specified conditions. This is necessary because the channel model, channel code, and MUD receiver we considered differ from those of a standardized link-adaptation table\cite{etsi_ts_138_214_v18_2_0}.
+
+The single-user received signal is modeled as
+\begin{equation}
+    y_i=\sqrt{\beta_i}h_i x_i+n,
+\end{equation}
+where $\beta_i$ denotes the large-scale coefficient associated with CQI $i$, 
+$h_i$ is the fading coefficient, 
+$x_i$ is the transmitted symbol and $n \sim \mathcal{CN}(0,N_0)$ is complex AWGN. 
+For each MCS, the operating $E_s/N_0$ is swept under a single-carrier block Rayleigh fading channel with an LDPC code of length $N=1296$. The considered code rates are $1/2$, $2/3$, and $3/4$. The SNR threshold $\gamma_{\mathrm{th},i}$ is chosen at which the BLER reaches $10^{-1}$. 
+The corresponding single-user received-SNR threshold is
+\begin{equation}
+    \gamma_{\mathrm{th},i}
+    =
+    \frac{\beta_i E_s}{N_0}.
+    \label{eq:cqi-single-user-snr}
+\end{equation}
+The spectral efficiency of each MCS is defined as the number of coded bits per modulation symbol multiplied by the code rate.
+
+The CQI table is normalized by using CQI 1 as the reference operating point. Specifically, CQI 1 is assigned $\beta_1=1$ and a coverage radius of $R_1=5$ km. With the simulated threshold of CQI 1, the noise variance is obtained from \eqref{eq:cqi-single-user-snr} as
+\begin{equation}
+    N_0
+    =
+    \frac{\beta_1E_s}{10^{\gamma_{\mathrm{th},1}/10}}.
+\end{equation}
+The large-scale coefficient of each CQI level is calculated by
+\begin{equation}
+    \beta_i
+    =
+    \frac{N_0}{E_s}10^{\gamma_{\mathrm{th},i}/10}.
+\end{equation}
+We adopt the path-loss model $\beta_i\propto 1/R_i^2$. Therefore, the corresponding radius of CQI $i$ is
+\begin{equation}
+    R_i
+    =
+    \frac{R_1}{\sqrt{\beta_i}}.
+\end{equation}
+
+\begin{table}[t]
+\centering
+\small
+\caption{CQI-like MCS table obtained from single-user link-level
+simulation. CQI 3 is listed for completeness but is not used in the
+proposed scheme.}
+\label{tab:cqi-mcs}
+
+\begin{NiceTabular}{@{}cccccc@{}}
+\toprule
+CQI & MCS & SE (bit/s/Hz) & $\gamma_{\mathrm{th}}$ (dB)
+    & $\beta$ & $R$ (km) \\
+\midrule
+
+1 & BPSK, $1/2$  & 0.50 & 7.50   & 1.0000  & 5.0000 \\
+2 & BPSK, $2/3$  & 0.67 & 9.30   & 1.5136  & 4.0641 \\
+
+\rowcolor{gray!15}
+3 & BPSK, $3/4$  & 0.75 & 10.76  & 2.1184  & 3.4353 \\
+
+4 & QPSK, $1/2$  & 1.00 & 10.46  & 1.9770  & 3.5560 \\
+5 & QPSK, $2/3$  & 1.33 & 12.56  & 3.2063  & 2.7923 \\
+6 & QPSK, $3/4$  & 1.50 & 13.741 & 4.2082  & 2.4374 \\
+7 & 16QAM, $1/2$ & 2.00 & 15.679 & 6.5751  & 1.9499 \\
+8 & 16QAM, $2/3$ & 2.67 & 18.418 & 12.3540 & 1.4225 \\
+9 & 16QAM, $3/4$ & 3.00 & 19.703 & 16.6070 & 1.2269 \\
+
+\bottomrule
+
+\CodeAfter
+\tikz \draw[black, line width=0.8pt]
+    (4-1.west) -- (4-6.east);
+
+\end{NiceTabular}
+\end{table}
+
+Table~\ref{tab:cqi-mcs} lists the resulting CQI-like MCS table. CQI 3 is dominated by CQI 4 because it provides a lower SE but requires a higher SNR threshold. Therefore, the remaining valid CQI set is
+\begin{equation}
+    \mathcal{Q}=\{1,2,4,5,6,7,8,9\}.
+\end{equation}
+
+
+
+\section{Two-user MUD pairs scheme}
+\label{sec:mud-pairing-state}
+
+We next construct the two-user MUD pairing-state table. 
+\begin{comment}This table is different from the offline user-pairing table introduced later. 
+\end{comment}
+The purpose of this table is to determine, for each possible after-pair MCS combination, the aggregate SNR required by the receiver to make all users satisfy the BLER constraint.
+
+For two users sharing the same resource, the received signal is written as
+\begin{equation}
+    y
+    =
+    \sqrt{\beta_i}h_1x_1
+    +
+    \sqrt{\beta_j}h_2x_2
+    +
+    n.
+    \label{eq:cqi-two-user-model}
+\end{equation}
+When two OMA users are paired on one resource and detected by a MUD receiver, the receiver can use the received signal energies of both users. Hence, the effective SNR available for the paired transmission is defined as the aggregate received SNR
+\begin{equation}
+    \Gamma^{\mathrm{agg}}_{i,j}
+    =
+    \frac{(\beta_i+\beta_j)E_s}{N_0}
+    =
+    \frac{\sum_{u=1}^{2}\beta_u E_s}{N_0}.
+    \label{eq:aggregate-received-snr}
+\end{equation}
+\begin{comment}
+This definition represents the actual effective SNR provided to the receiver by the two received powers on the shared resource. It is not the arithmetic average of the two users' individual SNRs.
+\end{comment}
+
+For each candidate after-pair CQI state $(p,q)$, GDMA detection and soft SIC detection are simulated by setting the noise power according to \eqref{eq:aggregate-received-snr}. The required threshold $\Gamma^{\mathrm{agg}}_{\mathrm{th},p,q}$ is the minimum aggregate SNR such that all users satisfy
+\begin{equation}
+    \mathrm{BLER}_u \leq 10^{-1}, \qquad u=1,2.
+\end{equation}
+After simulating the candidate MCS combinations, dominated combinations are removed. A candidate is considered dominated if another candidate provides a higher or equal sum SE with a lower required aggregate-SNR threshold. The remaining candidates form the effective MUD pairing-state table. For GDMA, the complete candidate table before removing dominated combinations is listed in Appendix~A.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Effective GDMA after-pairing states after removing dominated MCS combinations.}
+\label{tab:gdma-states}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+After-pair CQI state & Sum SE (bit/s/Hz) & Required $\Gamma^{\mathrm{agg}}_{\mathrm{th}}$ (dB) \\
+\midrule
+$(1,1)$ & 1.00 & 11.88 \\
+$(1,2)$ & 1.17 & 14.02 \\
+$(2,2)$ & 1.34 & 14.52 \\
+$(1,4)$ & 1.50 & 14.58 \\
+$(1,5)$ & 1.83 & 15.53 \\
+$(4,4)$ & 2.00 & 16.70 \\
+$(2,6)$ & 2.17 & 18.27 \\
+$(4,5)$ & 2.33 & 19.56 \\
+$(5,5)$ & 2.66 & 20.02 \\
+$(5,6)$ & 2.83 & 21.22 \\
+$(6,6)$ & 3.00 & 21.62 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\caption{Effective soft SIC after-pairing states.}
+\label{tab:sic-states}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+After-pair CQI state & Sum SE (bit/s/Hz) & Required $\Gamma^{\mathrm{agg}}_{\mathrm{th}}$ (dB) \\
+\midrule
+$(1,1)$ & 1.00 & 12.39 \\
+$(1,2)$ & 1.17 & 14.83 \\
+$(2,2)$ & 1.34 & 16.967 \\
+$(1,4)$ & 1.50 & 17.015 \\
+$(2,4)$ & 1.67 & 18.19 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tables~\ref{tab:gdma-states} and~\ref{tab:sic-states} show that GDMA supports more effective after-pairing states and requires less SNR $\Gamma^{\mathrm{agg}}_{\mathrm{th}}$ compared with soft SIC. 
+This difference directly affects the user-pairing performance, because a receiver with a stronger MUD capability can keep a higher after-pair MCS and reduce the SE loss caused by pairing.
+
+\section{Offline CQI-based pairing table}
+\label{sec:offline-pairing-table}
+
+The offline pairing table maps two original OMA CQI indices to a feasible after-pair CQI state. Suppose two users originally use two orthogonal resources with CQI indices $i$ and $j$. The OMA before-pairing sum SE is
+\begin{equation}
+    \eta^{\mathrm{OMA}}_{i,j}
+    =
+    \eta_i+\eta_j,
+\end{equation}
+where $\eta_i$ is the SE of CQI $i$ in Table~\ref{tab:cqi-mcs}. If the users are paired on one shared resource, the aggregate received SNR $\Gamma^{\mathrm{agg}}_{i,j}$ in \eqref{eq:aggregate-received-snr} is computed from their received-power coefficients. The after-pair CQI state is then selected as the highest-SE state in the corresponding MUD pairing-state table whose required SNR is not larger than the available aggregate SNR.
+
+Let $(p,q)$ denote the selected after-pair CQI state. The after-pair sum SE is
+\begin{equation}
+    \eta^{\mathrm{NOMA}}_{p,q}
+    =
+    \eta_p+\eta_q.
+\end{equation}
+The paired users' SE loss is defined as the positive quantity
+\begin{equation}
+    D_{i,j}
+    =
+    \eta^{\mathrm{OMA}}_{i,j}
+    -
+    \eta^{\mathrm{NOMA}}_{p,q}
+    \geq 0.
+    \label{eq:positive-se-loss}
+\end{equation}
+The system-level benefit of pairing is then determined by whether the SE of the newly admitted user can compensate for $D_{i,j}$.
+
+\begin{table}[p]
+\centering
+\normalsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\caption{Offline pairing table for GDMA detection.}
+\label{tab:gdma-offline-pairing}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+Before CQI pair & Before SE & SNR (dB) & After CQI state & $D_{i,j}$ \\
+\midrule
+$(1,4)$ & 1.50 & 12.2377 & $(1,1)$ & 0.50 \\
+$(1,5)$ & 1.83 & 13.7390 & $(1,1)$ & 0.83 \\
+$(1,6)$ & 2.00 & 14.6668 & $(1,4)$ & 0.50 \\
+$(1,7)$ & 2.50 & 16.2938 & $(1,5)$ & 0.67 \\
+$(1,8)$ & 3.17 & 18.7561 & $(2,6)$ & 1.00 \\
+$(1,9)$ & 3.50 & 19.9568 & $(4,5)$ & 1.17 \\
+$(2,2)$ & 1.34 & 12.3104 & $(1,1)$ & 0.34 \\
+$(2,4)$ & 1.67 & 12.9290 & $(1,1)$ & 0.67 \\
+$(2,5)$ & 2.00 & 14.2393 & $(1,2)$ & 0.83 \\
+$(2,6)$ & 2.17 & 15.0753 & $(1,4)$ & 0.67 \\
+$(2,7)$ & 2.67 & 16.5787 & $(1,5)$ & 0.84 \\
+$(2,8)$ & 3.34 & 18.9200 & $(2,6)$ & 1.17 \\
+$(2,9)$ & 3.67 & 20.0817 & $(5,5)$ & 1.01 \\
+$(4,4)$ & 2.00 & 13.4703 & $(1,1)$ & 1.00 \\
+$(4,5)$ & 2.33 & 14.6460 & $(1,4)$ & 0.83 \\
+$(4,6)$ & 2.50 & 15.4135 & $(1,4)$ & 1.00 \\
+$(4,7)$ & 3.00 & 16.8207 & $(4,4)$ & 1.00 \\
+$(4,8)$ & 3.67 & 19.0627 & $(2,6)$ & 1.50 \\
+$(4,9)$ & 4.00 & 20.1913 & $(5,5)$ & 1.34 \\
+$(5,5)$ & 2.66 & 15.5700 & $(1,5)$ & 0.83 \\
+$(5,6)$ & 2.83 & 16.2008 & $(1,5)$ & 1.00 \\
+$(5,7)$ & 3.33 & 17.4040 & $(4,4)$ & 1.33 \\
+$(5,8)$ & 4.00 & 19.4201 & $(2,6)$ & 1.83 \\
+$(5,9)$ & 4.33 & 20.4695 & $(5,5)$ & 1.67 \\
+$(6,6)$ & 3.00 & 16.7512 & $(4,4)$ & 1.00 \\
+$(6,7)$ & 3.50 & 17.8275 & $(4,4)$ & 1.50 \\
+$(6,8)$ & 4.17 & 19.6911 & $(4,5)$ & 1.84 \\
+$(6,9)$ & 4.50 & 20.6838 & $(5,5)$ & 1.84 \\
+$(7,7)$ & 4.00 & 18.6893 & $(2,6)$ & 1.83 \\
+$(7,8)$ & 4.67 & 20.2712 & $(5,5)$ & 2.01 \\
+$(7,9)$ & 5.00 & 21.1515 & $(5,5)$ & 2.34 \\
+$(8,8)$ & 5.34 & 21.4283 & $(5,6)$ & 2.51 \\
+$(8,9)$ & 5.67 & 22.1181 & $(6,6)$ & 2.67 \\
+$(9,9)$ & 6.00 & 22.7132 & $(6,6)$ & 3.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[p]
+\centering
+\normalsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\caption{Offline pairing table for soft SIC detection.}
+\label{tab:sic-offline-pairing}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+Before CQI pair & Before SE & SNR (dB) & After CQI state & $D_{i,j}$ \\
+\midrule
+$(1,5)$ & 1.83 & 13.7390 & $(1,1)$ & 0.83 \\
+$(1,6)$ & 2.00 & 14.6668 & $(1,1)$ & 1.00 \\
+$(1,7)$ & 2.50 & 16.2938 & $(1,2)$ & 1.33 \\
+$(1,8)$ & 3.17 & 18.7561 & $(2,4)$ & 1.50 \\
+$(1,9)$ & 3.50 & 19.9568 & $(2,4)$ & 1.83 \\
+$(2,4)$ & 1.67 & 12.9290 & $(1,1)$ & 0.67 \\
+$(2,5)$ & 2.00 & 14.2393 & $(1,1)$ & 1.00 \\
+$(2,6)$ & 2.17 & 15.0753 & $(1,2)$ & 1.00 \\
+$(2,7)$ & 2.67 & 16.5787 & $(1,2)$ & 1.50 \\
+$(2,8)$ & 3.34 & 18.9200 & $(2,4)$ & 1.67 \\
+$(2,9)$ & 3.67 & 20.0817 & $(2,4)$ & 2.00 \\
+$(4,4)$ & 2.00 & 13.4703 & $(1,1)$ & 1.00 \\
+$(4,5)$ & 2.33 & 14.6460 & $(1,1)$ & 1.33 \\
+$(4,6)$ & 2.50 & 15.4135 & $(1,2)$ & 1.33 \\
+$(4,7)$ & 3.00 & 16.8207 & $(1,2)$ & 1.83 \\
+$(4,8)$ & 3.67 & 19.0627 & $(2,4)$ & 2.00 \\
+$(4,9)$ & 4.00 & 20.1913 & $(2,4)$ & 2.33 \\
+$(5,5)$ & 2.66 & 15.5700 & $(1,2)$ & 1.49 \\
+$(5,6)$ & 2.83 & 16.2008 & $(1,2)$ & 1.66 \\
+$(5,7)$ & 3.33 & 17.4040 & $(1,4)$ & 1.83 \\
+$(5,8)$ & 4.00 & 19.4201 & $(2,4)$ & 2.33 \\
+$(5,9)$ & 4.33 & 20.4695 & $(2,4)$ & 2.66 \\
+$(6,6)$ & 3.00 & 16.7512 & $(1,2)$ & 1.83 \\
+$(6,7)$ & 3.50 & 17.8275 & $(1,4)$ & 2.00 \\
+$(6,8)$ & 4.17 & 19.6911 & $(2,4)$ & 2.50 \\
+$(6,9)$ & 4.50 & 20.6838 & $(2,4)$ & 2.83 \\
+$(7,7)$ & 4.00 & 18.6893 & $(2,4)$ & 2.33 \\
+$(7,8)$ & 4.67 & 20.2712 & $(2,4)$ & 3.00 \\
+$(7,9)$ & 5.00 & 21.1515 & $(2,4)$ & 3.33 \\
+$(8,8)$ & 5.34 & 21.4283 & $(2,4)$ & 3.67 \\
+$(8,9)$ & 5.67 & 22.1181 & $(2,4)$ & 4.00 \\
+$(9,9)$ & 6.00 & 22.7132 & $(2,4)$ & 4.33 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The complete offline pairing tables for GDMA and soft SIC are listed in Tables~\ref{tab:gdma-offline-pairing} and~\ref{tab:sic-offline-pairing}, respectively.
+For example, if two OMA users have CQI 2 and CQI 9, their OMA sum SE is $0.67+3=3.67$ bit/s/Hz over two resources. Under GDMA detection, their aggregate received SNR is sufficient to select the after-pair state $(5,5)$, whose sum SE is $2.66$ bit/s/Hz over one resource. Thus, the paired users lose $D_{2,9}=1.01$ bit/s/Hz, but one resource is released for another user. Under soft SIC, the same pair is mapped to $(2,4)$, and the loss becomes $D_{2,9}=2.00$ bit/s/Hz. This example illustrates why GDMA is more favorable for CQI-based pairing. 
+
+Although the paired users' sum SE may decrease after pairing, the SE per occupied resource can still increase because two OMA resources are compressed into one shared resource. Therefore, we also evaluate the SE increment per resource. For a before-pair CQI pair $(i,j)$ mapped to the after-pair CQI state $(p,q)$, the OMA average SE per resource is $(\eta_i+\eta_j)/2$, while the shared-resource SE after pairing is $\eta_p+\eta_q$. The per-resource SE increment is defined as
+\begin{equation}
+    G_{\mathrm{RB}}(i,j)
+    =
+    \eta_p+\eta_q-\frac{\eta_i+\eta_j}{2}
+    \label{eq:rb-normalized-se-increment}
+\end{equation}
+The comparison for GDMA and soft SIC will be shown in Fig.~\ref{fig:se-increment-per-resource-gdma-sic}.
+This result shows that GDMA can provide a larger per-resource SE increment than soft SIC in most of CQI pairing cases.
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/Chapter6/SE_increment_per_RB.jpg}
+\caption{SE increment per resource for GDMA and soft SIC.}
+\label{fig:se-increment-per-resource-gdma-sic}
+\end{figure*}
+
+
+\section{System-level pairing operation}
+\label{sec:system-level-pairing}
+
+The system-level simulation starts from $N_0^{\mathrm{user}}=100$ OMA users. Each initial user occupies one resource. Whenever two users are paired on a single resource, one resource is released and can be assigned to a newly admitted user. Figure~\ref{fig:system-operation} illustrates this operation.
+
+\begin{figure}[t]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+    user/.style={
+        shape=ellipse,
+        draw=blue!40!black,
+        line width=1.2pt,
+        fill=blue!70,
+        minimum width=0.55cm,
+        minimum height=1.15cm,
+        text=white,
+        font=\small,
+        inner sep=0pt
+    },
+    pairarrow/.style={
+        -{Latex[length=2.5mm]},
+        line width=1.2pt
+    },
+    orderlabel/.style={
+        circle,
+        draw=black,
+        fill=white,
+        minimum size=0.45cm,
+        inner sep=0pt,
+        font=\scriptsize
+    }
+]
+\foreach \cqi [count=\i] in {1,6,4,1,1,8,1,1,9,5}{
+    \node[user] (u\i) at (\i*0.75,0) {\cqi};
+}
+\draw[pairarrow, blue!40!black] (u5.north) -- ++(0,0.75);
+\draw[pairarrow, blue!40!black] (u9.north) -- ++(0,0.75);
+\node[orderlabel] at ($(u5.north)+(0,1.15)$) {1};
+\draw[pairarrow, red] (u6.north) -- ++(0,0.75);
+\draw[pairarrow, red] (u7.north) -- ++(0,0.75);
+\node[orderlabel] at ($(u6.north)+(0,1.15)$) {2};
+\draw[pairarrow, yellow!80!orange] (u2.north) -- ++(0,0.75);
+\draw[pairarrow, yellow!80!orange] (u8.north) -- ++(0,0.75);
+\node[orderlabel] at ($(u2.north)+(0,1.15)$) {3};
+\draw[pairarrow, green!70!black] (u1.north) -- ++(0,0.75);
+\draw[pairarrow, green!70!black] (u10.north) -- ++(0,0.75);
+\node[orderlabel] at ($(u1.north)+(0,1.15)$) {4};
+\foreach \cqi [count=\i] in {7,1,5,8}{
+    \node[user] (n\i) at (10.0+\i*0.65,0) {\cqi};
+}
+\node[font=\small] at (5.2,-1.45)
+{4 paired $\rightarrow$ release 4 RBs $\rightarrow$ add 4 new users};
+\end{tikzpicture}
+}
+\caption{Illustration of the system operation. Assume that there are initially 10 users with their corresponding CQI values. The pairing order follows the four colored pairings labeled 1--4; each pairing releases one resource. After admitting four new users, the remaining users, together with the newly admitted users, continue to be paired and release resources until no further pairing is possible.}
+\label{fig:system-operation}
+\end{figure}
+
+Let $S_{100}$ denote the total SE of the initial 100 OMA users. If $P$ pairs are formed, each pairing event releases one resource and creates one opportunity for a new user. In Case 1, the CQI of a new user is unknown before admission and is drawn randomly from the considered CQI distribution. Let $A$ be the average SE of a new user. The SE increment after $P$ pairings is defined as
+\begin{equation}
+    G_{\mathrm{SE}}^{(1)}(P)
+    =
+    \frac{
+    \sum_{\xi=1}^{P}
+    \left(A-D_{i_\xi,j_\xi}\right)
+    }
+    {S_{100}}
+    \times 100\%, \qquad P < 100.
+    \label{eq:case1-se-increment}
+\end{equation}
+In Case 2, the system has prior knowledge of the CQI values of the users waiting for admission and the number of waiting users is $N_{\mathrm{new}}$. If the $\xi$th admitted new user has SE $\eta_{\mathrm{new},\xi}$, the SE increment is
+\begin{equation}
+    G_{\mathrm{SE}}^{(2)}(P)
+    =
+    \frac{
+    \sum_{\xi=1}^{P}
+    \left(\eta_{\mathrm{new},\xi}-D_{i_\xi,j_\xi}\right)
+    }
+    {S_{100}}
+    \times 100\%, \qquad P < N_{\mathrm{new}}.
+    \label{eq:case2-se-increment}
+\end{equation}
+The value of $G_{\mathrm{SE}}$ can be negative if the paired users' MCS degradation is larger than the SE contributed by the newly admitted users.
+
+\subsection{Pairing rules}
+\label{subsec:pairing-rules}
+
+Three pairing rules are considered\cite{Chen2015CQI}.
+
+\begin{enumerate}
+    \item \textbf{Rule 1: maximizing the number of served users.} This rule pairs as many users as possible according to the offline pairing table. Users with high CQI values are prioritized to pair with users having low CQI values. The rule is user-count oriented and does not explicitly constrain the SE loss.
+    \item \textbf{Rule 2: maximizing system SE with a threshold.} This rule forms a pair only when the paired users' SE loss satisfies
+    \begin{equation}
+        D_{i,j}\leq T,
+    \end{equation}
+    where $T$ is the predefined loss threshold. In the simulation, $T$ can be chosen according to the expected SE of a newly admitted user $A$, so that only pairings with non-negative expected SE contribution are preferred.
+    \item \textbf{Rule 3: maximizing system SE with known new-user CQI.} This rule is used in Case 2. Since the CQI of each waiting user is known, a pair is formed only when
+    \begin{equation}
+        D_{i,j}\leq \eta_{\mathrm{new}}.
+    \end{equation}
+    Therefore, the released resource is used only when the admitted new user can compensate for the paired users' SE loss.
+\end{enumerate}
+
+The simulation results are averaged over 1000 independent runs. The CQI distributions follow the uniform and nonuniform user-density~\cite{Chen2015CQI}. Two distributions are listed in Table~\ref{tab:cqi-distributions}. The uniform distributed case assumes that the user density is proportional to $1/R^2$, which results in more users located in low-CQI regions. Therefore, this case is also described as the low-CQI-dominant distribution. The nonuniform distributed case assumes that the user density is proportional to $1/R$, which increases the relative probability of users in high-CQI regions. Therefore, this case is also described as the high-CQI-dominant distribution.
+
+\begin{table}[t]
+\centering
+\small
+\caption{CQI distributions used in the system-level simulation.}
+\label{tab:cqi-distributions}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+CQI & SE & \makecell[c]{Uniform distributed \\ (probability)} & \makecell[c]{Nonuniform distributed \\ (probability)} \\ \midrule
+1 & 0.50 & 0.33932 & 0.056713 \\
+2 & 0.67 & 0.15486 & 0.069774 \\
+4 & 1.00 & 0.19393 & 0.079742 \\
+5 & 1.33 & 0.074255 & 0.10155 \\
+6 & 1.50 & 0.085542 & 0.11634 \\
+7 & 2.00 & 0.071143 & 0.14542 \\
+8 & 2.67 & 0.020730 & 0.19934 \\
+9 & 3.00 & 0.060216 & 0.23112 \\ \midrule
+Average & & $A=1.0727$ & $A=1.9809$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Simulation results}
+\label{sec:cqi-simulation-results}
+
+\subsection{Case 1: no upper limit on the number of users}
+
+In Case 1, there is no upper limit on the number of users in the system. Whenever a resource is released, a new user is admitted randomly according to the corresponding CQI distribution. Therefore, the value of a released resource is represented by the average new-user SE $A$.
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.9\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/Chapter6/case_1_subopt_uniform.jpg}
+    \caption{GDMA detection}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.9\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/Chapter6/case_1_subopt_uniform_SIC.jpg}
+    \caption{Soft SIC detection}
+\end{subfigure}
+\caption{Case 1 with the low-CQI-dominant distribution.}
+\label{fig:case1-uniform}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.9\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/Chapter6/case_1_subopt_nonuniform.jpg}
+    \caption{GDMA detection}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.9\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/Chapter6/case_1_subopt_nonuniform_SIC.jpg}
+    \caption{Soft SIC detection}
+\end{subfigure}
+\caption{Case 1 with the high-CQI-dominant distribution.}
+\label{fig:case1-nonuniform}
+\end{figure}
+
+Figures~\ref{fig:case1-uniform} and~\ref{fig:case1-nonuniform} compare GDMA and soft SIC in Case 1 with the low-CQI-dominant and high-CQI-dominant distributions, respectively. Under Rule 1, both receivers can admit the full number of users because the rule attempts to pair users whenever a feasible entry exists in the offline pairing table. However, the SE behavior is receiver dependent. GDMA maintains a positive SE increment because its after-pair MCS states are stronger and the resulting loss $D_{i,j}$ is smaller. Soft SIC can admit users, but many pairings cause a large SE loss and the overall SE increment can become negative, especially when high-CQI users are more frequent.
+
+Rule 2 improves the SE increment by rejecting pairings whose loss exceeds the threshold, leading to a gain-then-collapse behavior. In the moderate-loading region, Rule 2 can yield a higher SE increment than Rule 1 because inefficient pairings are suppressed. Once the remaining feasible pairs all violate the threshold, the scheme stops forming new pairs and the SE increment drops to zero. The cutoff occurs earlier under the high-CQI-dominant distribution, since pairing high-CQI users tends to cause a larger MCS degradation.
+
+It can also be observed that, as the threshold $T$ increases, the SE increment improves slightly and the cutoff occurs later. Although a larger threshold permits more pairings and thus extends the feasible region, it also allows more pairings, which can reduce the SE increment in the moderate-loading region.
+\subsection{Case 2: fixed maximum number of new users}
+
+In Case 2, the maximum number of new users is fixed as $N_{\mathrm{new}}=100$. The system is assumed to know the CQI values of the users waiting for admission. Hence, high-CQI new users can be admitted first, and Rule 3 can compare the actual SE of the new user with the loss of the candidate pair.
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.9\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/Chapter6/case_2_subopt_uniform.jpg}
+    \caption{GDMA detection}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.9\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/Chapter6/case_2_subopt_uniform_SIC.jpg}
+    \caption{Soft SIC detection}
+\end{subfigure}
+\caption{Case 2 with the low-CQI-dominant distribution.}
+\label{fig:case2-uniform}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.9\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/Chapter6/case_2_subopt_nonuniform.jpg}
+    \caption{GDMA detection}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.9\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/Chapter6/case_2_subopt_nonuniform_SIC.jpg}
+    \caption{Soft SIC detection}
+\end{subfigure}
+\caption{Case 2 with the high-CQI-dominant distribution.}
+\label{fig:case2-nonuniform}
+\end{figure}
+
+Figures~\ref{fig:case2-uniform} and~\ref{fig:case2-nonuniform} show the Case 2 results. Since high-CQI new users are admitted first, the released resources have a high immediate value. 
+Rule 3 therefore provides a large SE gain in the moderate-loading region. 
+For the low-CQI-dominant distribution of ~\ref{fig:case2-uniform}, soft SIC reaches about $33\%$ peak SE increment, while GDMA reaches about $45\%$. After the feasible pairing set is exhausted, the SE increment quickly drops to zero. The cutoff occurs at approximately 171 served users for soft SIC and 179 served users for GDMA.
+
+The gap between GDMA and soft SIC is smaller under Rule 3 than under Rule 1. The reason is that Rule 3 admits high-CQI new users first and only accepts pairings with sufficiently small SE loss. For such low-loss pairs, the selected after-pair CQI states of the two receivers are often close. Nevertheless, under heavy loading or under Rule 1, GDMA remains more robust because its offline pairing table contains more effective after-pairing states and smaller SE losses.
+
+\section{Summary}
+\label{sec:cqi-summary}
+
+This chapter develops a practical CQI-based user-pairing analysis for NOMA over OMA. The main idea is to evaluate NOMA pairing at the MCS level instead of relying only on ideal capacity formulas. A CQI-like MCS table is first built from link-level BLER simulation. Then, GDMA and soft SIC MUD tables are constructed using the aggregate received SNR definition in \eqref{eq:aggregate-received-snr}. These MUD tables are used to build offline pairing tables that map OMA before-pair CQI indices to NOMA after-pair CQI states.
+
+The results show that NOMA pairing does not necessarily increase the sum SE of the paired users. The paired users usually suffer an MCS degradation. The practical gain comes from whether the released resource can be reused by a new user whose SE compensates for this loss. GDMA is more favorable than soft SIC because it supports more effective after-pairing states and causes smaller SE losses. Rule 1 maximizes the number of served users but can be SE-unfavorable for weak receivers. Rule 2 and Rule 3 improve the SE increment by suppressing pairings with excessive loss, but they also reduce the number of feasible pairings and can stop being applicable after the efficient pairing set is exhausted.

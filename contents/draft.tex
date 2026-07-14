@@ -104,7 +104,7 @@ The corresponding frequency-domain channel coefficient on subcarrier $q$ is obta
     e^{-\mathrm{j}2\pi qp/N_{\mathrm{FFT}}}.
     \label{eq:ofdm-frequency-response}
 \end{equation}
-Thus, the frequency-selective multipath channel is represented by different channel matrices $\bm{H}_q$ across subcarriers, while each subcarrier can still be processed using the multi-resource NOMA model in equation \eqref{eq:ofdm-subcarrier-model}.
+Thus, the frequency-selective multipath channel is represented by different channel matrices $\bm{H}_q$ across subcarriers, while each subcarrier can still be processed using the multi-resource NOMA model in \eqref{eq:ofdm-subcarrier-model}.
 
 
 \begin{comment}
@@ -254,9 +254,9 @@ The received signal on subcarrier $q$ of OFDM symbol $j$ is then modeled as
     \label{eq:async-ofdm-received}
 \end{equation}
 
-The above model treats asynchronous transmission as a user-dependent effective channel variation. This model is exact when equation \eqref{eq:async-cp-condition} holds. However, when the timing offset and the multipath delay spread exceed the CP margin, part of the delayed signal falls outside the FFT observation window. In this case, the received OFDM symbol can no longer be described only by the phase-rotated channel in equation \eqref{eq:async-phase-rotation}. Additional ISI may appear The multiuser detector may also observe stronger residual MAI due to the mismatch between the assumed frequency-domain model and the actual received signal.
+The above model treats asynchronous transmission as a user-dependent effective channel variation. This model is exact when \eqref{eq:async-cp-condition} holds. However, when the timing offset and the multipath delay spread exceed the CP margin, part of the delayed signal falls outside the FFT observation window. In this case, the received OFDM symbol can no longer be described only by the phase-rotated channel in \eqref{eq:async-phase-rotation}. Additional ISI may appear The multiuser detector may also observe stronger residual MAI due to the mismatch between the assumed frequency-domain model and the actual received signal.
 
-In the asynchronous simulations, the detector still processes the received signal through the effective phase-rotated channel model in equation \eqref{eq:async-effective-channel-matrix}. Therefore, when equation \eqref{eq:async-cp-condition} is violated, this model should be interpreted as a receiver-side approximation. The purpose of the section is to evaluate the robustness of MAP-IDD, MMSE-SIC-IDD, and MMSE-PIC-IDD under user-dependent timing offsets.
+In the asynchronous simulations, the detector still processes the received signal through the effective phase-rotated channel model in \eqref{eq:async-effective-channel-matrix}. Therefore, when \eqref{eq:async-cp-condition} is violated, this model should be interpreted as a receiver-side approximation. The purpose of the section is to evaluate the robustness of MAP-IDD, MMSE-SIC-IDD, and MMSE-PIC-IDD under user-dependent timing offsets.
 
 
 \subsection{Asynchronous Simulation Results}

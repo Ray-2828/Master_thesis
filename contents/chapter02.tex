@@ -36,10 +36,10 @@ The SIC detection order is denoted by
 where $\pi(i)$ is the user detected at stage $i$. For power-based ordering, the order is usually determined such that
     $\rho_{\pi(1)} \geq \rho_{\pi(2)} \geq \cdots \geq \rho_{\pi(U)}$.
 The renumbering of user index is then processed by following the orders.
-For simplicity, we assume the indexes of users in equation \eqref{eq:single_resource_system_model} have been renumbering. 
+For simplicity, we assume the indexes of users in \eqref{eq:single_resource_system_model} have been renumbering. 
 
-At the first SIC stage, the LLR of $x_1$, $L_{x_1}$, is obtained by regarding signals from other users as approximately Gaussian in equation \eqref{eq:single_resource_system_model} and the soft estimate is denoted as $\hat{s}_{1}$.
-At the $(i+1)^{th}$ SIC stage, the LLR of $x_{i+1}$, $L_{x_{i+1}}$, is obtained by a residual signal $y_{(i+1)}$ which is obtained by substracting the contribution of the soft estimate $\hat{s}_{i}$ in the $i^{th}$ stage and regarding signals from other users as Gaussian. Therefore, 
+At the first SIC stage, the LLR of $x_1$, $L_{x_1}$, is obtained by regarding signals from other users as approximately Gaussian in \eqref{eq:single_resource_system_model} and the soft estimate is denoted as $\hat{s}_{1}$.
+At the $(i+1)^{th}$ SIC stage, the LLR of $x_{i+1}$, $L_{x_{i+1}}$, is obtained by a residual signal $y_{(i+1)}$ which is obtained by subtracting the contribution of the soft estimate $\hat{s}_{i}$ in the $i^{th}$ stage and regarding signals from other users as Gaussian. Therefore, 
 \begin{equation}
     y_{(1)} = y,
 \end{equation}
@@ -51,7 +51,7 @@ At the $(i+1)^{th}$ SIC stage, the LLR of $x_{i+1}$, $L_{x_{i+1}}$, is obtained 
     -
     g_{i}\hat{s}_{i}.
 \end{equation}
-For BPSK modulation, the log likelihood ratio (LLR) of user $x_i$ can be approximated as
+For BPSK modulation, the log likelihood ratio (LLR) of user $x_i$ can be simplified as
 \begin{equation}
     \label{eq:LLR}
     L_{x_i}
@@ -64,8 +64,8 @@ For BPSK modulation, the log likelihood ratio (LLR) of user $x_i$ can be approxi
     }
     =
     \frac{
-    4|
-    g_{i}^* y_{(i)}|^2
+    4\Re\{
+    g_{i}^* y_{(i)}\}
     }{
     \sigma_{\mathrm{eff},(i)}^{2}
     }.
@@ -131,8 +131,8 @@ At the receiver, the superimposed signal is first used to calculate the $a$ $pos
     =
     \{s_0,s_1,\ldots,s_{2^{MU}-1}\},
 \end{equation}
-where $M$ is the modulation order and $s_l\in\mathcal{S}$ contributes to the signal part in \eqref{eq:single_resource_system_model}. 
-Take BPSK modulation ($M=1$) as example, the superimposed signal 
+where $M$ is the number of coded bits per modulation symbol and $s_l\in\mathcal{S}$ contributes to the signal part in \eqref{eq:single_resource_system_model}. 
+Take BPSK modulation ($M=1$) as an example, the superimposed signal 
 \begin{equation}
   \begin{split}
     s_l &= (-1)^{l_2[1]} \cdot \sqrt{\beta_1}h_1 + (-1)^{l_2[2]} \cdot \sqrt{\beta_2}h_2 + \cdots + (-1)^{l_2[U]} \cdot \sqrt{\beta_U}h_U \\
@@ -160,11 +160,11 @@ while
 \begin{equation}
     P(y|s_l) = \frac{1}{2\pi\sigma^2}\exp\left(-\frac{|y-s_l|^2}{2\sigma^2}\right).
 \end{equation}
-Assume the signals in $\mathcal{S}$ are equally propable, the APPs can be written as
+Assuming the signals in $\mathcal{S}$ are equally probable, the APPs can be written as
 \begin{equation}
     P(s_l|y)  \propto\exp\left(-\frac{|y-s_l|^2}{2\sigma^2}\right).
 \end{equation}
-The log-likely ratio (LLR) of user $k$ is then calculated by
+The log-likelihood ratio (LLR) of user $k$ is then calculated by
 \begin{equation}
     L_{x_k} =
     \log
@@ -179,13 +179,13 @@ The log-likely ratio (LLR) of user $k$ is then calculated by
 
 \section{Simulations of PD NOMA with soft SIC and GDMA}
 The single-resource simulations use BPSK modulation for each user over independent Rayleigh flat-fading channels. 
-Figure~\ref{fig:single resource BER of (1,1)}, 
-~\ref{fig:single resource BER of (1,0.1)} and 
-~\ref{fig:single resource BER of (1,0.01)} show the BER performance of two users with different large-scale fading coefficients $(\beta_1, \beta_2)$.
+Figure~\ref{fig:single-resource-ber-1-1}, 
+~\ref{fig:single-resource-ber-1-0-1} and 
+~\ref{fig:single-resource-ber-1-0-01} show the BER performance of two users with different large-scale fading coefficients $(\beta_1, \beta_2)$.
 As the large-scale fading gap becomes larger, the soft SIC detection converges toward the performance of the GDMA detection, indicating that the received-power disparity provides a clearer detection order and reduces the ambiguity of early cancellation stages. However, it comes at the severe cost of user fairness\cite{ding2015impact}.
 
 
-Figure~\ref{fig:single resource BER of (1,0.1,0.01)} shows the BER performance of three users with large-scale fading coefficients $(\beta_1, \beta_2, \beta_3)=(1,0.1,0.01)$.
+Figure~\ref{fig:single-resource-ber-1-0-1-0-01} shows the BER performance of three users with large-scale fading coefficients $(\beta_1, \beta_2, \beta_3)=(1,0.1,0.01)$.
 The three-user result further clarifies the limitation of soft SIC detection. As the number of users increases, soft SIC becomes more susceptible to error propagation because each cancellation stage depends on the reliability of the previous soft estimates. In contrast, GDMA evaluates superimposed signal constellation and can therefore maintain favorable BER performance as the number of users increases\cite{lin2023uplink, Lin2024RandomAccess}. This performance advantage comes with an exponential growth cost with $U$.
 
 
@@ -193,25 +193,25 @@ The three-user result further clarifies the limitation of soft SIC detection. As
     \centering{
     \includegraphics[width=0.9\linewidth]{figures/Chapter2/single_resource_beta1.jpg}}
     \caption{Users' BERs for single resource systems of $(\beta_1,\beta_2) = (1,1)$.}
-    \label{fig:single resource BER of (1,1)}
+    \label{fig:single-resource-ber-1-1}
 \end{figure}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/Chapter2/single_resource_beta0.1.jpg}
     \caption{Users' BERs for single resource systems of $(\beta_1,\beta_2) = (1,0.1)$.}
-    \label{fig:single resource BER of (1,0.1)}
+    \label{fig:single-resource-ber-1-0-1}
 \end{figure}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/Chapter2/single_resource_beta0.01.jpg}
     \caption{Users' BERs for single resource systems of $(\beta_1,\beta_2) = (1,0.01)$.}
-    \label{fig:single resource BER of (1,0.01)}
+    \label{fig:single-resource-ber-1-0-01}
 \end{figure}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/Chapter2/single_resource_beta0.1_U3.jpg}
     \caption{Users' BERs for single resource systems of $(\beta_1,\beta_2,\beta_3) = (1,0.1,0,01)$.}
-    \label{fig:single resource BER of (1,0.1,0.01)}
+    \label{fig:single-resource-ber-1-0-1-0-01}
 \end{figure}
 
 

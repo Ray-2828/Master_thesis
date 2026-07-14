@@ -7,17 +7,17 @@
 \ntusetup{
   university*   = {National Taiwan University},
   university    = {國立臺灣大學},
-  college       = {工學院},
-  college*      = {College of Engineering},
-  institute     = {工業工程學研究所},
-  institute*    = {Institute of Industrial Engineering},
+  college       = {電機資訊學院},
+  college*      = {Electrical Engineering and Computer Science},
+  institute     = {電信工程學研究所},
+  institute*    = {Graduate Institute of Communication Engineering College},
   title         = {國立臺灣大學碩博士畢業論文模版},
   title*        = {National Taiwan University (NTU) \\ Thesis/Dissertation Template in \LaTeX},
   author        = {洪睿帆},
-  author*       = {Hung Jui-Fan},
-  ID            = {R05546030},
+  author*       = {Jui-Fan Hung},
+  ID            = {R13942124},
   advisor       = {林茂昭, 李世凱},
-  advisor*      = {},
+  advisor*      = {Mao-Chao Lin, Shih-Kai Lee},
   date          = {2020-05-01},         % 若註解掉，則預設為當天
   oral-date     = {2020-05-01},         % 若註解掉，則預設為當天
   DOI           = {10.5566/NTU2018XXXXX},
@@ -29,7 +29,7 @@
 % 加載套件（Include Packages）
 % --------------------------------------------------
 
-\usepackage[sort&compress]{natbib}      % 參考文獻
+\usepackage[numbers,sort&compress]{natbib}      % 參考文獻
 \usepackage{amsmath, amsthm, amssymb}   % 數學環境
 \usepackage{amssymb, amsfonts, bm}
 
@@ -53,6 +53,11 @@
 \usepackage{paralist}                   % 列表環境
 
 
+\usetikzlibrary{arrows.meta, shapes.geometric, calc}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage{nicematrix}
+\usepackage{makecell}
 
 \usepackage{lipsum}                     % 英文亂字
 \usepackage{zhlipsum}                   % 中文亂字
