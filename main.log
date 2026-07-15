@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.6.23)  15 JUL 2026 17:17
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.6.23)  15 JUL 2026 17:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1958,6 +1958,15 @@ Underfull \vbox (badness 2103) has occurred while \output is active []
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [5]
+Overfull \hbox (6.20879pt too wide) in paragraph at lines 185--187
+[]\TU/TimesNewRoman(0)/m/n/12 Figure [][]2.4[][] shows the BER performance of t
+hree users with $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^L[]; ^^L[]; ^^L[]\OT1/cmr/
+m/n/12 ) = (1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n
+/12 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 01)$
+\TU/TimesNewRoman(0)/m/n/12 .
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)

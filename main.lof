@@ -3,7 +3,7 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Users' BERs for single resource systems of $(\beta _1,\beta _2) = (1,1)$.}}{7}{figure.caption.10}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Users' BERs for single resource systems of $(\beta _1,\beta _2) = (1,0.1)$.}}{8}{figure.caption.11}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Users' BERs for single resource systems of $(\beta _1,\beta _2) = (1,0.01)$.}}{8}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Users' BERs for single resource systems of $(\beta _1,\beta _2,\beta _3) = (1,0.1,0,01)$.}}{9}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Users' BERs for single resource systems of $(\beta _1,\beta _2,\beta _3) = (1,0.1,0.01)$.}}{9}{figure.caption.13}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Multi-resource system. BER of MMSE-SIC and HDS-CDMA with ML detection with $R=2$, $U=3$ and $(\beta _1, \beta _2, \beta _3) = (1,0.1,0.01)$.}}{16}{figure.caption.14}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Multi-resource system. BER of MMSE-SIC and HDS-CDMA with ML detection with $R=2$, $U=3$ and $(\beta _1, \beta _2, \beta _3) = (1,1,1)$.}}{16}{figure.caption.15}%
