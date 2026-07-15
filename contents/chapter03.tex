@@ -41,15 +41,15 @@ where the large-scale fading and transmit-power factors are absorbed into each $
 
 We employ MMSE-SIC detection for \eqref{eq:multi resource model}. The resulting filter structure is similar to those widely used in multi-antenna systems~\cite{endo2012uplink,li2013advanced} and pattern division multiple access (PDMA) receivers~\cite{kong2016multiuser}. 
 In multi-antenna reception, user separation mainly comes from spatial observations, while in PDMA it is further assisted by user-specific pattern mapping across resources. 
-In contrast, the considered multi-resource PD-NOMA system does not adopt sparse signatures or pattern design\cite{mohammadkarimi2018signature}; instead, it relies on the channel vectors across shared resources to improve user separation reliability and overall performance. 
+In contrast, the considered multi-resource PD-NOMA system does not adopt sparse signatures or pattern design~\cite{mohammadkarimi2018signature}; instead, it relies on the channel vectors across shared resources to improve user separation reliability and overall performance. 
 %Hence, our formulation should be interpreted as a resource-domain extension of PD-NOMA.
 
 
 \section{MMSE-SIC Detection}
-The MMSE-SIC receiver provides a low-complexity alternative to joint ML/MAP detection \cite{zanella2005mmse} by applying a linear MMSE filter and successively detecting and cancelling users.
+The MMSE-SIC receiver provides a low-complexity alternative to joint ML/MAP detection ~\cite{zanella2005mmse} by applying a linear MMSE filter and successively detecting and cancelling users.
 The main quantities needed after filtering are the desired effective channel gain, the residual interference-plus-noise variance, the LLR, and the soft estimate used for cancellation.
 For the multi-resource model of \eqref{eq:multi resource model}, 
-consider user $k$ be detected. The MMSE filter is designed by following \cite[Eqs. (6), (7)]{kong2016multiuser} with the coefficient
+consider user $k$ be detected. The MMSE filter is designed by following ~\cite[Eqs. (6), (7)]{kong2016multiuser} with the coefficient
 \begin{equation}
 \label{eq:coefficient}
     \bm{w}_k^H
@@ -89,7 +89,7 @@ and the effective residual interference-plus-noise variance:
 
 \subsection{Detection Ordering}
 \label{sec:MMSE SIC detection order}
-To determine  successive detection orders in the SIC process, two ordering strategies are considered. The first is post-SINR ordering \cite{li2013advanced}. The post-filtering SINR of user \(k\) is
+To determine  successive detection orders in the SIC process, two ordering strategies are considered. The first is post-SINR ordering ~\cite{li2013advanced}. The post-filtering SINR of user \(k\) is
 \begin{equation}
     \gamma^{\mathrm{post}}_k
     =
@@ -149,7 +149,7 @@ The process then goes back to re-calculate the coefficient $\bm{w}_{i+1}^H$ by u
     +
     2\sigma^2 \|\bm{w}_{i}^H \|^2.
 \end{equation}
-For a general modulation alphabet $\mathcal{S}$, the LLR of the $q$th bit\cite{shapiro2005soft} is calculated by
+For a general modulation alphabet $\mathcal{S}$, the LLR of the $q$th bit~\cite{shapiro2005soft} is calculated by
 \begin{equation}
     L_{x_i,q}
     =
@@ -162,7 +162,7 @@ For a general modulation alphabet $\mathcal{S}$, the LLR of the $q$th bit\cite{s
     \label{eq:mmse-sic-general-llr}
 \end{equation}
 where $\mathcal{S}_{q,+}$ and $\mathcal{S}_{q,-}$ are the subsets of constellation symbols whose $q$th bit is mapped to $+1$ and $-1$, respectively. 
-The corresponding soft estimate \cite{shapiro2005soft}
+The corresponding soft estimate ~\cite{shapiro2005soft}
 \begin{equation}
     \hat{s}_i
     =
@@ -283,7 +283,7 @@ If $\hat{s}_i$ is unreliable, the subtraction leaves a residual of cancellation 
 
 \section{Uncoded Simulation Results}
 
-The main uncoded multi-resource setting uses BPSK transmission, $R=2$ resources, $U=3$ users, independent Rayleigh flat fading, and perfect CSI are assumed. The MMSE-SIC detector is compared with HDS-CDMA with ML detection\cite{lin2023gdma}. We consider two large-scale fading cases: $(\beta_1,\beta_2,\beta_3)=(1,0.1,0.01)$ and $(\beta_1,\beta_2,\beta_3)=(1,1,1).$
+The main uncoded multi-resource setting uses BPSK transmission, $R=2$ resources, $U=3$ users, independent Rayleigh flat fading, and perfect CSI are assumed. The MMSE-SIC detector is compared with HDS-CDMA with ML detection ~\cite{lin2023gdma}. We consider two large-scale fading cases: $(\beta_1,\beta_2,\beta_3)=(1,0.1,0.01)$ and $(\beta_1,\beta_2,\beta_3)=(1,1,1).$
 $\bar{E}_b$ in the simulations represent the average transmit energy per bit per user, normalized by the number of resources.
 
 

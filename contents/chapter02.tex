@@ -2,7 +2,7 @@
 
 \chapter{Single resource systems}
 \label{ch:single-resource}
-This chapter studies uplink NOMA with single resource system, where PD-NOMA with soft SIC and GDMA\cite{hsu2019gain} are discussed. 
+This chapter studies uplink NOMA with single resource system, where PD-NOMA with soft SIC and GDMA ~\cite{hsu2019gain} are discussed. 
 We assume that the channel state information (CSI) is perfectly known at the receiver. The performance of these two detection schemes is evaluated in terms of bit error rate (BER) under different large scale fading coefficients.
 \begin{comment}
 Last, we clarify the performance gap between GDMA detection and soft SIC detection under different large scale fading coefficients.
@@ -33,10 +33,10 @@ The SIC detection order is denoted by
 \begin{equation}
     \pi=\{\pi(1),\pi(2),\ldots,\pi(U)\},
 \end{equation}
-where $\pi(i)$ is the user detected at stage $i$. For power-based ordering, the order is usually determined such that
+where $\pi(i)$ is the user detected at stage $i$. For received power-based ordering, this order is usually determined such that
     $\rho_{\pi(1)} \geq \rho_{\pi(2)} \geq \cdots \geq \rho_{\pi(U)}$.
-The renumbering of user index is then processed by following the orders.
-For simplicity, we assume the indexes of users in \eqref{eq:single_resource_system_model} have been renumbering. 
+The user indices are then relabeled according to this order.
+For simplicity, we assume the user indices in \eqref{eq:single_resource_system_model} have been renumbered, so that the $i^{th}$ SIC stage detects the LLR of user $i$, denoted $L_{x_i}$.
 
 At the first SIC stage, the LLR of $x_1$, $L_{x_1}$, is obtained by regarding signals from other users as approximately Gaussian in \eqref{eq:single_resource_system_model} and the soft estimate is denoted as $\hat{s}_{1}$.
 At the $(i+1)^{th}$ SIC stage, the LLR of $x_{i+1}$, $L_{x_{i+1}}$, is obtained by a residual signal $y_{(i+1)}$ which is obtained by subtracting the contribution of the soft estimate $\hat{s}_{i}$ in the $i^{th}$ stage and regarding signals from other users as Gaussian. Therefore, 
@@ -51,7 +51,7 @@ At the $(i+1)^{th}$ SIC stage, the LLR of $x_{i+1}$, $L_{x_{i+1}}$, is obtained 
     -
     g_{i}\hat{s}_{i}.
 \end{equation}
-For BPSK modulation, the log likelihood ratio (LLR) of user $x_i$ can be simplified as
+For BPSK modulation, the log likelihood ratio (LLR) of user $i$ can be simplified as
 \begin{equation}
     \label{eq:LLR}
     L_{x_i}
@@ -100,6 +100,7 @@ Therefore, the effective noise variance is
     \sum_{j=1}^{i-1}
     \sigma^2_{\hat{s}_{j}}.
 \end{equation}
+The first term is the noise variance, the second term is the interference from undetected users, and the third term is the uncertain residual interference from previously detected users.
 This procedure is repeated until all users are detected.
 
 \section{Detection principle for GDMA}
@@ -109,8 +110,9 @@ In GDMA, users are distinguished by their distinct channel gains. Unlike PD-NOMA
 
 \begin{table}[htbp]
         \centering
-        \renewcommand{\arraystretch}{1.5} % 增加每一列的高度
-        \setlength{\tabcolsep}{10pt}      % 增加欄位左右間距
+        \caption{Mapping rules for superimposed signal in the case of $M = 1$ and $U = 2$}
+        \renewcommand{\arraystretch}{1.5} % 增�?每�??��?高度
+        \setlength{\tabcolsep}{10pt}      % 增�?欄�?左右?��?
         \resizebox{1.15\width}{!}{
       \begin{tabular}{|c|c|c|c|c|c|}
         \hline
@@ -121,17 +123,17 @@ In GDMA, users are distinguished by their distinct channel gains. Unlike PD-NOMA
         3 & -1 & -1 & $-\sqrt{\beta_1}h_1 - \sqrt{\beta_2}h_2$ \\ \hline
       \end{tabular}
       }
-      \caption{Mapping rules for superimposed signal in the case of $m = 1$ and $U = 2$}
+      
       \label{table:superimposed-bpsk-u2}
 \end{table}
 
-At the receiver, the superimposed signal is first used to calculate the $a$ $posteriori$ probabilities (APPs) of all possible combinations of multiuser symbols, and then the LLR of each user is then obtained accordingly\cite{hsu2019gain}. There are $2^{MU}$ possible superimposed signal levels, denoted by the set
+At the receiver, the superimposed signal is first used to calculate the $a$ $posteriori$ probabilities (APPs) of all possible combinations of multiuser symbols, and then the LLR of each user is then obtained accordingly ~\cite{hsu2019gain}. There are $2^{MU}$ possible superimposed signal levels, denoted by the set
 \begin{equation}
     \mathcal{S}
     =
     \{s_0,s_1,\ldots,s_{2^{MU}-1}\},
 \end{equation}
-where $M$ is the number of coded bits per modulation symbol and $s_l\in\mathcal{S}$ contributes to the signal part in \eqref{eq:single_resource_system_model}. 
+where $M$ is the number of coded bits per modulation symbol for each user and $s_l\in\mathcal{S}$ contributes to the signal part in \eqref{eq:single_resource_system_model}. 
 Take BPSK modulation ($M=1$) as an example, the superimposed signal 
 \begin{equation}
   \begin{split}
@@ -154,11 +156,7 @@ The superimposed signal levels $s_l$ for the case $U=2$ are listed in Table~\ref
 
 The receiver computes the $a$ $posteriori$ probabilities (APPs) of each possible superimposed signal $s_l\in\mathcal{S}$ by
 \begin{equation}
-    P(s_l|y) = P(y|s_l) \cdot \frac{P(s=s_l)}{P(y)}, 
-\end{equation}
-while 
-\begin{equation}
-    P(y|s_l) = \frac{1}{2\pi\sigma^2}\exp\left(-\frac{|y-s_l|^2}{2\sigma^2}\right).
+    P(s_l|y) = P(y|s_l) \cdot \frac{P(s=s_l)}{P(y)}. 
 \end{equation}
 Assuming the signals in $\mathcal{S}$ are equally probable, the APPs can be written as
 \begin{equation}
@@ -182,11 +180,11 @@ The single-resource simulations use BPSK modulation for each user over independe
 Figure~\ref{fig:single-resource-ber-1-1}, 
 ~\ref{fig:single-resource-ber-1-0-1} and 
 ~\ref{fig:single-resource-ber-1-0-01} show the BER performance of two users with different large-scale fading coefficients $(\beta_1, \beta_2)$.
-As the large-scale fading gap becomes larger, the soft SIC detection converges toward the performance of the GDMA detection, indicating that the received-power disparity provides a clearer detection order and reduces the ambiguity of early cancellation stages. However, it comes at the severe cost of user fairness\cite{ding2015impact}.
+As the large-scale fading gap becomes larger, the soft SIC detection converges toward the performance of the GDMA detection, indicating that the received-power disparity provides a clearer detection order and reduces the ambiguity of early cancellation stages. However, it comes at the severe cost of user fairness ~\cite{ding2015impact}.
 
 
 Figure~\ref{fig:single-resource-ber-1-0-1-0-01} shows the BER performance of three users with large-scale fading coefficients $(\beta_1, \beta_2, \beta_3)=(1,0.1,0.01)$.
-The three-user result further clarifies the limitation of soft SIC detection. As the number of users increases, soft SIC becomes more susceptible to error propagation because each cancellation stage depends on the reliability of the previous soft estimates. In contrast, GDMA evaluates superimposed signal constellation and can therefore maintain favorable BER performance as the number of users increases\cite{lin2023uplink, Lin2024RandomAccess}. This performance advantage comes with an exponential growth cost with $U$.
+The three-user result further clarifies the limitation of soft SIC detection. As the number of users increases, soft SIC becomes more susceptible to error propagation because each cancellation stage depends on the reliability of the previous soft estimates. In contrast, GDMA evaluates superimposed signal constellation and can therefore maintain favorable BER performance as the number of users increases ~\cite{lin2023uplink, Lin2024RandomAccess}. This performance advantage comes with an exponential growth cost with $U$.
 
 
 \begin{figure}[htbp]

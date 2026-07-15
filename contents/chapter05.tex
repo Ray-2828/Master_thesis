@@ -13,8 +13,8 @@ The analysis is conducted from an MCS-level viewpoint. First, a channel quality 
 \section{CQI-like MCS table}
 \label{sec:cqi-mcs-table}
 
-CQI is commonly used as a channel-quality feedback indicator for link adaptation\cite{gutierrez2020joint}. A higher CQI corresponds to a better channel condition and allows the system to select a higher MCS.
-In this work, we follow this CQI-based link-adaptation concept and construct a CQI-like table from the considered link-level simulation under the specified conditions. This is necessary because the channel model, channel code, and MUD receiver we considered differ from those of a standardized link-adaptation table\cite{etsi_ts_138_214_v18_2_0}.
+CQI is commonly used as a channel-quality feedback indicator for link adaptation~\cite{gutierrez2020joint}. A higher CQI corresponds to a better channel condition and allows the system to select a higher MCS.
+In this work, we follow this CQI-based link-adaptation concept and construct a CQI-like table from the considered link-level simulation under the specified conditions. This is necessary because the channel model, channel code, and MUD receiver we considered differ from those of a standardized link-adaptation table~\cite{etsi_ts_138_214_v18_2_0}.
 
 The single-user received signal is modeled as
 \begin{equation}
@@ -411,7 +411,7 @@ The value of $G_{\mathrm{SE}}$ can be negative if the paired users' MCS degradat
 \subsection{Pairing rules}
 \label{subsec:pairing-rules}
 
-Three pairing rules are considered\cite{Chen2015CQI}.
+Three pairing rules are considered~\cite{Chen2015CQI}.
 
 \begin{enumerate}
     \item \textbf{Rule 1: maximizing the number of served users.} This rule pairs as many users as possible according to the offline pairing table. Users with high CQI values are prioritized to pair with users having low CQI values. The rule is user-count oriented and does not explicitly constrain the SE loss.

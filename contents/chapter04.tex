@@ -10,7 +10,7 @@ This chapter develops MMSE-SIC-IDD and compares it with MMSE-PIC-IDD and MAP-IDD
 \end{comment}
 
 \section{Introduction of IDD structure}
-For coded systems, the detector is typically embedded in an iterative detection and decoding (IDD) receiver. In this structure, soft information is exchanged between the detector and the FEC decoder \cite{uchoa2015iterative,studer2011asic,li2024low}. The detector produces bit-level LLRs for the coded bits, while the decoder uses the code constraints to refine the reliability information and returns updated soft information to the detector, which is the a priori information of next detector calculation. 
+For coded systems, the detector is typically embedded in an iterative detection and decoding (IDD) receiver. In this structure, soft information is exchanged between the detector and the FEC decoder ~\cite{uchoa2015iterative,studer2011asic,li2024low}. The detector produces bit-level LLRs for the coded bits, while the decoder uses the code constraints to refine the reliability information and returns updated soft information to the detector, which is the a priori information of next detector calculation. 
 In our simulations, the IDD receiver is implemented with a maximum number of iterations $t_{\max}$, and the final decoder output is used to make hard decisions on the transmitted bits. 
 
 \begin{figure}
@@ -86,7 +86,7 @@ The corresponding bit probability is
     \qquad b\in\{0,1\}.
     \label{eq:bit-prior-from-llr}
 \end{equation}
-Assuming the interleaved coded bits are represented by independent bit priors at the demapper input, the a priori symbol probability is the product of its corresponding a priori bit probability\cite{tuchler2002minimum}, which is written as
+Assuming the interleaved coded bits are represented by independent bit priors at the demapper input, the a priori symbol probability is the product of its corresponding a priori bit probability~\cite{tuchler2002minimum}, which is written as
 \begin{equation}
     P^{a,(t)}_{i,\ell}(s)
     =
@@ -94,7 +94,7 @@ Assuming the interleaved coded bits are represented by independent bit priors at
     P^{a,(t)}(b_{i,\ell,m}=b_{i,m}(s)).
     \label{eq:symbol-prior-from-bit-priors}
 \end{equation}
-The soft symbol mean used for a priori update before detection is calculated according to the a priori symbol probability\cite{shapiro2005soft}, that is, 
+The soft symbol mean used for a priori update before detection is calculated according to the a priori symbol probability~\cite{shapiro2005soft}, that is, 
 \begin{equation}
     \mu^{(t)}_{i,\ell}
     =
@@ -155,7 +155,7 @@ Conversely, when decoder feedback is uncertain, the variance remains large, allo
 
 \subsection{Variance-Aware MMSE Filtering}
 \label{sec:Variance-Aware MMSE Filtering}
-When all users' extrinsic information from the FEC decoder has been asynchronously collected, the variance-aware MMSE filter of user $k$ \cite[Eqs. (6), (7)]{studer2011asic} for next a priori based iteration is computed as
+When all users' extrinsic information from the FEC decoder has been asynchronously collected, the variance-aware MMSE filter of user $k$ ~\cite[Eqs. (6), (7)]{studer2011asic} for next a priori based iteration is computed as
 \begin{equation}
     \label{eq:variance-aware-mmse}
     \tilde{\bm{w}}^H_k
@@ -261,7 +261,7 @@ Define the set $\mathcal{S}_{i,m,b}$ is the subset of constellation symbols of u
 After MMSE filtering and decoder-aided cancellation, the LLR of detector output is computed from $z_i^{(t)}$, the scalar gain $a_i^{(t)}$, the effective variance $\sigma_{i,\mathrm{eff}}^{2~(t)}$ and the a priori LLRs in \eqref{eq:a priori LLR}. 
 The a priori symbol probability is given by \eqref{eq:symbol-prior-from-bit-priors}, where the bit probabilities are obtained from $L^{a,(t)}_{c_i,\ell,m}$ by the LLR-to-probability rule in \eqref{eq:bit-prior-from-llr}.
 The subscript $\ell$ and superscript $(t)$ are omitted in the following scalar detection equations and LLR expressions respectively for compactness.
-The detector produces an extrinsic bit-level LLR for the $m^{th}$ bit of user $i$, $L_{c_{i},m}$ \cite{tuchler2002minimum} by using the a priori information of the other bits in the same modulation symbol, but not the a priori information of the target bit itself:
+The detector produces an extrinsic bit-level LLR for the $m^{th}$ bit of user $i$, $L_{c_{i},m}$ ~\cite{tuchler2002minimum} by using the a priori information of the other bits in the same modulation symbol, but not the a priori information of the target bit itself:
 \begin{equation}
     L_{c_{i},m}
     =
@@ -347,7 +347,7 @@ The block diagram of the MMSE-SIC-IDD receiver is shown in figure~\ref{fig:mmse-
 
 \section{MMSE-PIC-IDD}
 In this section, we introduce the MMSE-PIC-IDD receiver, which is a parallel interference cancellation (PIC) receiver that also exchanges soft information with the FEC decoder.
-Compared to the successive interference cancellation (SIC), PIC cancels all other users in parallel instead of successively decoding one user at a time \cite{studer2011asic}. For user $k$, the residual vector is calculated by subtracting all other users:
+Compared to the successive interference cancellation (SIC), PIC cancels all other users in parallel instead of successively decoding one user at a time ~\cite{studer2011asic}. For user $k$, the residual vector is calculated by subtracting all other users:
 \begin{equation}
     \bm{y}^{(t)}_{k,\ell}
     =
@@ -600,10 +600,10 @@ MMSE-PIC-IDD has the advantage of parallel processing and lower receiver latency
 
 This section extends the coded multi-resource receiver to an Orthogonal Frequency-Division Multiplexing (OFDM) system. Since practical broadband channels are frequency selective, OFDM is introduced to convert the multi-path channel into parallel frequency-domain observations. Furthermore, the high spectral efficiency of OFDM, together with its resilience to channel distortions, has led to its widespread adoption in practical systems such as LTE, Wi-Fi, and digital broadcasting standards.
 
-We first evaluate the BLER performance of the synchronous OFDM system with different receivers discussed in above. However, perfect synchronous transmission is impractical especially for uplink transmissions, where users may arrive at the base station with different timing offsets \cite{haci2017performance}. Therefore, this section further extends the study to asynchronous uplink transmission and examines the robustness of these receivers under user-dependent timing offsets.
+We first evaluate the BLER performance of the synchronous OFDM system with different receivers discussed in above. However, perfect synchronous transmission is impractical especially for uplink transmissions, where users may arrive at the base station with different timing offsets ~\cite{haci2017performance}. Therefore, this section further extends the study to asynchronous uplink transmission and examines the robustness of these receivers under user-dependent timing offsets.
 
 \subsection{Coded OFDM Multi-Resource Signal Model}
-Related coded NOMA OFDM systems have been studied for robust multiuser transmission to enhance data rate\cite{li2013advanced, saraereh2019efficient, lin2024slotted}.
+Related coded NOMA OFDM systems have been studied for robust multiuser transmission to enhance data rate~\cite{li2013advanced, saraereh2019efficient, lin2024slotted}.
 Practical uplink systems often employ OFDM to handle frequency-selective fading and multipath interference. 
 Consider a coded OFDM system with $N_{\mathrm{FFT}}$ subcarriers and cyclic prefix length $N_{\mathrm{CP}}$. Let $N_c$ denote the coded block length and $M$ denote the number of coded bits per modulation symbol. Each coded block occupies
 \begin{equation}
@@ -627,7 +627,7 @@ $\bm{x}_{q,j}\in\mathbb{C}^{U\times 1}$ is the transmitted symbol vector of $U$ 
 and $\bm{n}_{q,j}\in\mathbb{C}^{R\times 1}$ denotes complex AWGN. For each subcarrier, the OFDM system follows the same multi-resource vector model as \eqref{eq:multi resource model}.
 
 \subsection{MMSE-SIC-IDD for OFDM system}
-In practical wireless systems, the coded-OFDM is commonly implemented where the LLRs on subcarriers are calculated and then sent to the decoder in a block manner\cite{csahin2024ofdm}. Therefore, we calculate the post-SINR(or the received-power metric) of each subcarrier $q$ of user $k$ and decide a detection order of whole coded block. 
+In practical wireless systems, the coded-OFDM is commonly implemented where the LLRs on subcarriers are calculated and then sent to the decoder in a block manner~\cite{csahin2024ofdm}. Therefore, we calculate the post-SINR(or the received-power metric) of each subcarrier $q$ of user $k$ and decide a detection order of whole coded block. 
 The detection can be determined from an average reliability metric:
 \begin{equation}
     \bar{\Gamma}_{k}
@@ -728,13 +728,13 @@ These synchronous results serve as the baseline for the asynchronous OFDM study 
 \subsection{Asynchronous OFDM NOMA system}
 \label{sec:asyn}
 
-This section extends the coded OFDM NOMA system to asynchronous uplink transmission. In practical uplink transmissions, users may arrive at the BS with different timing offsets because of propagation delay, dynamic mobile environments, or limited timing-advance precision \cite{lin2023uplink,haci2017performance,abeywickrama2017over}. If the sum of the timing offset and the maximum channel delay spread remains within the cyclic prefix (CP), the OFDM subcarriers remain orthogonal and the timing offset only introduces a phase rotation in each subcarrier symbol \cite{minn2003robust}. Therefore, a timing offset within the CP can be represented as a subcarrier-dependent phase rotation, but the multiuser detector observes different effective channel responses for different users.
+This section extends the coded OFDM NOMA system to asynchronous uplink transmission. In practical uplink transmissions, users may arrive at the BS with different timing offsets because of propagation delay, dynamic mobile environments, or limited timing-advance precision ~\cite{lin2023uplink,haci2017performance,abeywickrama2017over}. If the sum of the timing offset and the maximum channel delay spread remains within the cyclic prefix (CP), the OFDM subcarriers remain orthogonal and the timing offset only introduces a phase rotation in each subcarrier symbol ~\cite{minn2003robust}. Therefore, a timing offset within the CP can be represented as a subcarrier-dependent phase rotation, but the multiuser detector observes different effective channel responses for different users.
 
-In most related studies, timing offset is treated as an impairment and the receiver attempts to estimate, compensate, or cancel it \cite{lin2023uplink,haci2017performance,minn2003robust}. In contrast, timing offset can also be intentionally introduced into NOMA to decrease IUI and enhance performance \cite{li2023transceiver}. In this section, we evaluate the tolerance of the considered receivers when timing offsets exist in the received signals.
+In most related studies, timing offset is treated as an impairment and the receiver attempts to estimate, compensate, or cancel it ~\cite{lin2023uplink,haci2017performance,minn2003robust}. In contrast, timing offset can also be intentionally introduced into NOMA to decrease IUI and enhance performance ~\cite{li2023transceiver}. In this section, we evaluate the tolerance of the considered receivers when timing offsets exist in the received signals.
 
 \subsubsection{Asynchronous Signal Model}
 
-For a NOMA system, different users may arrive at the BS with different timing offsets. Therefore, the effective channel observed by the multiuser detector is changed, and additional  multiple-access interference (MAI) or inter-symbol interference  (ISI) may appear depending on the receiver alignment and the CP margin. \cite{lin2023uplink}. Let $\tau_k$ denote the timing offset of user $k$ and set user 1 as the receiver timing reference, i.e., $\tau_1=0$. The relative timing offset of user $k$ is defined as
+For a NOMA system, different users may arrive at the BS with different timing offsets. Therefore, the effective channel observed by the multiuser detector is changed, and additional  multiple-access interference (MAI) or inter-symbol interference  (ISI) may appear depending on the receiver alignment and the CP margin. ~\cite{lin2023uplink}. Let $\tau_k$ denote the timing offset of user $k$ and set user 1 as the receiver timing reference, i.e., $\tau_1=0$. The relative timing offset of user $k$ is defined as
 \begin{equation}
     \Delta_k
     =
@@ -742,7 +742,7 @@ For a NOMA system, different users may arrive at the BS with different timing of
     \label{eq:async-relative-delay}
 \end{equation}
 
-For a multi-path OFDM channel, the timing offset can be represented only as a subcarrier-dependent phase rotation when the delayed channel impulse response is still fully contained within the CP \cite{minn2003robust}. Let $\tau_{\max}$ denote the maximum channel delay spread. In the five-tap channel model considered in this chapter, $\tau_{\max}=4$. Therefore, the sufficient condition for preserving the circular convolution property of OFDM is
+For a multi-path OFDM channel, the timing offset can be represented only as a subcarrier-dependent phase rotation when the delayed channel impulse response is still fully contained within the CP ~\cite{minn2003robust}. Let $\tau_{\max}$ denote the maximum channel delay spread. In the five-tap channel model considered in this chapter, $\tau_{\max}=4$. Therefore, the sufficient condition for preserving the circular convolution property of OFDM is
 \begin{equation}
     \Delta_k+\tau_{\max}
     \leq
