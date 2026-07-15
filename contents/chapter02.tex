@@ -182,8 +182,9 @@ Figure~\ref{fig:single-resource-ber-1-1},
 ~\ref{fig:single-resource-ber-1-0-01} show the BER performance of two users with different large-scale fading coefficients $(\beta_1, \beta_2)$.
 As the large-scale fading gap becomes larger, the soft SIC detection converges toward the performance of the GDMA detection, indicating that the received-power disparity provides a clearer detection order and reduces the ambiguity of early cancellation stages. However, it comes at the severe cost of user fairness ~\cite{ding2015impact}.
 
-Figure~\ref{fig:single-resource-ber-1-0-1-0-01} shows the BER performance of three users with $(\beta_1, \beta_2, \beta_3)=(1,0.1,0.01)$.
-The three-user result further clarifies the limitation of soft SIC detection. As the number of users increases, soft SIC becomes more susceptible to error propagation because each cancellation stage depends on the reliability of the previous user's soft estimates. In contrast, GDMA evaluates the APP of the superimposed signals and can therefore maintain favorable BER performance as the number of users increases ~\cite{lin2023uplink, Lin2024RandomAccess}. However, this performance advantage comes with an exponential growth cost with $U$.
+
+Figure~\ref{fig:single-resource-ber-1-0-1-0-01} shows the BER performance of three users with large-scale fading coefficients $(\beta_1, \beta_2, \beta_3)=(1,0.1,0.01)$.
+The three-user result further clarifies the limitation of soft SIC detection. As the number of users increases, soft SIC becomes more susceptible to error propagation because each cancellation stage depends on the reliability of the previous soft estimates. In contrast, GDMA evaluates superimposed signal constellation and can therefore maintain favorable BER performance as the number of users increases ~\cite{lin2023uplink, Lin2024RandomAccess}. This performance advantage comes with an exponential growth cost with $U$.
 
 
 \begin{figure}[htbp]
