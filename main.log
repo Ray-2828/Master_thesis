@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.6.11)  15 JUL 2026 18:24
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.6.11)  15 JUL 2026 18:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1961,6 +1961,15 @@ Underfull \vbox (badness 2103) has occurred while \output is active []
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [5]
+Overfull \hbox (6.20879pt too wide) in paragraph at lines 186--188
+[]\TU/TimesNewRoman(0)/m/n/12 Figure [][]2.4[][] shows the BER performance of t
+hree users with $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^L[]; ^^L[]; ^^L[]\OT1/cmr/
+m/n/12 ) = (1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n
+/12 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 01)$
+\TU/TimesNewRoman(0)/m/n/12 .
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
@@ -2449,7 +2458,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  39319 strings out of 402987
  840628 string characters out of 5448731
- 1492446 words of memory out of 5000000
+ 1491446 words of memory out of 5000000
  67318 multiletter control sequences out of 15000+600000
  652060 words of font info for 173 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
