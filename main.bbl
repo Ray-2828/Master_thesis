@@ -1,5 +1,12 @@
 \begin{thebibliography}{10}
 
+\bibitem{navita2016performance}
+Navita and Amandeep.
+\newblock Performance analysis of ofdma, mimo and sc-fdma technology in 4g lte
+  networks.
+\newblock In {\em 2016 6th International Conference-Cloud System and Big Data
+  Engineering (Confluence)}, pages 554--558. IEEE, 2016.
+
 \bibitem{dai2018survey}
 Linglong Dai, Bichai Wang, Zhiguo Ding, Zhaocheng Wang, Sheng Chen, and Lajos
   Hanzo.
@@ -21,6 +28,31 @@ Yung-Tsao Hsu, Bei-Hao Chang, Chia-Fu Chang, Pin-Wen Su, I-Hsien Yeh, Kai-Chuan
   fading channels.
 \newblock In {\em 2019 IEEE VTS Asia Pacific Wireless Communications Symposium
   (APWCS)}, pages 1--5. IEEE, 2019.
+
+\bibitem{islam2016power}
+SM~Riazul Islam, Nurilla Avazov, Octavia~A Dobre, and Kyung-Sup Kwak.
+\newblock Power-domain non-orthogonal multiple access ({NOMA}) in {5G} systems:
+  Potentials and challenges.
+\newblock {\em IEEE communications surveys \& tutorials}, 19(2):721--742, 2016.
+
+\bibitem{nikopour2013sparse}
+Hosein Nikopour and Hadi Baligh.
+\newblock Sparse code multiple access.
+\newblock In {\em 2013 IEEE 24th annual international symposium on personal,
+  indoor, and mobile radio communications (PIMRC)}, pages 332--336. IEEE, 2013.
+
+\bibitem{lin2023gdma}
+Mao-Chao Lin, Shih-Kai Lee, Hsiang-Hsuan Fan, and Yi-Hua Chen.
+\newblock {GDMA}, {LDS-CDMA}, and {HDS-CDMA} for uplink communication systems.
+\newblock In {\em 2023 VTS Asia Pacific Wireless Communications Symposium
+  (APWCS)}, pages 1--5. IEEE, 2023.
+
+\bibitem{kong2016multiuser}
+Dan Kong, Jie Zeng, Xin Su, Liping Rong, and Xibin Xu.
+\newblock Multiuser detection algorithm for {PDMA} uplink system based on {SIC}
+  and {MMSE}.
+\newblock In {\em 2016 IEEE/CIC International Conference on Communications in
+  China (ICCC)}, pages 1--5. IEEE, 2016.
 
 \bibitem{shapiro2005soft}
 Jerome~M Shapiro and James Dunyak.
@@ -47,12 +79,6 @@ Fan-Hsun Lin.
   Resources}.
 \newblock Master's thesis, National Taiwan University, 2024.
 
-\bibitem{lin2023gdma}
-Mao-Chao Lin, Shih-Kai Lee, Hsiang-Hsuan Fan, and Yi-Hua Chen.
-\newblock {GDMA}, {LDS-CDMA}, and {HDS-CDMA} for uplink communication systems.
-\newblock In {\em 2023 VTS Asia Pacific Wireless Communications Symposium
-  (APWCS)}, pages 1--5. IEEE, 2023.
-
 \bibitem{endo2012uplink}
 Yuki Endo, Yoshihisa Kishiyama, and Kenichi Higuchi.
 \newblock Uplink non-orthogonal access with {MMSE-SIC} in the presence of
@@ -65,13 +91,6 @@ Li~Li.
 \newblock {\em Advanced channel estimation and detection techniques for {MIMO}
   and {OFDM} systems}.
 \newblock PhD thesis, University of York, 2013.
-
-\bibitem{kong2016multiuser}
-Dan Kong, Jie Zeng, Xin Su, Liping Rong, and Xibin Xu.
-\newblock Multiuser detection algorithm for {PDMA} uplink system based on {SIC}
-  and {MMSE}.
-\newblock In {\em 2016 IEEE/CIC International Conference on Communications in
-  China (ICCC)}, pages 1--5. IEEE, 2016.
 
 \bibitem{mohammadkarimi2018signature}
 Mostafa Mohammadkarimi, Muhammad~Ahmad Raza, and Octavia~A Dobre.
@@ -109,6 +128,12 @@ Qi~Li, Jinhong Yuan, Min Qiu, Shuangyang Li, and Yixuan Xie.
 Michael Tuchler, Andrew~C Singer, and Ralf Koetter.
 \newblock Minimum mean squared error equalization using a priori information.
 \newblock {\em IEEE Transactions on Signal processing}, 50(3):673--683, 2002.
+
+\bibitem{hwang2009ofdm}
+Taewon Hwang, Chenyang Yang, Gang Wu, Shaoqian Li, and Geoffrey Li.
+\newblock Ofdm and its wireless applications: A survey.
+\newblock {\em IEEE Transactions on Vehicular Technology}, 58:1673--1694, 06
+  2009.
 
 \bibitem{haci2017performance}
 Huseyin Haci, Huiling Zhu, and Jiangzhou Wang.

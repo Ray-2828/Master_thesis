@@ -3,9 +3,11 @@
 \chapter{Performance analysis of user pairing based on CQI}
 \label{ch:cqi}
 
-The previous chapters evaluated the reliability of uplink NOMA receivers from the link-level BLER viewpoint. This chapter further studies a practical system-level resource-sharing problem, where two OMA users are paired to share one resource. 
+The previous chapters evaluated the reliability of uplink NOMA receivers from the link-level BER or BLER viewpoint. 
+This chapter further studies a practical system-level resource-sharing problem, where two OMA users are paired to share one resource. 
 
-By pairing two users on the same resource and adopting multi-user detection (MUD), one resource can be released for an additional user. However, the paired users may need to reduce their modulation and coding scheme (MCS) because of  multi-user interference. Therefore, the objective of this chapter is not to show that the paired users always obtain a larger sum spectral efficiency (SE). Instead, we evaluate the tradeoff between the MCS degradation of the paired users and the additional SE brought by the released resource.
+By pairing two users on the same resource and adopting multi-user detection (MUD), one resource can be released for an additional user. However, the paired users need to reduce their modulation and coding scheme (MCS) because multi-user interference exists. 
+Therefore, the objective of this chapter is not to show that the paired users always obtain a larger sum spectral efficiency (SE). Instead, we evaluate the tradeoff between the MCS degradation of the paired users and the additional SE brought by the released resource.
 
 The analysis is conducted from an MCS-level viewpoint. First, a channel quality indicator (CQI)-like MCS table is constructed through link-level simulations. Then, two-user MUD tables are obtained for GDMA and soft SIC receivers. Based on these tables, an offline CQI-based pairing table is built to determine whether two OMA users can share one resource while maintaining the target BLER.
 

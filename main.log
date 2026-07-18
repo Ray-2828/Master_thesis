@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.6.11)  15 JUL 2026 21:33
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.6.11)  18 JUL 2026 02:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1926,28 +1926,34 @@ File: figures/seal.pdf Graphic file (type pdf)
 
  (contents/chapter01.tex
 Chapter 1.
-) (contents/chapter02.tex
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [1
 
 
 
-]
+])
+(contents/chapter02.tex
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [2]
 Chapter 2.
 Excluding 'comment' comment. Excluding 'comment' comment.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [2
+ [3
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [3]
+ [4]
 Overfull \hbox (0.48079pt too wide) in paragraph at lines 109--110
 []\TU/TimesNewRoman(0)/m/n/12 In GDMA, users are distinguished by their distinc
 t channel gains. Unlike PD-NOMA,
@@ -1955,17 +1961,17 @@ t channel gains. Unlike PD-NOMA,
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
-[4]
+[5]
 Underfull \vbox (badness 2103) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [6]
+Underfull \vbox (badness 2310) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [6]
+ [7]
 File: figures/Chapter2/single_resource_beta1.jpg Graphic file (type bmp)
 <figures/Chapter2/single_resource_beta1.jpg>
 File: figures/Chapter2/single_resource_beta0.1.jpg Graphic file (type bmp)
@@ -1978,39 +1984,39 @@ File: figures/Chapter2/single_resource_beta0.1_U3.jpg Graphic file (type bmp)
 (contents/chapter03.tex
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [7]
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
  [8]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [9]
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [10]
 Chapter 3.
 
 Underfull \vbox (badness 1577) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [10
+ [11
 
 ]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
 
-[11]
+[12]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [12] Excluding 'comment' comment.
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
- [13]
+ [13] Excluding 'comment' comment.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [15]
 File: figures/Chapter3/multi_resource_beta0.1.jpg Graphic file (type bmp)
 <figures/Chapter3/multi_resource_beta0.1.jpg>
 File: figures/Chapter3/multi_resource_beta1.jpg Graphic file (type bmp)
@@ -2020,75 +2026,81 @@ Underfull \vbox (badness 2591) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [15]
+ [16]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
 
-[16] Excluding 'comment' comment.) (contents/chapter04.tex
+[17] Excluding 'comment' comment.) (contents/chapter04.tex
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [17]
+ [18]
 Chapter 4.
+
+Overfull \hbox (5.83852pt too wide) in paragraph at lines 8--9
+\TU/TimesNewRoman(0)/m/n/12 MMSE-SIC-IDD, MMSE-PIC-IDD, and MAP-IDD in coded mu
+lti-resource uplink NOMA
+ []
+
 Excluding 'comment' comment.
+Underfull \vbox (badness 1460) has occurred while \output is active []
+
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [19
+
+]
 File: figures/Chapter4/IDD_structure.png Graphic file (type bmp)
 <figures/Chapter4/IDD_structure.png>
 
-Underfull \vbox (badness 6675) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
- [18
-
-]
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
-
-[19]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [20]
-Overfull \hbox (2.3981pt too wide) in paragraph at lines 88--90
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+
+[21]
+Overfull \hbox (2.3981pt too wide) in paragraph at lines 90--92
 \TU/TimesNewRoman(0)/m/n/12 Assuming the interleaved coded bits are represented
  by independent bit priors at the demap-
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
- [21]
-Excluding 'comment' comment.
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 7291) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [22]
+Excluding 'comment' comment. Excluding 'comment' comment.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [23]
-Excluding 'comment' comment. Excluding 'comment' comment.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [24]
 Excluding 'comment' comment. Excluding 'comment' comment.
-Underfull \vbox (badness 1859) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [25]
 Excluding 'comment' comment.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [26]
+Excluding 'comment' comment. Excluding 'comment' comment.
 File: figures/Chapter4/MMSE_SIC_receiver.png Graphic file (type bmp)
 <figures/Chapter4/MMSE_SIC_receiver.png>
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 326.
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
- [26] Excluding 'comment' comment.
+put line 331.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
@@ -2099,57 +2111,53 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [28]
+Excluding 'comment' comment.
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [29]
+ [30]
 Excluding 'comment' comment.
-Overfull \hbox (7.81216pt too wide) in paragraph at lines 501--502
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [31]
+Overfull \hbox (7.81216pt too wide) in paragraph at lines 506--507
 [] [] \TU/TimesNewRoman(0)/b/n/12 Summary of MAP-IDD/MMSE-PIC-IDD[] \TU/TimesNe
 wRoman(0)/m/n/12 The block diagram of the MAP-IDD/ MMSE-
  []
 
 File: figures/Chapter4/MMSE_PIC_MAP_receiver.png Graphic file (type bmp)
 <figures/Chapter4/MMSE_PIC_MAP_receiver.png>
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
-[30]
+Excluding 'comment' comment.
 File: figures/Chapter4/multi_resource_beta0.1_MMSESIC_BLER.jpg Graphic file (ty
 pe bmp)
 <figures/Chapter4/multi_resource_beta0.1_MMSESIC_BLER.jpg>
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [32]
 File: figures/Chapter4/multi_resource_beta0.1_MMSEPIC_BLER.jpg Graphic file (ty
 pe bmp)
 <figures/Chapter4/multi_resource_beta0.1_MMSEPIC_BLER.jpg>
-
-Underfull \vbox (badness 4479) has occurred while \output is active []
-
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
- [31]
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
-
-[32]
 File: figures/Chapter4/multi_resource_beta1_U3_BLER.jpg Graphic file (type bmp)
 
 <figures/Chapter4/multi_resource_beta1_U3_BLER.jpg>
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [33]
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [34]
 File: figures/Chapter4/multi_resource_beta1_U4_BLER.jpg Graphic file (type bmp)
 
 <figures/Chapter4/multi_resource_beta1_U4_BLER.jpg>
 File: figures/Chapter4/multi_resource_beta1_U6_BLER.jpg Graphic file (type bmp)
 
 <figures/Chapter4/multi_resource_beta1_U6_BLER.jpg>
-
-Underfull \vbox (badness 3746) has occurred while \output is active []
-
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
- [33]
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
-
-[34]
 File: figures/Chapter4/U3_BPSK_QPSK_16QAM_beta1_ite0.jpg Graphic file (type bmp
 )
 <figures/Chapter4/U3_BPSK_QPSK_16QAM_beta1_ite0.jpg>
@@ -2157,13 +2165,10 @@ File: figures/Chapter4/U3_BPSK_QPSK_16QAM_beta1_ite1.jpg Graphic file (type bmp
 )
 <figures/Chapter4/U3_BPSK_QPSK_16QAM_beta1_ite1.jpg>
  Excluding 'comment' comment.
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [35]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
+[35]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [36]
@@ -2172,6 +2177,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [37]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [38]
 File: figures/Chapter4/OFDM/MMSEPIC_U3.jpg Graphic file (type bmp)
 <figures/Chapter4/OFDM/MMSEPIC_U3.jpg>
 File: figures/Chapter4/OFDM/MMSESIC_two_order.jpg Graphic file (type bmp)
@@ -2179,7 +2189,7 @@ File: figures/Chapter4/OFDM/MMSESIC_two_order.jpg Graphic file (type bmp)
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
 
-[38]
+[39]
 File: figures/Chapter4/OFDM/(2,3,0,3)_best.jpg Graphic file (type bmp)
 <figures/Chapter4/OFDM/(2,3,0,3)_best.jpg>
 File: figures/Chapter4/OFDM/MMSESIC_ResidualCancel_Ite0_User3~6.jpg Graphic fil
@@ -2193,11 +2203,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [39]
+ [40]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
 
-[40]
+[41]
 File: figures/Chapter4/OFDM/OFDM_U3_BPSK_QPSK_16QAM_beta1_ite0.jpg Graphic file
  (type bmp)
 <figures/Chapter4/OFDM/OFDM_U3_BPSK_QPSK_16QAM_beta1_ite0.jpg>
@@ -2205,37 +2215,31 @@ File: figures/Chapter4/OFDM/OFDM_U3_BPSK_QPSK_16QAM_beta1_ite1.jpg Graphic file
  (type bmp)
 <figures/Chapter4/OFDM/OFDM_U3_BPSK_QPSK_16QAM_beta1_ite1.jpg>
 
-Overfull \hbox (0.5192pt too wide) in paragraph at lines 713--718
+Overfull \hbox (0.5192pt too wide) in paragraph at lines 719--724
 []\TU/TimesNewRoman(0)/m/n/12 Figure. [][]4.16[][] and [][]4.17[][] consider th
 ree users using modulation (BPSK, QPSK, 16QAM).
  []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
-[41]
+[42]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [42] Excluding 'comment' comment.
+ [43] Excluding 'comment' comment.
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [43]
+ [44]
 Underfull \vbox (badness 2205) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [44]
+ [45]
 Excluding 'comment' comment.
-Overfull \hbox (1.64499pt too wide) in paragraph at lines 791--792
-[]\TU/TimesNewRoman(0)/m/n/12 In the asynchronous simulations, the detectors st
-ill process the received signal through
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [45]
+ [46]
 Excluding 'comment' comment.
 File: figures/Chapter4/OFDM/Asyn/U3_deltamax4_ite0.jpg Graphic file (type bmp)
 <figures/Chapter4/OFDM/Asyn/U3_deltamax4_ite0.jpg>
@@ -2249,39 +2253,39 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [46]
+ [47]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
 
-[47]
+[48]
 File: figures/Chapter4/OFDM/Asyn/U3_deltamax5_ite1.jpg Graphic file (type bmp)
 <figures/Chapter4/OFDM/Asyn/U3_deltamax5_ite1.jpg>
 File: figures/Chapter4/OFDM/Asyn/U4_deltamax4_ite0.jpg Graphic file (type bmp)
 <figures/Chapter4/OFDM/Asyn/U4_deltamax4_ite0.jpg>
 File: figures/Chapter4/OFDM/Asyn/U4_deltamax4_ite1.jpg Graphic file (type bmp)
 <figures/Chapter4/OFDM/Asyn/U4_deltamax4_ite1.jpg>
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
- [48]
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
- [49]
 File: figures/Chapter4/OFDM/Asyn/U4_deltamax5_ite0.jpg Graphic file (type bmp)
 <figures/Chapter4/OFDM/Asyn/U4_deltamax5_ite0.jpg>
 File: figures/Chapter4/OFDM/Asyn/U4_deltamax5_ite1.jpg Graphic file (type bmp)
 <figures/Chapter4/OFDM/Asyn/U4_deltamax5_ite1.jpg>
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
+ [49]
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
  [50]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [51]) (contents/chapter05.tex
+ [51]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [52]
+ [52]) (contents/chapter05.tex
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [53]
 Chapter 5.
 
-Overfull \hbox (4.74477pt too wide) in paragraph at lines 16--18
+Overfull \hbox (4.74477pt too wide) in paragraph at lines 18--20
 []\TU/TimesNewRoman(0)/m/n/12 CQI is commonly used as a channel-quality feedbac
 k indicator for link adaptation [[]].
  []
@@ -2291,14 +2295,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [53
+ [54
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [54]
+ [55]
 \g__nicematrix_max_cell_width_dim=\dimen434
 \c@iRow=\count477
 \c@jCol=\count478
@@ -2311,30 +2315,30 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [55]
+ [56]
 Excluding 'comment' comment.
 Underfull \vbox (badness 1668) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [56]
+ [57]
 Underfull \vbox (badness 1590) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [57]
+ [58]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [58]
+ [59]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
 
-[59]
+[60]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [60]
+ [61]
 File: figures/Chapter6/SE_increment_per_RB.jpg Graphic file (type bmp)
 <figures/Chapter6/SE_increment_per_RB.jpg>
 
@@ -2342,14 +2346,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [61]
+ [62]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
 
-[62]
+[63]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [63]
+ [64]
 File: figures/Chapter6/case_1_subopt_uniform.jpg Graphic file (type bmp)
 <figures/Chapter6/case_1_subopt_uniform.jpg>
 File: figures/Chapter6/case_1_subopt_uniform_SIC.jpg Graphic file (type bmp)
@@ -2361,13 +2365,13 @@ File: figures/Chapter6/case_1_subopt_nonuniform_SIC.jpg Graphic file (type bmp)
 <figures/Chapter6/case_1_subopt_nonuniform_SIC.jpg>
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [64]
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
  [65]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [66]
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [67]
 File: figures/Chapter6/case_2_subopt_uniform.jpg Graphic file (type bmp)
 <figures/Chapter6/case_2_subopt_uniform.jpg>
 File: figures/Chapter6/case_2_subopt_uniform_SIC.jpg Graphic file (type bmp)
@@ -2379,58 +2383,62 @@ File: figures/Chapter6/case_2_subopt_nonuniform_SIC.jpg Graphic file (type bmp)
 <figures/Chapter6/case_2_subopt_nonuniform_SIC.jpg>
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [67]
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
  [68]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [69]) (contents/chapter06.tex
+ [69]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [70]
+ [70]) (contents/chapter06.tex
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [71]
 Chapter 6.
 )
-File: figures/seal.pdf Graphic file (type pdf)
-<use figures/seal.pdf>
- [71
-
-]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
  [72
 
 ] (main.bbl
+Underfull \hbox (badness 1048) in paragraph at lines 39--43
+[]\TU/TimesNewRoman(0)/m/n/12 Hosein Nikopour and Hadi Baligh.  Sparse code mul
+tiple access.  In |   []
+ []
+
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [73
+[73
+
 
 ]
-Underfull \hbox (badness 1122) in paragraph at lines 77--81
+File: figures/seal.pdf Graphic file (type pdf)
+<use figures/seal.pdf>
+ [74]
+Underfull \hbox (badness 1122) in paragraph at lines 96--100
 []\TU/TimesNewRoman(0)/m/n/12 Mostafa Mohammadkarimi, Muhammad Ahmad Raza, and 
 Octavia A Dobre.
  []
 
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
-[74]
+[75]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [75]) (back/appendix01.tex
+ [76]) (back/appendix01.tex
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [76]) (back/appendix02.tex
+ [77]) (back/appendix02.tex
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [77
+ [78
 
 ]
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [78])
+ [79])
 File: figures/seal.pdf Graphic file (type pdf)
 <use figures/seal.pdf>
- [79
+ [80
 
 ]
 (main.aux)
@@ -2444,15 +2452,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 322D6FC6F594E68A30C807DCE5C4EE8D;10867.
+(rerunfilecheck)             Checksum: 10DBDA3D50B2445D3655367199EEA95A;10867.
  ) 
 Here is how much of TeX's memory you used:
- 39319 strings out of 402987
- 840628 string characters out of 5448731
- 1491446 words of memory out of 5000000
- 67318 multiletter control sequences out of 15000+600000
+ 39333 strings out of 402987
+ 840967 string characters out of 5448731
+ 1492445 words of memory out of 5000000
+ 67332 multiletter control sequences out of 15000+600000
  652060 words of font info for 173 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,17n,131p,1050b,1056s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (94 pages).
+Output written on main.pdf (95 pages).

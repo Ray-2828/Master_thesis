@@ -3,8 +3,10 @@
 \chapter{Coded Multi-Resource Systems with IDD}
 \label{ch:coded}
 
-This chapter introduces channel coding and iterative detection and decoding (IDD) into the multi-resource receiver. Motivated by the error-propagation problem observed in uncoded SIC receivers, the detector exchanges soft information with the FEC decoder and refines interference cancellation through iterations based on a priori information update. 
-The block error rate (BLER) performance gap of MMSE-SIC-IDD, MMSE-PIC-IDD and MAP-IDD are clarified in coded multi-resource uplink NOMA system.
+This chapter extends the multi-resource receiver design by incorporating channel coding and an iterative detection and decoding (IDD) framework. The motivation is to alleviate the error-propagation issue that arises in uncoded SIC receivers. In the coded IDD receiver, the detector exchanges soft information with the FEC decoder and refines the interference-cancellation process through repeated a priori information updates. 
+
+The chapter then investigates the block error rate (BLER) performance gap among MMSE-SIC-IDD, MMSE-PIC-IDD, and MAP-IDD in coded multi-resource uplink NOMA systems. The same receiver concepts are further extended to multi-resource OFDM systems, where the dynamic channel conditions in uplink OFDM NOMA motivate the consideration of both synchronous and asynchronous OFDM receiver designs in the simulations.
+
 \begin{comment}
 This chapter develops MMSE-SIC-IDD and compares it with MMSE-PIC-IDD and MAP-IDD to clarify the performance gap in coded multi-resource uplink NOMA system.
 \end{comment}
@@ -21,8 +23,8 @@ In our simulations, the IDD receiver is implemented with a maximum number of ite
 \end{figure}
 
 \section{Coded Multi-resource system model}
-In this chapter, different users are allowed to employ different modulation schemes and different channel code lengths.
-Let $\bm{c}_i$ denote user $i's$ transmitted codeword of length $N_{c,i}$
+In following chapters, different users are allowed to employ different modulation schemes and different channel code lengths.
+Let $\bm{c}_i$ denote user $i's$ transmitted codeword of length $N_{c,i}$,
 \begin{equation}
     \bm{c}_i=[c_{i,1},c_{i,2},\ldots,c_{i,N_{c,i}}]^T,
 \end{equation}
@@ -30,7 +32,7 @@ After modulation, the codeword is grouped into $N_{s}$ modulation symbols. At sy
 \begin{equation}
     \bm{x}_\ell=[x_{1,\ell},x_{2,\ell},\ldots,x_{U,\ell}]^T,
 \end{equation}
-Refer to \eqref{eq:multi resource model}, the received vector is
+Refer to \eqref{eq:multi resource model}, the received vector at symbol time $\ell$ is
 \begin{equation}
     \bm{y}_\ell=\bm{H}_\ell\bm{x}_\ell+\bm{n}_\ell.
     \label{eq:coded-symbol-model}
@@ -58,8 +60,7 @@ In this way, the decoded extrinsic information of all users is provided as a pri
 
 \subsection{Soft Information for a priori information update}
 \label{sec:Soft Information for a priori update}
-Let $\mathcal{S}_i$ denote the modulation alphabet of user $i$, and let
-$M_i=\log_2|\mathcal{S}_i|$ be the number of coded bits per modulation symbol. For a symbol
+Let $\mathcal{S}_i$ denote the modulation alphabet of user $i$, and $M_i=\log_2|\mathcal{S}_i|$ be the number of coded bits per modulation symbol. For a symbol
 $s\in\mathcal{S}_i$, its binary label is written as
 \begin{equation}
     \bm{b}_i(s)
@@ -75,8 +76,9 @@ Let $L^{a,(t)}_{c_{i},\ell,m}$ denote the a priori LLR of the $m^{th}$ coded bit
     \frac{P^{a,(t)}(b_{i,\ell,m}=0)}
     {P^{a,(t)}(b_{i,\ell,m}=1)},
     \qquad
-    L^{a,(0)}_{c_{i},\ell,m} = 0.
+    L^{a,(0)}_{c_{i},\ell,m} = 0,
 \end{equation}
+Where $b_{i,\ell,m}$ is the $m^{th}$ coded bit of the $\ell^{th}$ modulation symbol of user $i$.
 The corresponding bit probability is
 \begin{equation}
     P^{a,(t)}(b_{i,\ell,m}=b)
@@ -137,7 +139,7 @@ For simplicity, we consider the average variance of user $i$ over the coded bloc
     =
     \frac{1}{N_s}\sum_{\ell=1}^{N_s}\sigma^{2~(t)}_{i,\ell},
 \end{equation}
-The variance matrix is defined as
+The variance matrix is then defined as
 \begin{comment}
 To simplify the expression in the following equations, for the current a priori update $t$, we omit the update superscript in the variance matrix and rewrite it as
 \end{comment}
@@ -149,9 +151,11 @@ To simplify the expression in the following equations, for the current a priori 
     \bar{v}_i^{(t)}>0.
     \label{eq:variance-matrix}
 \end{equation}
-
+The soft symbol mean $\mu^{(t)}_{i,\ell}$ and variance $\bar{v}^{(t)}_{i}$ represent the reliability and uncertainty of the a priori information, respectively.
+\begin{comment}
 When decoder feedback is reliable, $\bar{v}_i^{(t)}$ becomes small, indicating a higher probability of successful decoding for user \(i\) and consequently a smaller residual interference. 
 Conversely, when decoder feedback is uncertain, the variance remains large, allowing the receiver to avoid overconfident cancellation.
+\end{comment}
 
 \subsection{Variance-Aware MMSE Filtering}
 \label{sec:Variance-Aware MMSE Filtering}
@@ -185,8 +189,9 @@ To simplify the expression in the following equations, we omit the subscript $\e
     \bm{y}
     -
     \sum_{j=2}^{U}
-    \bm{h}_{j}\mu^{(t)}_{j}.
+    \bm{h}_{j}\mu^{(t)}_{j},
 \end{equation}
+where $\bm{y}_{(i)}^{(t)}$ is the residual vector of user $i$ at a priori update iteration $t$.
 At SIC stage $i>1$, the detection of user $i$ benefits from the FEC outputs of users $1,2,\ldots,i-1$ and from the a priori information of users $i+1,\ldots,U$. The residual vector for detecting user $i$ is constructed as
 \begin{equation}
     \label{eq:idd-stage-i-residual}
@@ -295,7 +300,7 @@ The detector produces an extrinsic bit-level LLR for the $m^{th}$ bit of user $i
         \label{eq:idd-bpsk-llr}
     \end{equation}
 \end{comment}
-The input of FEC decoder is the sum of the detector extrinsic bit LLR and the target-bit a priori LLR:
+The input of FEC decoder for user $i$ is the sum of the detector extrinsic bit LLR and the target-bit a priori LLR:
 \begin{equation}
     L^{\mathrm{in}}_{c_i,m}
     =
@@ -347,7 +352,7 @@ The block diagram of the MMSE-SIC-IDD receiver is shown in figure~\ref{fig:mmse-
 
 \section{MMSE-PIC-IDD}
 In this section, we introduce the MMSE-PIC-IDD receiver, which is a parallel interference cancellation (PIC) receiver that also exchanges soft information with the FEC decoder.
-Compared to the successive interference cancellation (SIC), PIC cancels all other users in parallel instead of successively decoding one user at a time ~\cite{studer2011asic}. For user $k$, the residual vector is calculated by subtracting all other users:
+Compared to the successive interference cancellation (SIC), PIC cancels all other users in parallel instead of successively decoding one user at a time ~\cite{studer2011asic}. For user $k$, the residual vector is calculated by subtracting all other users' soft symbol means: 
 \begin{equation}
     \bm{y}^{(t)}_{k,\ell}
     =
@@ -443,7 +448,7 @@ where the first entry is selected from the BPSK constellation, the second entry 
 \end{equation}
 The MAP detector repeats this construction for all possible symbol combinations.
 
-Without a priori information, all possible superimposed signals are assumed to be equally likely. In MAP-IDD, however, the detector uses the a priori LLRs from the previous IDD update to weight each possible superimposed signal. From \eqref{eq:bit-prior-from-llr}, the a priori probability of the $l$th possible superimposed signal is
+Without a priori information, all possible superimposed signals are assumed to be equally likely. In MAP-IDD, however, the detector uses the a priori LLRs from the previous IDD update to weight each possible superimposed signal. From \eqref{eq:bit-prior-from-llr}, the a priori probability of the $l^{th}$ possible superimposed signal is calculated as the product of the a priori probabilities of all its corresponding coded bits:
 \begin{equation}
     P^{a,(t)}_{l}
     =
@@ -457,7 +462,7 @@ Without a priori information, all possible superimposed signals are assumed to b
     \right).
     \label{eq:map-idd-prior-superimposed}
 \end{equation}
-Therefore, the APP of the $l$th possible superimposed signal is proportional to
+Therefore, the APP of the $l^{th}$ possible superimposed signal is proportional to
 \begin{equation}
     P^{(t)}(\bm{s}_{l}|\bm{y})
     \propto
@@ -511,10 +516,10 @@ The block diagram of the MAP-IDD/MMSE-PIC-IDD receiver is shown in figure~\ref{f
 For the MMSE-SIC-IDD receiver, post-SINR ordering is used. In the four-user case and the scenarios with more than four users, dynamic post-SINR ordering is considered. In this ordering strategy, the detection order is updated after each SIC stage. Accordingly, the post-detection SINR in \eqref{eq:post-sinr-with-variance} is recalculated at every SIC stage based on the remaining undecoded users.
 
 We compare the block error rate (BLER) of the three receiver structures mentioned above. The simulations employ a $(1008,504)$ LDPC code over an independent block-fading channel for every user on each resource. Two resources are used in our system and BPSK modulation is used for each user unless otherwise specified. 
-
+\begin{comment}
 The objective of these simulation results is to investigate the effects of decoder feedback, SIC/PIC-based interference cancellation, system loading, and the number of coded bits per modulation symbol on the performance of coded multi-user receivers.
+\end{comment}
 
-%\begin{comment}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/Chapter4/multi_resource_beta0.1_MMSESIC_BLER.jpg}
@@ -527,10 +532,10 @@ The objective of these simulation results is to investigate the effects of decod
     \caption[BLER of MMSE-PIC-IDD in the unequal-fading case]{BLER of MMSE-PIC-IDD with $R=2$, $(\beta_1,\beta_2,\beta_3)=(1,0.1,0.01)$, $t_{\max}=0,1,2,3$.}
     \label{fig:multi-resource-beta0-1-mmse-pic-bler}
 \end{figure}
-%\end{comment}
 
-Figure.~\ref{fig:multi-resource-beta0-1-mmse-sic-bler} shows the BLER performance of MMSE-SIC-IDD and MAP-IDD with unequal-$\beta_k$ case. 
-Figure.~\ref{fig:multi-resource-beta0-1-mmse-pic-bler} shows the BLER performance of MMSE-PIC-IDD with unequal-$\beta_k$ case.
+Figure.~\ref{fig:multi-resource-beta0-1-mmse-sic-bler} and \ref{fig:multi-resource-beta0-1-mmse-pic-bler} show the BLER performance of MMSE-SIC-IDD, MAP-IDD and MMSE-PIC-IDD with unequal-$\beta_k$ case, $(\beta_1,\beta_2,\beta_3)=(1,0.1,0.01)$.
+Figure.~\ref{fig:multi-resource-beta0-1-mmse-sic-bler} compares MMSE-SIC-IDD and MAP-IDD with $t_{\max}=0$ and $t_{\max}=1$. 
+Figure.~\ref{fig:multi-resource-beta0-1-mmse-pic-bler} shows the MMSE-PIC-IDD with different values of $t_{\max}$.
 Compared with MMSE-SIC-IDD and MAP-IDD, the performance is close for all users, indicating that decoder-aided soft cancellation effectively reduces residual interference.
 In figure.~\ref{fig:multi-resource-beta0-1-mmse-pic-bler}, it's observed that MMSE-PIC-IDD strongly relies on reliable a priori information update because parallel cancellation relies directly on the a priori-based soft means of all interfering users. 
 
@@ -543,12 +548,12 @@ In figure.~\ref{fig:multi-resource-beta0-1-mmse-pic-bler}, it's observed that MM
 \end{figure}
 
 
-Figure.~\ref{fig:multi-resource-beta1-u3-bler} shows the BLER performance of MMSE-PIC-IDD, MMSE-SIC-IDD and MAP-IDD with equal-$\beta_k$ case.
+Figure.~\ref{fig:multi-resource-beta1-u3-bler} considers the equal-$\beta_k$ case of three receivers.
 For the MMSE-PIC-IDD scheme, convergence of the BLER is nearly achieved by $t_{\max}=3$. Consequently, the remaining simulations in this chapter are conducted solely using $t_{\max}=3$.
 Compared with MMSE-SIC-IDD and MAP-IDD, the performance is also close, while MAP-IDD is slightly better in the high-SNR region.
-It can also be observed that for both unequal-$\beta_k$ case and equal-$\beta_k$ case, the gain from increasing the value of $t$ is limited. This is due to the assumption of a block fading channel and the relatively moderate system loading.
+It can also be observed that for both unequal-$\beta_k$ case and equal-$\beta_k$ case, the gain from increasing the value of $t$ is limited. 
+This is due to the assumption of a block fading channel and the relatively moderate system loading.
 
-%\begin{comment}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/Chapter4/multi_resource_beta1_U4_BLER.jpg}
@@ -562,9 +567,10 @@ It can also be observed that for both unequal-$\beta_k$ case and equal-$\beta_k$
     \caption{BLER of different receiver structures with $R=2$, $U=6$ and $\beta_k=1$.}
     \label{fig:multi-resource-beta1-u6-bler}
 \end{figure}
-%\end{comment}
 
-Figure.~\ref{fig:multi-resource-beta1-u4-bler} and \ref{fig:multi-resource-beta1-u6-bler} are the cases of four-user and six-user systems with two resources, respectively. It can be seen that MAP-IDD maintains superior BLER performance owing to its near-optimal detection capability, whereas MMSE-based receivers become more sensitive to the increase in the number of users.
+
+Figure.~\ref{fig:multi-resource-beta1-u4-bler} and \ref{fig:multi-resource-beta1-u6-bler} are the cases of four-user and six-user systems with equal-$\beta_k$ values, respectively. 
+It can be seen that MAP-IDD maintains superior BLER performance owing to its near-optimal detection capability, whereas MMSE-based receivers become more sensitive to the increase in the number of users.
 
 \begin{figure}[htbp]
     \centering
@@ -598,11 +604,11 @@ MMSE-PIC-IDD has the advantage of parallel processing and lower receiver latency
 \section{Coded multi-resource NOMA for OFDM system}
 \label{ch:ofdm}
 
-This section extends the coded multi-resource receiver to an Orthogonal Frequency-Division Multiplexing (OFDM) system. Since practical broadband channels are frequency selective, OFDM is introduced to convert the multi-path channel into parallel frequency-domain observations. Furthermore, the high spectral efficiency of OFDM, together with its resilience to channel distortions, has led to its widespread adoption in practical systems such as LTE, Wi-Fi, and digital broadcasting standards.
+This section extends the coded multi-resource receiver to an Orthogonal Frequency-Division Multiplexing (OFDM) system. Since practical broadband channels are frequency selective, OFDM is introduced to convert the multi-path channel into parallel frequency-domain observations. Furthermore, the high spectral efficiency of OFDM, together with its resilience to channel distortions, has led to its widespread adoption in practical systems such as LTE, Wi-Fi, and digital broadcasting standards ~\cite{hwang2009ofdm}.
 
 We first evaluate the BLER performance of the synchronous OFDM system with different receivers discussed in above. However, perfect synchronous transmission is impractical especially for uplink transmissions, where users may arrive at the base station with different timing offsets ~\cite{haci2017performance}. Therefore, this section further extends the study to asynchronous uplink transmission and examines the robustness of these receivers under user-dependent timing offsets.
 
-\subsection{Coded OFDM Multi-Resource Signal Model}
+\subsection{Coded Multi-Resource OFDM Signal Model}
 Related coded NOMA OFDM systems have been studied for robust multiuser transmission to enhance data rate~\cite{li2013advanced, saraereh2019efficient, lin2024slotted}.
 Practical uplink systems often employ OFDM to handle frequency-selective fading and multipath interference. 
 Consider a coded OFDM system with $N_{\mathrm{FFT}}$ subcarriers and cyclic prefix length $N_{\mathrm{CP}}$. Let $N_c$ denote the coded block length and $M$ denote the number of coded bits per modulation symbol. Each coded block occupies
@@ -624,7 +630,7 @@ After CP removal and FFT, the received signal on subcarrier $q$ of OFDM symbol $
 where $q=0,1,\ldots,N_{\mathrm{FFT}}-1$ and $j=0,1,\ldots,N_{\mathrm{sym}}-1$. Here, $\bm{y}_{q,j}\in\mathbb{C}^{R\times 1}$ is the received vector over $R$ resources, 
 $\bm{H}_{q}\in\mathbb{C}^{R\times U}$ represents the channel vector on subcarrier $q$, 
 $\bm{x}_{q,j}\in\mathbb{C}^{U\times 1}$ is the transmitted symbol vector of $U$ users, 
-and $\bm{n}_{q,j}\in\mathbb{C}^{R\times 1}$ denotes complex AWGN. For each subcarrier, the OFDM system follows the same multi-resource vector model as \eqref{eq:multi resource model}.
+and $\bm{n}_{q,j}\in\mathbb{C}^{R\times 1}$ denotes complex AWGN. For each subcarrier and OFDM symbol, the system follows the same multi-resource vector model as \eqref{eq:multi resource model}.
 
 \subsection{MMSE-SIC-IDD for OFDM system}
 In practical wireless systems, the coded-OFDM is commonly implemented where the LLRs on subcarriers are calculated and then sent to the decoder in a block manner~\cite{csahin2024ofdm}. Therefore, we calculate the post-SINR(or the received-power metric) of each subcarrier $q$ of user $k$ and decide a detection order of whole coded block. 
@@ -734,7 +740,8 @@ In most related studies, timing offset is treated as an impairment and the recei
 
 \subsubsection{Asynchronous Signal Model}
 
-For a NOMA system, different users may arrive at the BS with different timing offsets. Therefore, the effective channel observed by the multiuser detector is changed, and additional  multiple-access interference (MAI) or inter-symbol interference  (ISI) may appear depending on the receiver alignment and the CP margin. ~\cite{lin2023uplink}. Let $\tau_k$ denote the timing offset of user $k$ and set user 1 as the receiver timing reference, i.e., $\tau_1=0$. The relative timing offset of user $k$ is defined as
+For a NOMA system, different users may arrive at the BS with different timing offsets. Therefore, the effective channel observed by the multiuser detector is changed, and additional  multiple-access interference (MAI) or inter-symbol interference  (ISI) may appear depending on the receiver alignment and the CP margin.~\cite{lin2023uplink}. 
+Let $\tau_k$ denote the timing offset of user $k$ and set user 1 as the receiver timing reference, i.e., $\tau_1=0$. The relative timing offset of user $k$ is defined as
 \begin{equation}
     \Delta_k
     =
@@ -742,7 +749,7 @@ For a NOMA system, different users may arrive at the BS with different timing of
     \label{eq:async-relative-delay}
 \end{equation}
 
-For a multi-path OFDM channel, the timing offset can be represented only as a subcarrier-dependent phase rotation when the delayed channel impulse response is still fully contained within the CP ~\cite{minn2003robust}. Let $\tau_{\max}$ denote the maximum channel delay spread. In the five-tap channel model considered in this chapter, $\tau_{\max}=4$. Therefore, the sufficient condition for preserving the circular convolution property of OFDM is
+For a multi-path OFDM channel, the timing offset can be represented only as a subcarrier-dependent phase rotation when the delayed channel impulse response is still fully contained within the CP~\cite{minn2003robust}. Let $\tau_{\max}$ denote the maximum channel delay spread. In the five-tap channel model considered in this chapter, $\tau_{\max}=4$. Therefore, the sufficient condition for preserving the circular convolution property of OFDM is
 \begin{equation}
     \Delta_k+\tau_{\max}
     \leq
@@ -788,7 +795,8 @@ The above model treats asynchronous transmission as a user-dependent effective c
 Additional ISI may appear. The multiuser detector may also observe stronger residual MAI due to the mismatch between the assumed frequency-domain model and the actual received signal.
 \end{comment}
 
-In the asynchronous simulations, the detectors still process the received signal through the effective phase-rotated channel model in \eqref{eq:async-effective-channel-matrix}. Therefore, when \eqref{eq:async-cp-condition} is violated, this model should be interpreted as a receiver-side approximation. The purpose of the section is to evaluate the robustness of MAP-IDD, MMSE-SIC-IDD, and MMSE-PIC-IDD under user-dependent timing offsets.
+In the considered asynchronous simulations, the detectors still process the received signal through the effective phase-rotated channel model in \eqref{eq:async-effective-channel-matrix}. Therefore, when \eqref{eq:async-cp-condition} is violated, ISI is occurred and this model should be interpreted as a receiver-side approximation. 
+The purpose of the section is to evaluate the robustness of MAP-IDD, MMSE-SIC-IDD, and MMSE-PIC-IDD under user-dependent timing offsets.
 
 
 \subsubsection{Asynchronous Simulation Results}
@@ -848,14 +856,6 @@ This implies that MMSE-SIC-IDD is relatively robust to asynchronous mismatch. A 
 \end{figure}
 
 %% =================== U4, delta_max=4 ===================
-
-Figures~\ref{fig:u4-deltamax4-ite0} and \ref{fig:u4-deltamax4-ite1} present the four-user case with $\Delta_{\max}=4$. 
-When $t_{\max}=0$, MAP-IDD achieves the best high-SNR BLER performance because heavier loading leads to more severe residual interference. 
-This is consistent with the synchronous OFDM results, where MAP-IDD is more stable under heavier loading.
-In Figure~\ref{fig:u4-deltamax4-ite1}, MMSE-PIC-IDD with $t_{\max}=2$ becomes slightly worse than MAP-IDD with $t_{\max}=1$. This differs from the three-user case, where MMSE-PIC-IDD slightly outperforms MAP-IDD.
-In contrast, MMSE-SIC-IDD with dynamic post-SINR ordering achieves BLER performance slightly better than MAP-IDD, which is opposite to the synchronous case. 
-This suggests the robustness of MMSE-SIC-IDD with a priori information update to asynchronous effects even in the four-user case.
-
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/Chapter4/OFDM/Asyn/U4_deltamax4_ite0.jpg}
@@ -870,12 +870,16 @@ This suggests the robustness of MMSE-SIC-IDD with a priori information update to
     \label{fig:u4-deltamax4-ite1}
 \end{figure}
 
+Figures~\ref{fig:u4-deltamax4-ite0} and \ref{fig:u4-deltamax4-ite1} present the four-user case with $\Delta_{\max}=4$. 
+When $t_{\max}=0$, MAP-IDD achieves the best high-SNR BLER performance because heavier loading leads to more severe residual interference. 
+This is consistent with the synchronous OFDM results, where MAP-IDD is more stable under heavier loading.
+In Figure~\ref{fig:u4-deltamax4-ite1}, MMSE-PIC-IDD with $t_{\max}=2$ becomes slightly worse than MAP-IDD with $t_{\max}=1$. This differs from the three-user case, where MMSE-PIC-IDD slightly outperforms MAP-IDD.
+In contrast, MMSE-SIC-IDD with dynamic post-SINR ordering achieves BLER performance slightly better than MAP-IDD, which is opposite to the synchronous case. 
+This suggests the robustness of MMSE-SIC-IDD with a priori information update to asynchronous effects even in the four-user case.
+
 
 
 %% =================== U4, delta_max=5 ===================
-The case of $\Delta_{\max}=5$ in Figures~\ref{fig:u4-deltamax5-ite0} and \ref{fig:u4-deltamax5-ite1} follows a similar trend with $\Delta_{\max}=4$ while the overall BLER becomes worse. 
-Under this condition, the performance is dominated not only by multiuser detection capability but also by the receiver's tolerance to residual MAI/ISI effects.
-
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/Chapter4/OFDM/Asyn/U4_deltamax5_ite0.jpg}
@@ -889,6 +893,11 @@ Under this condition, the performance is dominated not only by multiuser detecti
     \caption{BLER of asynchronous OFDM system with MMSE-SIC-IDD, MMSE-PIC-IDD, and MAP-IDD. $R=2$, $U=4$, $\Delta_{\max}=5$, $t_{\max}=1$ for MMSE-SIC-IDD and MAP-IDD.}
     \label{fig:u4-deltamax5-ite1}
 \end{figure}
+
+The case of $\Delta_{\max}=5$ in Figures~\ref{fig:u4-deltamax5-ite0} and \ref{fig:u4-deltamax5-ite1} follows a similar trend with $\Delta_{\max}=4$ while the overall BLER becomes worse. 
+Under this condition, the performance is dominated not only by multiuser detection capability but also by the receiver's tolerance to residual MAI/ISI effects.
+
+
 
 \section{Comparison and summary}
 

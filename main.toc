@@ -8,54 +8,54 @@
 \contentsline {chapter}{List of Tables}{xiii}{section*.7}%
 \contentsline {chapter}{Denotation}{xiv}{chapter*.8}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Single resource systems}{2}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Single resource system model}{2}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Detection principle for PD NOMA : soft SIC}{3}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Detection principle for GDMA}{4}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Simulations of PD NOMA with soft SIC and GDMA}{6}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Multiple resource NOMA systems}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Multi-resource PD-NOMA system model}{10}{section.3.1}%
-\contentsline {section}{\numberline {3.2}MMSE-SIC Detection}{11}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Detection Ordering}{12}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}SIC Procedure}{13}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Uncoded Simulation Results}{15}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Coded Multi-Resource Systems with IDD}{18}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Introduction of IDD structure}{18}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Coded Multi-resource system model}{19}{section.4.2}%
-\contentsline {section}{\numberline {4.3}MMSE-SIC-IDD}{20}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Receiver Procedure}{20}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Soft Information for a priori information update}{21}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Variance-Aware MMSE Filtering}{23}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Decoder-Aided SIC Cancellation}{23}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}LLR calculation and soft estimate}{25}{subsection.4.3.5}%
-\contentsline {paragraph}{Summary of MMSE-SIC-IDD}{26}{paragraph*.17}%
-\contentsline {section}{\numberline {4.4}MMSE-PIC-IDD}{26}{section.4.4}%
-\contentsline {section}{\numberline {4.5}MAP-IDD}{28}{section.4.5}%
-\contentsline {paragraph}{Summary of MAP-IDD/MMSE-PIC-IDD}{30}{paragraph*.19}%
-\contentsline {section}{\numberline {4.6}Coded Simulation Results}{31}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Coded multi-resource NOMA for OFDM system}{36}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Coded OFDM Multi-Resource Signal Model}{37}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}MMSE-SIC-IDD for OFDM system}{38}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}Synchronous OFDM Simulation Results}{38}{subsection.4.7.3}%
-\contentsline {subsection}{\numberline {4.7.4}Asynchronous OFDM NOMA system}{43}{subsection.4.7.4}%
-\contentsline {subsubsection}{\numberline {4.7.4.1}Asynchronous Signal Model}{44}{subsubsection.4.7.4.1}%
-\contentsline {subsubsection}{\numberline {4.7.4.2}Asynchronous Simulation Results}{46}{subsubsection.4.7.4.2}%
-\contentsline {section}{\numberline {4.8}Comparison and summary}{50}{section.4.8}%
-\contentsline {chapter}{\numberline {5}Performance analysis of user pairing based on CQI}{53}{chapter.5}%
-\contentsline {section}{\numberline {5.1}CQI-like MCS table}{54}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Two-user MUD pairs scheme}{56}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Offline CQI-based pairing table}{57}{section.5.3}%
-\contentsline {section}{\numberline {5.4}System-level pairing operation}{61}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Pairing rules}{62}{subsection.5.4.1}%
-\contentsline {section}{\numberline {5.5}Simulation results}{64}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Case 1: no upper limit on the number of users}{64}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Case 2: fixed maximum number of new users}{67}{subsection.5.5.2}%
-\contentsline {section}{\numberline {5.6}Summary}{70}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Conclusions and future work}{71}{chapter.6}%
+\contentsline {chapter}{\numberline {2}Single resource systems}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Single resource system model}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Detection principle for PD NOMA : soft SIC}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Detection principle for GDMA}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Simulations of PD NOMA with soft SIC and GDMA}{7}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Multiple resource NOMA systems}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Multi-resource PD-NOMA system model}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}MMSE-SIC Detection}{12}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Detection Ordering}{13}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}SIC Procedure}{14}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Uncoded Simulation Results}{16}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Coded Multi-Resource Systems with IDD}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction of IDD structure}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Coded Multi-resource system model}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}MMSE-SIC-IDD}{21}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Receiver Procedure}{21}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Soft Information for a priori information update}{22}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Variance-Aware MMSE Filtering}{24}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Decoder-Aided SIC Cancellation}{24}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}LLR calculation and soft estimate}{26}{subsection.4.3.5}%
+\contentsline {paragraph}{Summary of MMSE-SIC-IDD}{27}{paragraph*.17}%
+\contentsline {section}{\numberline {4.4}MMSE-PIC-IDD}{28}{section.4.4}%
+\contentsline {section}{\numberline {4.5}MAP-IDD}{29}{section.4.5}%
+\contentsline {paragraph}{Summary of MAP-IDD/MMSE-PIC-IDD}{32}{paragraph*.19}%
+\contentsline {section}{\numberline {4.6}Coded Simulation Results}{32}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Coded multi-resource NOMA for OFDM system}{37}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Coded Multi-Resource OFDM Signal Model}{38}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}MMSE-SIC-IDD for OFDM system}{39}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Synchronous OFDM Simulation Results}{39}{subsection.4.7.3}%
+\contentsline {subsection}{\numberline {4.7.4}Asynchronous OFDM NOMA system}{44}{subsection.4.7.4}%
+\contentsline {subsubsection}{\numberline {4.7.4.1}Asynchronous Signal Model}{45}{subsubsection.4.7.4.1}%
+\contentsline {subsubsection}{\numberline {4.7.4.2}Asynchronous Simulation Results}{47}{subsubsection.4.7.4.2}%
+\contentsline {section}{\numberline {4.8}Comparison and summary}{52}{section.4.8}%
+\contentsline {chapter}{\numberline {5}Performance analysis of user pairing based on CQI}{54}{chapter.5}%
+\contentsline {section}{\numberline {5.1}CQI-like MCS table}{55}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Two-user MUD pairs scheme}{57}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Offline CQI-based pairing table}{58}{section.5.3}%
+\contentsline {section}{\numberline {5.4}System-level pairing operation}{62}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Pairing rules}{63}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}Simulation results}{65}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Case 1: no upper limit on the number of users}{65}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Case 2: fixed maximum number of new users}{68}{subsection.5.5.2}%
+\contentsline {section}{\numberline {5.6}Summary}{71}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Conclusions and future work}{72}{chapter.6}%
 \contentsline {chapter}{References}{73}{section*.55}%
-\contentsline {chapter}{Appendix~{A}~---~Complete GDMA MUD Candidate Table}{77}{section*.58}%
-\contentsline {section}{\numberline {A.1}Complete GDMA Candidate MCS Combinations}{77}{section.6.1}%
-\contentsline {chapter}{Appendix~{B}~---~Introduction}{79}{section*.61}%
-\contentsline {section}{\numberline {B.1}Introduction}{79}{section.6.1}%
-\contentsline {section}{\numberline {B.2}Further Introduction}{79}{section.6.2}%
+\contentsline {chapter}{Appendix~{A}~---~Complete GDMA MUD Candidate Table}{78}{section*.58}%
+\contentsline {section}{\numberline {A.1}Complete GDMA Candidate MCS Combinations}{78}{section.6.1}%
+\contentsline {chapter}{Appendix~{B}~---~Introduction}{80}{section*.61}%
+\contentsline {section}{\numberline {B.1}Introduction}{80}{section.6.1}%
+\contentsline {section}{\numberline {B.2}Further Introduction}{80}{section.6.2}%
 \contentsfinish 

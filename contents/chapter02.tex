@@ -101,7 +101,7 @@ Therefore, the effective noise variance is
     \sigma^2_{\hat{s}_{j}}.
 \end{equation}
 The first term is the noise variance, the second term is the interference from undetected users, and the third term is the uncertain residual interference from previously detected users.
-This procedure is repeated until all users are detected.
+This soft cancellationprocedure is repeated until all users are detected.
 
 \section{Detection principle for GDMA}
 \label{sec:Detection principle for GDMA}
@@ -154,7 +154,7 @@ In detail:
 \end{equation}
 The superimposed signal levels $s_l$ for the case $U=2$ are listed in Table~\ref{table:superimposed-bpsk-u2}, where $l \in \{0,1,2,3\}$.
 
-The receiver computes the $a$ $posteriori$ probabilities (APPs) of each possible superimposed signal $s_l\in\mathcal{S}$ by
+The receiver computes the APPs of each possible superimposed signal $s_l\in\mathcal{S}$ by
 \begin{equation}
     P(s_l|y) = P(y|s_l) \cdot \frac{P(s=s_l)}{P(y)}. 
 \end{equation}
@@ -174,17 +174,16 @@ The log-likelihood ratio (LLR) of user $k$ is then calculated by
     \exp\left(-\frac{|y-s_l|^2}{2\sigma^2}\right)
     }.
 \end{equation}
+After the LLRs of all users derived, we then use hard decision to obtain the detected symbols of all users.
+
 
 \section{Simulations of PD NOMA with soft SIC and GDMA}
-The single-resource simulations use BPSK modulation for each user over independent Rayleigh flat-fading channels. 
-Figure~\ref{fig:single-resource-ber-1-1}, 
-~\ref{fig:single-resource-ber-1-0-1} and 
-~\ref{fig:single-resource-ber-1-0-01} show the BER performance of two users with different large-scale fading coefficients $(\beta_1, \beta_2)$.
-As the large-scale fading gap becomes larger, the soft SIC detection converges toward the performance of the GDMA detection, indicating that the received-power disparity provides a clearer detection order and reduces the ambiguity of early cancellation stages. However, it comes at the severe cost of user fairness ~\cite{ding2015impact}.
+The single-resource simulations use BPSK modulation for each user over independent Rayleigh flat-fading channels. Figures~\ref{fig:single-resource-ber-1-1}, ~\ref{fig:single-resource-ber-1-0-1}, and ~\ref{fig:single-resource-ber-1-0-01} show the BER performance of two users with different large-scale fading coefficients $(\beta_1, \beta_2)$. As the large-scale fading gap becomes larger, the soft SIC detection converges toward the performance of the GDMA detection, indicating that the received-power disparity provides a clearer detection order and reduces the ambiguity of early cancellation stages. 
+This observation also suggests that the SIC gain mainly stems from the received-power disparity, which is determined by both the transmit power $P_k$ and the large-scale fading coefficient $\beta_k$. 
+In practice, power control can compensate for large-scale fading differences; however, excessive compensation weakens the power-domain separation required by soft SIC, and this benefit is achieved at the severe cost of user fairness~\cite{ding2015impact}.   
 
-
-Figure~\ref{fig:single-resource-ber-1-0-1-0-01} aaa shows the BER performance of three users with large-scale fading coefficients $(\beta_1, \beta_2, \beta_3)=(1,0.1,0.01)$.
-The three-user result further clarifies the limitation of soft SIC detection. As the number of users increases, soft SIC becomes more susceptible to error propagation because each cancellation stage depends on the reliability of the previous soft estimates. In contrast, GDMA evaluates superimposed signal constellation and can therefore maintain favorable BER performance as the number of users increases ~\cite{lin2023uplink, Lin2024RandomAccess}. This performance advantage comes with an exponential growth cost with $U$.
+Figure~\ref{fig:single-resource-ber-1-0-1-0-01} shows the BER performance of three users with large-scale fading coefficients $(\beta_1, \beta_2, \beta_3)=(1,0.1,0.01)$.
+This result further clarifies the limitation of soft SIC detection. As the number of users increases, soft SIC becomes more susceptible to error propagation because each cancellation stage depends on the reliability of the previous soft estimates. In contrast, GDMA evaluates the superimposed signals and can therefore maintain favorable BER performance even as the number of users increases ~\cite{lin2023uplink, Lin2024RandomAccess}. This performance advantage comes with an exponential growth cost with $U$.
 
 
 \begin{figure}[htbp]

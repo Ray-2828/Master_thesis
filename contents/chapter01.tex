@@ -2,8 +2,19 @@
 
 \chapter{Introduction}
 
-\begingroup
 
-As the demand of high speed and low latency communication networks, future wireless systems must support higher spectral efficiency, flexible resource sharing, and massive connectivity. To increase the channel capacity and reliability, Multiple Access(MA) techniques become more important. However, Orthogonal Multiple Access (OMA) avoids inter-user interference by assigning disjoint resources, its user capacity is fundamentally limited by the number of orthogonal resource units\cite{dai2018survey}. In particular, beyond 5G and toward 6G, Non-Orthogonal Multiple Access (NOMA) is regarded as a potential multiple access technique to support the growing demands for massive connectivity and diverse service requirements.\cite{clerckx2024multiple}.
+As the demand of high speed and low latency communication networks, future wireless systems must support higher spectral efficiency, flexible resource sharing, and massive connectivity. To increase the channel capacity and reliability, multiple access(MA) techniques become more important. 
+It can be classified into two categories: Orthogonal multiple access (OMA) and non-orthogonal multiple access (NOMA).
+There are many OMA techniques, such as time division multiple access in two generation (2G), Code Division Multiple Access (CDMA) in third generation (3G) and Orthogonal Frequency Division Multiple Access (OFDMA) in fourth generation (4G).~\cite{navita2016performance}
+However, Orthogonal multiple access (OMA) avoids inter-user interference by assigning disjoint resources, its user capacity is fundamentally limited by the number of orthogonal resource units~\cite{dai2018survey}. 
 
-\endgroup
+In particular, beyond 5G and toward 6G, Non-Orthogonal multiple access (NOMA) is regarded as a potential multiple access technique to support the growing demands for massive connectivity and diverse service requirements.~\cite{clerckx2024multiple}.
+In NOMA systems, multiple users are allowed to transmit over the same resource, relaxing the one-user-per-resource constraint and improving resource utilization at the cost of receiver-side interference management. 
+Different NOMA schemes rely on different user-separation principles. For example, gain division multiple access (GDMA) separates users by exploiting their complex channel gains and is typically associated with joint MAP or ML detection \cite{hsu2019gain}. 
+Power-domain NOMA (PD-NOMA) mainly relies on received-power disparity and usually adopts successive interference cancellation (SIC) \cite{islam2016power, dai2018survey}. 
+Code-domain schemes such as SCMA, low density signature CDMA (LDS-CDMA) and HDS-CDMA exploit sparse or structured signatures for user separation\cite{nikopour2013sparse,lin2023gdma}. 
+Pattern division multiple access (PDMA) maps users onto shared orthogonal resources according to a predefined pattern matrix~\cite{kong2016multiuser}.
+
+In uplink NOMA, the base station (BS) receives the superimposed signals from multiple users and performs multiuser detection (MUD) to separate the users. That is, the receiver structure is often the key factor that determines both reliability and practicality.
+
+
