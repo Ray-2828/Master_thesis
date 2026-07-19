@@ -1,17 +1,26 @@
 \chapter{Conclusions and future work}
-%% In chapter2
-In chapter~\ref{ch:single-resource}, 
+\label{ch:conclusions}
 
+This thesis investigated uplink non-orthogonal multiple access (NOMA) receivers and their impact on both link-level reliability and system-level resource sharing. 
+The study first focused on the error-rate performance of different NOMA receivers in single-resource and multiple-resource systems, and then extended the analysis to coded multiple-resource and OFDM-based NOMA systems. Finally, a modulation coding scheme (MCS)-based user-pairing framework was developed to evaluate the system-level spectral efficiency (SE) behavior caused by NOMA resource sharing.
 
-%% In chapter3
-In chapter~\ref{ch:multi-resource}, 
+In Chapter~\ref{ch:single-resource}, single-resource uplink NOMA systems were studied. Power domain NOMA (PD-NOMA) with soft successive interference cancellation (SIC) and gain division multiple access (GDMA) were compared under small-scale Rayleigh block fading and different large-scale fading conditions. 
+The results showed that soft SIC benefits from received-power disparity. However, when the number of users increases, soft SIC becomes more sensitive to error propagation, while GDMA provides stronger user-separation capability in the simulated single-resource cases.
 
+In Chapter~\ref{ch:multi-resource}, the receiver analysis was extended to multiple-resource NOMA systems. MMSE-SIC detection was investigated with post-SINR ordering and amplitude-based ordering, and its BER performance was compared with HDS-CDMA with ML detection. 
 
-%% In chapter4
-In chapter~\ref{ch:coded}, 
+In Chapter~\ref{ch:coded}, channel coding and iterative detection and decoding (IDD) structure were incorporated into the multiple-resource NOMA receiver. The BLER performance of MMSE-SIC-IDD, MMSE-PIC-IDD, and MAP-IDD was compared under different loading and modulation conditions. 
+MAP-IDD generally provides strong detection performance, especially under heavier loading, while MMSE-SIC-IDD can achieve competitive performance in moderate-loading cases.
+The coded multiple-resource receiver framework was further extended to OFDM-based NOMA systems. The synchronous and asynchronous OFDM cases were considered. 
+The simulation results showed that MMSE-SIC-IDD with post-SINR ordering provides better robustness in several asynchronous scenarios.
 
+In Chapter~\ref{ch:cqi}, the analysis moved from receiver-level performance to system-level resource sharing. 
+The results showed that NOMA user pairing does not necessarily increase the sum SE of the paired users, because the paired users usually suffer an MCS degradation. 
+The system-level SE behavior is determined by the tradeoff between the paired users' SE loss and the SE contributed by the new users admitted through the released resources. 
+The overall simulations also showed that GDMA is more favorable than soft SIC for MCS-based pairing, since it's better receiver reliability and can support more effective after-pairing states and usually causes smaller SE loss.
 
-%% In chapter5
-In chapter~\ref{ch:cqi}, 
-
-In future research, 
+In future research, several possible directions can be considered. First, the computational complexity of different NOMA receivers can be analyzed more quantitatively. A more detailed study of the number of candidate symbols, filtering operations, iterations, and implementation cost would provide a more complete performance-complexity tradeoff comparison.
+Second, the MCS-based user-pairing analysis can be extended to multiple-resource NOMA receivers. 
+Since multiple-resource NOMA receivers can improve the system performance, their pairing behavior may differ from the single-resource case. 
+Extending the offline pairing table and system-level admission process to multiple-resource NOMA would provide a more general resource-sharing analysis.
+Third, hybrid pairing methods may be investigated to ensure overall system-level SE increment. 

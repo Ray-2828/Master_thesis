@@ -3,10 +3,10 @@
 \chapter{Introduction}
 
 
-As the demand of high speed and low latency communication networks, future wireless systems must support higher spectral efficiency, flexible resource sharing, and massive connectivity. To increase the channel capacity and reliability, multiple access(MA) techniques become more important. 
+As the demand for high-speed and low-latency communication continue to grow, future wireless systems must support higher spectral efficiency, flexible resource sharing, and massive connectivity. To increase the channel capacity and reliability, multiple access(MA) techniques become more important. 
 It can be classified into two categories: Orthogonal multiple access (OMA) and non-orthogonal multiple access (NOMA).
-There are many OMA techniques, such as time division multiple access in two generation (2G), Code Division Multiple Access (CDMA) in third generation (3G) and Orthogonal Frequency Division Multiple Access (OFDMA) in fourth generation (4G).~\cite{navita2016performance}
-However, Orthogonal multiple access (OMA) avoids inter-user interference by assigning disjoint resources, its user capacity is fundamentally limited by the number of orthogonal resource units~\cite{dai2018survey}. 
+There are many OMA techniques, such as time division multiple access in two generation (2G), code division multiple access (CDMA) in third generation (3G) and orthogonal frequency division multiple access (OFDMA) in fourth generation (4G).~\cite{navita2016performance}
+However, OMA avoids inter-user interference by assigning disjoint resources, its user capacity is fundamentally limited by the number of orthogonal resource units~\cite{dai2018survey}. 
 
 In particular, beyond 5G and toward 6G, Non-Orthogonal multiple access (NOMA) is regarded as a potential multiple access technique to support the growing demands for massive connectivity and diverse service requirements.~\cite{clerckx2024multiple}.
 In NOMA systems, multiple users are allowed to transmit over the same resource, relaxing the one-user-per-resource constraint and improving resource utilization at the cost of receiver-side interference management. 
@@ -16,5 +16,40 @@ Code-domain schemes such as SCMA, low density signature CDMA (LDS-CDMA) and HDS-
 Pattern division multiple access (PDMA) maps users onto shared orthogonal resources according to a predefined pattern matrix~\cite{kong2016multiuser}.
 
 In uplink NOMA, the base station (BS) receives the superimposed signals from multiple users and performs multiuser detection (MUD) to separate the users. That is, the receiver structure is often the key factor that determines both reliability and practicality.
+\begin{comment}
+Although NOMA improves resource utilization by allowing multiple users to share the same resource, this advantage is obtained at the cost of stronger inter-user interference. Therefore, the achievable performance of a NOMA system depends not only on the multiple-access principle, but also on the capability of the receiver to extract reliable soft information from the superimposed received signal. In particular, SIC-based receivers are attractive because of their relatively simple structure, but their performance is sensitive to the detection order and the reliability of previous cancellation stages. Once an early detected user is unreliable, the residual cancellation error may propagate to the following users. On the other hand, joint-detection-based receivers can provide stronger user separation, but they usually require more detection effort as the number of users or the number of coded bits per modulation symbol increases.
+\end{comment}
+\begin{comment}
+This thesis first studies the error-rate performance of NOMA receivers from a link-level viewpoint. Both single-resource and multiple-resource systems are considered. 
+In the single-resource system, PD-NOMA with soft SIC and GDMA are compared under different large-scale fading conditions. 
+The study is then extended to multiple-resource NOMA systems.
+For practical wireless systems, channel coding and soft-output detection are essential for reliable transmission.
+Hence, we further incorporates low-density parity-check (LDPC) coding and iterative detection and decoding (IDD) into the multiple-resource NOMA receiver. 
+The coded receiver framework is also extended to OFDM-based NOMA systems, since OFDM is widely used to combat frequency-selective fading in broadband wireless communications~\cite{hwang2009ofdm}. Both synchronous and asynchronous uplink OFDM cases are considered, where user-dependent timing offsets may change the effective channel observed by the receiver~\cite{haci2017performance,abeywickrama2017over}.
+\end{comment}
+Therefore, the receiver performance should be examined under different resource configurations and user-separation conditions. Moreover, practical transmission requires channel coding and soft-information processing to improve detection reliability and mitigate residual multiuser interference. 
+For broadband communications, OFDM provides an effective means of combating frequency-selective fading~\cite{hwang2009ofdm}; however, uplink OFDM-NOMA is also sensitive to user-dependent timing offsets, which may alter the effective received signal and degrade multiuser detection~\cite{haci2017performance,abeywickrama2017over}. 
+Motivated by these considerations, this thesis investigates the reliability of uplink NOMA receivers under both uncoded and coded transmission, including coded OFDM-based broadband scenarios
 
+Although link-level BER and BLER analyses are essential for evaluating the reliability of NOMA receivers, they are not sufficient to determine whether NOMA improves the efficiency of the overall system. 
+In practical systems, the achievable gain also depends on system-level decisions, particularly user pairing and resource allocation. Different pairing strategies result in different interference conditions and supported transmission rates, and can therefore significantly affect the aggregate system throughput~\cite{ali2016dynamic,sedaghat2018user}. 
+Pairing two users on one resource can improve resource utilization and release an orthogonal resource for serving an additional user. However, the paired users may need to adopt lower modulation and coding scheme (MCS) levels to maintain reliable multiuser detection~\cite{marcano2017novel}. 
+Motivated by this tradeoff, this thesis conducts an MCS-based system-level analysis that connects link-level receiver performance with user-pairing decisions for GDMA and soft SIC.
+
+\begin{comment}
+The main contributions of this thesis are summarized as follows.
+\begin{enumerate}
+    \item The BER performance of uplink NOMA receivers is systematically compared in both single-resource and multiple-resource systems. The results clarify the conditions under which soft SIC, GDMA, and MMSE-SIC detection are suitable.
+    \item A coded multiple-resource NOMA receiver framework based on IDD is investigated. The BLER performance of MMSE-SIC-IDD, MMSE-PIC-IDD, and MAP-IDD is compared under different loading and modulation conditions.
+    \item The coded receiver framework is extended to OFDM-based NOMA systems, and both synchronous and asynchronous uplink cases are analyzed to evaluate receiver robustness under timing offsets.
+    \item A practical CQI-based user-pairing framework is developed to analyze the system-level SE behavior of NOMA resource sharing. The framework connects link-level MUD performance, MCS degradation, resource release, and new-user admission.
+\end{enumerate}
+\end{comment}
+Overall, this thesis provides a unified evaluation of uplink NOMA from receiver-level reliability to system-level resource-sharing efficiency.
+
+The rest of this thesis is organized as follows. Chapter~\ref{ch:single-resource} introduces the single-resource uplink NOMA model and compares PD-NOMA with soft SIC and GDMA. 
+Chapter~\ref{ch:multi-resource} extends the discussion to multiple-resource NOMA systems and investigates MMSE-SIC detection with different detection ordering strategies. 
+Chapter~\ref{ch:coded} studies coded multiple-resource NOMA receivers with IDD and further considers synchronous and asynchronous OFDM-based NOMA systems. 
+Chapter~\ref{ch:cqi} presents the CQI-based user-pairing analysis and evaluates the system-level SE behavior under different pairing rules. 
+Finally, Chapter~\ref{ch:conclusions} concludes this thesis and discusses possible future research directions.
 

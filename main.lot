@@ -1,16 +1,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Mapping rules for superimposed signal in the case of $M = 1$ and $U = 2$}}{6}{table.caption.9}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Mapping rules for superimposed signal in the case of $M = 1$ and $U = 2$}}{7}{table.caption.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces CQI-like MCS table obtained from single-user link-level simulation. CQI 3 is listed for completeness but is not used in the proposed scheme.}}{56}{table.caption.43}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Effective GDMA after-pairing states after removing dominated MCS combinations.}}{58}{table.caption.44}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Effective soft SIC after-pairing states.}}{58}{table.caption.45}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces Offline pairing table for GDMA detection.}}{60}{table.caption.46}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Offline pairing table for soft SIC detection.}}{61}{table.caption.47}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces CQI distributions used in the system-level simulation.}}{65}{table.caption.50}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces CQI-like MCS table obtained from single-user link-level simulation. CQI 3 is listed for completeness but is not used in the proposed scheme.}}{57}{table.caption.42}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Effective GDMA after-pairing states after removing dominated MCS combinations.}}{59}{table.caption.43}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Effective soft SIC after-pairing states.}}{59}{table.caption.44}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Offline pairing table for GDMA detection.}}{61}{table.caption.45}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Offline pairing table for soft SIC detection.}}{62}{table.caption.46}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces CQI distributions used in the system-level simulation.}}{66}{table.caption.49}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Complete GDMA after-pairing candidate states before removing dominated MCS combinations.}}{79}{table.caption.59}%
 \contentsfinish 
 \contentsfinish 
+\contentsline {table}{\numberline {A.1}{\ignorespaces Complete GDMA after-pairing candidate states before removing dominated MCS combinations.}}{83}{table.caption.58}%

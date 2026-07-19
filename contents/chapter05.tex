@@ -424,6 +424,7 @@ Three pairing rules are considered~\cite{Chen2015CQI}.
     where $T$ is the predefined loss threshold. In the simulation, $T$ can be chosen according to the expected SE of a newly admitted user $A$, so that only pairings with non-negative expected SE contribution are preferred.
     \item \textbf{Rule 3: maximizing system SE with known new-user CQI.} This rule is used in Case 2. Since the CQI of each waiting user is known, a pair is formed only when
     \begin{equation}
+        \label{eq:rule3-threshold}
         D_{i,j}\leq \eta_{\mathrm{new}}.
     \end{equation}
     Therefore, the released resource is used only when the admitted new user can compensate for the paired users' SE loss.
@@ -537,14 +538,22 @@ In Case 2, the maximum number of new users is fixed as $N_{\mathrm{new}}=100$. T
 \end{figure}
 
 Figures~\ref{fig:case2-uniform} and~\ref{fig:case2-nonuniform} show the Case 2 results. Since high-CQI new users are admitted first, the released resources have a high immediate value. 
-Rule 3 therefore provides a large SE gain in the moderate-loading region. 
-For the low-CQI-dominant distribution of ~\ref{fig:case2-uniform}, soft SIC reaches about $33\%$ peak SE increment, while GDMA reaches about $45\%$. After the feasible pairing set is exhausted, the SE increment quickly drops to zero. The cutoff occurs at approximately 171 served users for soft SIC and 179 served users for GDMA.
+Rule 3 therefore provides a large SE gain in the moderate-loading region, while Rule1 provide a smaller SE increment and admit more users.
+For the low-CQI-dominant distribution of figure~\ref{fig:case2-uniform}, soft SIC reaches about $33\%$ peak SE increment, while GDMA reaches about $45\%$. After the feasible pairing set is exhausted, the SE increment quickly drops to zero. The cutoff occurs at approximately 171 served users for soft SIC and 179 served users for GDMA.
 
-The gap between GDMA and soft SIC is smaller under Rule 3 than under Rule 1. The reason is that Rule 3 admits high-CQI new users first and only accepts pairings with sufficiently small SE loss. For such low-loss pairs, the selected after-pair CQI states of the two receivers are often close. Nevertheless, under heavy loading or under Rule 1, GDMA remains more robust because its offline pairing table contains more effective after-pairing states and smaller SE losses.
+The gap between GDMA and soft SIC is smaller under Rule 3 than under Rule 1. The reason is that Rule 3 admits highest-CQI new users first and only accepts pairings with positive SE gain, as like~\eqref{eq:rule3-threshold}. For such low-loss pairs of before CQI pairs with
+\begin{equation}
+    (i,j), \qquad i \leqq4, \quad j \leqq 4, 
+\end{equation}
+the selected after-pair CQI states of the two receivers are often close, as shown in table~\ref{tab:gdma-offline-pairing} and ~\ref{tab:sic-offline-pairing}. 
+Nevertheless, under heavy loading or under Rule 1, GDMA remains more robust because its offline pairing table contains more effective after-pairing states and smaller SE losses.
 
 \section{Summary}
 \label{sec:cqi-summary}
 
-This chapter develops a practical CQI-based user-pairing analysis for NOMA over OMA. The main idea is to evaluate NOMA pairing at the MCS level instead of relying only on ideal capacity formulas. A CQI-like MCS table is first built from link-level BLER simulation. Then, GDMA and soft SIC MUD tables are constructed using the aggregate received SNR definition in \eqref{eq:aggregate-received-snr}. These MUD tables are used to build offline pairing tables that map OMA before-pair CQI indices to NOMA after-pair CQI states.
+This chapter develops a practical CQI-based user-pairing analysis for NOMA over OMA. The main idea is to evaluate NOMA pairing at the MCS level instead of relying only on ideal capacity formulas~\cite{marcano2017novel}. A CQI-like MCS table is first built from link-level BLER simulation. Then, GDMA and soft SIC MUD tables are constructed using the aggregate received SNR definition in \eqref{eq:aggregate-received-snr}. These MUD tables are used to build offline pairing tables that map OMA before-pair CQI indices to NOMA after-pair CQI states.
 
-The results show that NOMA pairing does not necessarily increase the sum SE of the paired users. The paired users usually suffer an MCS degradation. The practical gain comes from whether the released resource can be reused by a new user whose SE compensates for this loss. GDMA is more favorable than soft SIC because it supports more effective after-pairing states and causes smaller SE losses. Rule 1 maximizes the number of served users but can be SE-unfavorable for weak receivers. Rule 2 and Rule 3 improve the SE increment by suppressing pairings with excessive loss, but they also reduce the number of feasible pairings and can stop being applicable after the efficient pairing set is exhausted.
+The results show that NOMA pairing does not necessarily increase the sum SE of the paired users. The paired users usually suffer an MCS degradation. The practical gain comes from whether the released resource can be reused by a new user whose SE compensates for this loss. 
+GDMA is more favorable than soft SIC because it supports more effective after-pairing states and causes smaller SE losses. 
+Rule 1 maximizes the number of served users but can be SE-unfavorable for weak receivers. 
+Rule 2 and Rule 3 improve the SE increment by suppressing pairings with excessive loss, but they also reduce the number of feasible pairings and can stop being applicable after the efficient pairing set is exhausted.

@@ -54,6 +54,43 @@ Dan Kong, Jie Zeng, Xin Su, Liping Rong, and Xibin Xu.
 \newblock In {\em 2016 IEEE/CIC International Conference on Communications in
   China (ICCC)}, pages 1--5. IEEE, 2016.
 
+\bibitem{hwang2009ofdm}
+Taewon Hwang, Chenyang Yang, Gang Wu, Shaoqian Li, and Geoffrey Li.
+\newblock Ofdm and its wireless applications: A survey.
+\newblock {\em IEEE Transactions on Vehicular Technology}, 58:1673--1694, 06
+  2009.
+
+\bibitem{haci2017performance}
+Huseyin Haci, Huiling Zhu, and Jiangzhou Wang.
+\newblock Performance of non-orthogonal multiple access with a novel
+  asynchronous interference cancellation technique.
+\newblock {\em IEEE Transactions on Communications}, 65(3):1319--1335, 2017.
+
+\bibitem{abeywickrama2017over}
+Samith Abeywickrama, Lei Liu, Yuhao Chi, and Chau Yuen.
+\newblock Over-the-air implementation of uplink noma.
+\newblock In {\em GLOBECOM 2017-2017 IEEE Global Communications Conference},
+  pages 1--6. IEEE, 2017.
+
+\bibitem{ali2016dynamic}
+Md~Shipon Ali, Hina Tabassum, and Ekram Hossain.
+\newblock Dynamic user clustering and power allocation for uplink and downlink
+  non-orthogonal multiple access (noma) systems.
+\newblock {\em IEEE access}, 4:6325--6343, 2016.
+
+\bibitem{sedaghat2018user}
+Mohammad~Ali Sedaghat and Ralf~R M{\"u}ller.
+\newblock On user pairing in uplink noma.
+\newblock {\em IEEE Transactions on Wireless Communications}, 17(5):3474--3486,
+  2018.
+
+\bibitem{marcano2017novel}
+Andrea~S Marcano and Henrik~L Christiansen.
+\newblock A novel method for improving the capacity in 5g mobile networks
+  combining noma and oma.
+\newblock In {\em 2017 IEEE 85th Vehicular Technology Conference (VTC Spring)},
+  pages 1--5. IEEE, 2017.
+
 \bibitem{shapiro2005soft}
 Jerome~M Shapiro and James Dunyak.
 \newblock Soft information in interference cancellation based multiuser
@@ -129,18 +166,6 @@ Michael Tuchler, Andrew~C Singer, and Ralf Koetter.
 \newblock Minimum mean squared error equalization using a priori information.
 \newblock {\em IEEE Transactions on Signal processing}, 50(3):673--683, 2002.
 
-\bibitem{hwang2009ofdm}
-Taewon Hwang, Chenyang Yang, Gang Wu, Shaoqian Li, and Geoffrey Li.
-\newblock Ofdm and its wireless applications: A survey.
-\newblock {\em IEEE Transactions on Vehicular Technology}, 58:1673--1694, 06
-  2009.
-
-\bibitem{haci2017performance}
-Huseyin Haci, Huiling Zhu, and Jiangzhou Wang.
-\newblock Performance of non-orthogonal multiple access with a novel
-  asynchronous interference cancellation technique.
-\newblock {\em IEEE Transactions on Communications}, 65(3):1319--1335, 2017.
-
 \bibitem{saraereh2019efficient}
 Omar~A Saraereh, Amer Alsaraira, Imran Khan, and Peerapong Uthansakul.
 \newblock An efficient resource allocation algorithm for ofdm-based noma in 5g
@@ -158,12 +183,6 @@ Mao-Chao Lin, Shih-Kai Lee, and Fan-Hsun Lin.
 Mehmet~Mert {\c{S}}ahin, Onur Dizdar, Bruno Clerckx, and Huseyin Arslan.
 \newblock Ofdm-rsma: Robust transmission under inter-carrier interference.
 \newblock {\em IEEE Transactions on Communications}, 2024.
-
-\bibitem{abeywickrama2017over}
-Samith Abeywickrama, Lei Liu, Yuhao Chi, and Chau Yuen.
-\newblock Over-the-air implementation of uplink noma.
-\newblock In {\em GLOBECOM 2017-2017 IEEE Global Communications Conference},
-  pages 1--6. IEEE, 2017.
 
 \bibitem{minn2003robust}
 Hlaing Minn, Vijay~K Bhargava, and Khaled~Ben Letaief.
