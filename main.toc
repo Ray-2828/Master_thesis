@@ -4,8 +4,8 @@
 \contentsline {chapter}{摘要}{iii}{chapter*.3}%
 \contentsline {chapter}{Abstract}{iv}{chapter*.4}%
 \contentsline {chapter}{Contents}{v}{section*.5}%
-\contentsline {chapter}{List of Figures}{ix}{section*.6}%
-\contentsline {chapter}{List of Tables}{xiii}{section*.7}%
+\contentsline {chapter}{List of Figures}{viii}{section*.6}%
+\contentsline {chapter}{List of Tables}{xi}{section*.7}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Single resource systems}{4}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Single resource system model}{4}{section.2.1}%
@@ -40,16 +40,16 @@
 \contentsline {subsubsection}{\numberline {4.7.4.1}Asynchronous Signal Model}{46}{subsubsection.4.7.4.1}%
 \contentsline {subsubsection}{\numberline {4.7.4.2}Asynchronous Simulation Results}{48}{subsubsection.4.7.4.2}%
 \contentsline {section}{\numberline {4.8}Comparison and summary}{53}{section.4.8}%
-\contentsline {chapter}{\numberline {5}Performance analysis of user pairing based on CQI}{55}{chapter.5}%
+\contentsline {chapter}{\numberline {5}MCS-Based User Pairing for Resource-Efficient NOMA}{55}{chapter.5}%
 \contentsline {section}{\numberline {5.1}CQI-like MCS table}{56}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Two-user MUD pairs scheme}{58}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Offline CQI-based pairing table}{59}{section.5.3}%
 \contentsline {section}{\numberline {5.4}System-level pairing operation}{63}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Pairing rules}{64}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.1}Pairing rules}{65}{subsection.5.4.1}%
 \contentsline {section}{\numberline {5.5}Simulation results}{66}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Case 1: no upper limit on the number of users}{66}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Case 2: fixed maximum number of new users}{69}{subsection.5.5.2}%
-\contentsline {section}{\numberline {5.6}Summary}{72}{section.5.6}%
+\contentsline {subsection}{\numberline {5.5.1}Case 1: no upper limit on the number of users}{67}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Case 2: fixed maximum number of new users}{70}{subsection.5.5.2}%
+\contentsline {section}{\numberline {5.6}Summary}{73}{section.5.6}%
 \contentsline {chapter}{\numberline {6}Conclusions and future work}{74}{chapter.6}%
 \contentsline {chapter}{References}{77}{section*.54}%
 \contentsline {chapter}{Appendix~{A}~---~Complete GDMA MUD Candidate Table}{82}{section*.57}%

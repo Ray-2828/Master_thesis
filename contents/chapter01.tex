@@ -3,19 +3,19 @@
 \chapter{Introduction}
 
 
-As the demand for high-speed and low-latency communication continue to grow, future wireless systems must support higher spectral efficiency, flexible resource sharing, and massive connectivity. To increase the channel capacity and reliability, multiple access(MA) techniques become more important. 
+As the demand for high-speed and low-latency communication continue to grow, future wireless systems must support higher spectral efficiency, flexible resource sharing, and massive connectivity. To increase the channel capacity and reliability, multiple access (MA) techniques become more important. 
 It can be classified into two categories: Orthogonal multiple access (OMA) and non-orthogonal multiple access (NOMA).
-There are many OMA techniques, such as time division multiple access in two generation (2G), code division multiple access (CDMA) in third generation (3G) and orthogonal frequency division multiple access (OFDMA) in fourth generation (4G).~\cite{navita2016performance}
+There are many OMA techniques, such as time division multiple access in two generation (2G), code division multiple access (CDMA) in third generation (3G) and orthogonal frequency division multiple access (OFDMA) in fourth generation (4G)~\cite{cai2017modulationmultipleaccess5g, navita2016performance}.
 However, OMA avoids inter-user interference by assigning disjoint resources, its user capacity is fundamentally limited by the number of orthogonal resource units~\cite{dai2018survey}. 
 
-In particular, beyond 5G and toward 6G, Non-Orthogonal multiple access (NOMA) is regarded as a potential multiple access technique to support the growing demands for massive connectivity and diverse service requirements.~\cite{clerckx2024multiple}.
+In particular, beyond 5G and toward 6G, Non-Orthogonal multiple access (NOMA) is regarded as a potential multiple access technique to support the growing demands for massive connectivity and diverse service requirements~\cite{clerckx2024multiple}.
 In NOMA systems, multiple users are allowed to transmit over the same resource, relaxing the one-user-per-resource constraint and improving resource utilization at the cost of receiver-side interference management. 
 Different NOMA schemes rely on different user-separation principles. For example, gain division multiple access (GDMA) separates users by exploiting their complex channel gains and is typically associated with joint MAP or ML detection \cite{hsu2019gain}. 
 Power-domain NOMA (PD-NOMA) mainly relies on received-power disparity and usually adopts successive interference cancellation (SIC) \cite{islam2016power, dai2018survey}. 
 Code-domain schemes such as SCMA, low density signature CDMA (LDS-CDMA) and HDS-CDMA exploit sparse or structured signatures for user separation\cite{nikopour2013sparse,lin2023gdma}. 
 Pattern division multiple access (PDMA) maps users onto shared orthogonal resources according to a predefined pattern matrix~\cite{kong2016multiuser}.
 
-In uplink NOMA, the base station (BS) receives the superimposed signals from multiple users and performs multiuser detection (MUD) to separate the users. That is, the receiver structure is often the key factor that determines both reliability and practicality.
+In uplink NOMA, the base station (BS) receives the superimposed signals from multiple users and performs multiuser detection (MUD) to separate the individual users’ signals. In this regard, the receiver structure is often the key factor determining both reliability and practicality.
 \begin{comment}
 Although NOMA improves resource utilization by allowing multiple users to share the same resource, this advantage is obtained at the cost of stronger inter-user interference. Therefore, the achievable performance of a NOMA system depends not only on the multiple-access principle, but also on the capability of the receiver to extract reliable soft information from the superimposed received signal. In particular, SIC-based receivers are attractive because of their relatively simple structure, but their performance is sensitive to the detection order and the reliability of previous cancellation stages. Once an early detected user is unreliable, the residual cancellation error may propagate to the following users. On the other hand, joint-detection-based receivers can provide stronger user separation, but they usually require more detection effort as the number of users or the number of coded bits per modulation symbol increases.
 \end{comment}
@@ -47,9 +47,9 @@ The main contributions of this thesis are summarized as follows.
 \end{comment}
 Overall, this thesis provides a unified evaluation of uplink NOMA from receiver-level reliability to system-level resource-sharing efficiency.
 
-The rest of this thesis is organized as follows. Chapter~\ref{ch:single-resource} introduces the single-resource uplink NOMA model and compares PD-NOMA with soft SIC and GDMA. 
-Chapter~\ref{ch:multi-resource} extends the discussion to multiple-resource NOMA systems and investigates MMSE-SIC detection with different detection ordering strategies. 
+The rest of this thesis is organized as follows. Chapter~\ref{ch:single-resource} introduces the single-resource uplink NOMA system and compares PD-NOMA with soft SIC and GDMA. 
+Chapter~\ref{ch:multi-resource} extends the discussion to multiple-resource NOMA and investigates MMSE-SIC detection with different detection ordering strategies. 
 Chapter~\ref{ch:coded} studies coded multiple-resource NOMA receivers with IDD and further considers synchronous and asynchronous OFDM-based NOMA systems. 
-Chapter~\ref{ch:cqi} presents the CQI-based user-pairing analysis and evaluates the system-level SE behavior under different pairing rules. 
-Finally, Chapter~\ref{ch:conclusions} concludes this thesis and discusses possible future research directions.
+Chapter~\ref{ch:cqi} presents the MCS-based user-pairing analysis and evaluates the system-level SE behavior under different pairing rules. 
+Finally, Chapter~\ref{ch:conclusions} concludes this thesis and discusses the future research directions.
 

@@ -35,11 +35,11 @@
 \contentsline {figure}{\numberline {4.25}{\ignorespaces BLER of asynchronous OFDM system with MMSE-SIC-IDD, MMSE-PIC-IDD, and MAP-IDD. $R=2$, $U=4$, $\Delta _{\max }=5$, $t_{\max }=1$ for MMSE-SIC-IDD and MAP-IDD.}}{53}{figure.caption.41}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces SE increment per resource for GDMA and soft SIC.}}{63}{figure.caption.47}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Illustration of the system operation. Assume that there are initially 10 users with their corresponding CQI values. The pairing order follows the four colored pairings labeled 1--4; each pairing releases one resource. After admitting four new users, the remaining users, together with the newly admitted users, continue to be paired and release resources until no further pairing is possible.}}{64}{figure.caption.48}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Case 1 with the low-CQI-dominant distribution.}}{67}{figure.caption.50}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Case 1 with the high-CQI-dominant distribution.}}{68}{figure.caption.51}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Case 2 with the low-CQI-dominant distribution.}}{70}{figure.caption.52}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Case 2 with the high-CQI-dominant distribution.}}{71}{figure.caption.53}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Illustration of the system operation. Initially, 10 users are considered, with their CQI values shown on the left. The pairing order follows the four colored pairings labeled 1–4, where each pairing releases one resource. After four new users (e.g., with CQI values 7, 1, 5, and 8) are admitted, the remaining users and the newly admitted users continue to be paired until no further pairing is possible.}}{64}{figure.caption.48}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Case 1 with the low-CQI-dominant distribution.}}{68}{figure.caption.50}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Case 1 with the high-CQI-dominant distribution.}}{69}{figure.caption.51}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Case 2 with the low-CQI-dominant distribution.}}{71}{figure.caption.52}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Case 2 with the high-CQI-dominant distribution.}}{72}{figure.caption.53}%
 \addvspace {10\p@ }
 \contentsfinish 
 \contentsfinish 
